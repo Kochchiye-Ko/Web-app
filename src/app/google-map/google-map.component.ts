@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainService } from '../services/train.service';
+
 
 @Component({
   selector: 'app-google-map',
@@ -10,10 +12,15 @@ export class GoogleMapComponent implements OnInit {
   lat: number;
   lng: number;
 
-  constructor() { }
-  ngOnInit() {
-    this.getTrainLocation()
 
+  constructor(private TrainService: TrainService) {
+
+  }
+  ngOnInit() {
+    this.TrainService.getTrains().subscribe(GetTrain => {
+      console.log(GetTrain);
+    });
+    this.getTrainLocation()
   }
 
   private getTrainLocation() {

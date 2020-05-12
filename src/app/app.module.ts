@@ -8,7 +8,9 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { environment } from '../environments/environment';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from 'angularfire2';
+import { TrainService } from './services/train.service';
 export const firebaseconfig = environment.firebaseConfig;
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 
 @NgModule({
@@ -19,12 +21,13 @@ export const firebaseconfig = environment.firebaseConfig;
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseconfig),
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseconfig,'angularfs'),
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
     })
   ],
-  providers: [],
+  providers: [TrainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
