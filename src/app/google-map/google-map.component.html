@@ -1,1 +1,7 @@
-<p>google-map works!</p>
+<div *ngIf = "lat && lng">
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker  [latitude]="lat" [longitude]="lng" >
+            home
+        </agm-marker>
+    </agm-map>
+</div>
