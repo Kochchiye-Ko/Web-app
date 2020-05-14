@@ -23,7 +23,6 @@ export class GoogleMapComponent implements OnInit {
   }
   
   
-  
   icontrain = {
     url: 'https://img.icons8.com/ios-filled/26/000000/train.png',
     scaledSize: {

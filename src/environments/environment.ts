@@ -14,7 +14,7 @@ export const environment = {
     appId: "1:281836320699:web:02d8d75f1172ea314c769e",
     measurementId: "G-SR2DLFM2XR"
   },
-  googleMapsKey : "AIzaSyCUqr9Jo1g_rH4j-W5wXw8hgu0T7eKzFuA" 
+  googleMapsKey : "" 
 };
 /*
  * For easier debugging in development mode, you can import the following file
