@@ -1,4 +1,5 @@
-export interface Train{
-    accounttype? : string;
-    email? : string;
-  }
+export interface Train {
+  id?: String;
+  info?: string;
+  position?: any;
+}

@@ -1,7 +1,25 @@
-<div *ngIf = "lat && lng">
-    <agm-map [latitude]="lat" [longitude]="lng">
-        <agm-marker  [latitude]="lat" [longitude]="lng" >
-            home
-        </agm-marker>
-    </agm-map>
-</div>
+<agm-map [latitude]="lat" [longitude]="lng" >
+    <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="iconme">
+        <agm-info-window>
+            <strong>I'm hear</strong>
+        </agm-info-window>
+
+    </agm-marker>
+    <div *ngIf="trains?.length >0;">
+        <ul *ngFor="let train of trains" class="collection">
+
+            <agm-marker [latitude]="train.position.geopoint.latitude" 
+            [longitude]="train.position.geopoint.longitude"
+            [iconUrl]="icontrain"
+            
+            >
+            </agm-marker>
+            <!-- <agm-info-window>
+                <strong>ss</strong>
+            </agm-info-window> -->
+
+        </ul>
+    </div>
+</agm-map>
+
+<!-- AIzaSyCUqr9Jo1g_rH4j-W5wXw8hgu0T7eKzFuA -->
