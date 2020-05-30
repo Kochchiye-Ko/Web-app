@@ -13,7 +13,8 @@ export class GoogleMapComponent implements OnInit {
   trains: Train[];
   lat: number;
   lng: number;
-  
+  lastOpen: any;
+
   iconme = {
     url: 'https://img.icons8.com/color/48/000000/street-view.png',
     scaledSize: {
@@ -21,8 +22,8 @@ export class GoogleMapComponent implements OnInit {
       height: 30
     }
   }
-  
-  
+
+
   icontrain = {
     url: 'https://img.icons8.com/ios-filled/26/000000/train.png',
     scaledSize: {
@@ -48,5 +49,12 @@ export class GoogleMapComponent implements OnInit {
     }
   }
 
+  onMouseOver(infoWindow, $event: MouseEvent) {
+    infoWindow.open();
+  }
+
+  onMouseOut(infoWindow, $event: MouseEvent) {
+    infoWindow.close();
+  }
 
 }

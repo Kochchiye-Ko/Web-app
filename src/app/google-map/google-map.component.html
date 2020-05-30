@@ -1,25 +1,26 @@
-<agm-map [latitude]="lat" [longitude]="lng" >
-    <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="iconme">
-        <agm-info-window>
+<agm-map [latitude]="lat" [longitude]="lng">
+    
+    <div *ngIf="trains?.length >0;">
+        <div *ngFor="let train of trains" class="collection">
+            <agm-marker [latitude]="train.position.geopoint.latitude" [longitude]="train.position.geopoint.longitude"
+                [iconUrl]="icontrain" (mouseOver)="onMouseOver(infoWindow, $event)" 
+                (mouseOut)="onMouseOut(infoWindow, $event)">
+            <agm-info-window [disableAutoPan]="false" #infoWindow>
+                <strong style="color: darkred;">{{train.id}}</strong>
+                <p>{{train.info}}</p>
+            </agm-info-window>
+        </agm-marker>
+
+        </div>
+    </div>
+
+    <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="iconme"(mouseOver)="onMouseOver(infoWindow, $event)" 
+                (mouseOut)="onMouseOut(infoWindow, $event)" >
+        <agm-info-window [disableAutoPan]="false" #infoWindow>
             <strong>I'm hear</strong>
         </agm-info-window>
-
     </agm-marker>
-    <div *ngIf="trains?.length >0;">
-        <ul *ngFor="let train of trains" class="collection">
-
-            <agm-marker [latitude]="train.position.geopoint.latitude" 
-            [longitude]="train.position.geopoint.longitude"
-            [iconUrl]="icontrain"
-            
-            >
-            </agm-marker>
-            <!-- <agm-info-window>
-                <strong>ss</strong>
-            </agm-info-window> -->
-
-        </ul>
-    </div>
 </agm-map>
+
 
 <!-- AIzaSyCUqr9Jo1g_rH4j-W5wXw8hgu0T7eKzFuA -->
