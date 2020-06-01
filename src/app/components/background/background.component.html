@@ -1,0 +1,53 @@
+<header>
+ <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#"><strong></strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+        aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Train Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
+         </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" [src] = "videoUrl" (change)="handleFileInput($event.target.files)">
+   <!-- <source src="videoUrl" type="video/mp4">  -->
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3"></h1>
+        <p class="lead mb-0"></p>
+      </div>
+    </div>
+  </div>
+ </header>
+ 
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+     
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="description">
+  <h1>About us</h1>
+  <p>This project is a proposed system to track the locations of trains. The system can be used from anywhere anytime and it will be able to provide the live details about  all available trains that are running at that moment . Using this system people will be able to save a lot of time that is unnecessary wasted due to train delays.
+  </p>
+</div>
