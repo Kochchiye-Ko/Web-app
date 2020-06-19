@@ -13,7 +13,6 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
-import { BackgroundComponent } from "./components/background/background.component";
 
 @NgModule({
   imports: [
@@ -21,7 +20,7 @@ import { BackgroundComponent } from "./components/background/background.componen
     FormsModule,
     HttpClientModule,
     ComponentsModule,
-    BackgroundComponent,
+  
     NgbModule,
     RouterModule,
     AppRoutingModule,
