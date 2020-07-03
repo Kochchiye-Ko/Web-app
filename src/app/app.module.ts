@@ -31,9 +31,7 @@ import { AuthService } from "../app/auth.service";
     ToastrModule.forRoot(),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    
-    
+    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [AuthService],
