@@ -7,6 +7,6 @@ import { AngularFirestore } from 'angularfire2/firestore';
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = "black-dashboard-angular";
+  title = "Koochchiya ko";
   constructor(db: AngularFirestore) { }
 }

@@ -15,13 +15,13 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-chart-pie-36",
     class: ""
   },
-  {
-    path: "/icons",
-    title: "Icons",
-    rtlTitle: "الرموز",
-    icon: "icon-atom",
-    class: ""
-  },
+  // {
+  //   path: "/icons",
+  //   title: "Icons",
+  //   rtlTitle: "الرموز",
+  //   icon: "icon-atom",
+  //   class: ""
+  // },
   {
     path: "/maps",
     title: "Maps",
@@ -45,25 +45,25 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: "/tables",
-    title: "Table List",
+    title: "Trains",
     rtlTitle: "قائمة الجدول",
-    icon: "icon-puzzle-10",
+    icon: "icon-world",
     class: ""
   },
   {
     path: "/typography",
-    title: "Typography",
+    title: "About",
     rtlTitle: "طباعة",
     icon: "icon-align-center",
     class: ""
   },
-  {
-    path: "/rtl",
-    title: "RTL Support",
-    rtlTitle: "ار تي ال",
-    icon: "icon-world",
-    class: ""
-  }
+  // {
+  //   path: "/rtl",
+  //   title: "RTL Support",
+  //   rtlTitle: "ار تي ال",
+  //   icon: "icon-world",
+  //   class: ""
+  // }
 ];
 
 @Component({
