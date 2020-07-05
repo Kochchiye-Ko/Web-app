@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Users } from './models/users'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,6 +12,7 @@ export class AuthService {
 
   userCollection: AngularFirestoreCollection<Users>;
   users: Observable<Users[]>;
+  userDoc: AngularFirestoreDocument<Users>
 
   constructor(public afs: AngularFirestore) {
     // this.users = this.afs.collection("UserTB").valueChanges();
@@ -29,8 +30,11 @@ export class AuthService {
     return this.users;
   }
 
-  updateUsers(data){
-    this.afs.doc('UserTB/'+data.id).update(data)
+  updateUsers(data: Users, ID: String) {
+    // this.afs.doc('UserTB/'+data.id).update(data)
+    console.log(data.id)
+    this.userDoc = this.afs.doc(`UserTB/${ID}`)
+    this.userDoc.update(data);
   }
 
 }

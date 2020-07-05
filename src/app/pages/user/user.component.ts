@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from 'src/app/auth.service';
 import { Users } from '../../models/users';
 import { NgForm } from '@angular/forms';
-import { FormsModule } from "@angular/forms";
+import { FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: "app-user",
@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   userToEdit: Users;
   editState: boolean = false;
   userslist: Users;
+  ID: String;
 
   constructor(private authservice: AuthService) { }
 
@@ -28,13 +29,13 @@ export class UserComponent implements OnInit {
 
   onEdit(users: Users) {
     this.userToEdit = Object.assign({}, users)
+    this.ID = this.userToEdit.id;
   }
 
-  onSubmit(ss: string) {
-    // let data = Object.assign({}, form.value);
-    // this.authservice.updateUsers(data);
-    console.log(ss);
-
+  onsubmit(form: NgForm) {
+    let data = Object.assign({}, form.value);
+    // console.log(this.ID);
+    this.authservice.updateUsers(data, this.ID);
   }
 
   resetForm(form?: NgForm) {
