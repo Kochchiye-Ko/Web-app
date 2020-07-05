@@ -34,15 +34,19 @@ export class UserComponent implements OnInit {
 
   onsubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
-    // console.log(this.ID);
     this.authservice.updateUsers(data, this.ID);
+  }
+
+  onDelete(id: String) {
+    if ((confirm("Are you sure to delete this user?"))) {
+      this.authservice.onDelete(id);
+    }
   }
 
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
     this.userToEdit = {
-
     }
   }
 

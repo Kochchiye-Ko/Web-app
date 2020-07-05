@@ -31,10 +31,13 @@ export class AuthService {
   }
 
   updateUsers(data: Users, ID: String) {
-    // this.afs.doc('UserTB/'+data.id).update(data)
-    console.log(data.id)
     this.userDoc = this.afs.doc(`UserTB/${ID}`)
     this.userDoc.update(data);
+  }
+
+  onDelete(id: String) {
+    this.userDoc = this.afs.doc(`UserTB/${id}`)
+    this.userDoc.delete();
   }
 
 }
