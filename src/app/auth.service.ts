@@ -29,4 +29,8 @@ export class AuthService {
     return this.users;
   }
 
+  updateUsers(data){
+    this.afs.doc('UserTB/'+data.id).update(data)
+  }
+
 }
