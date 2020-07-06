@@ -4,6 +4,7 @@ import { Users } from './models/users'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
+import { Notification } from './models/notifications';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,8 @@ export class AuthService {
   userCollection: AngularFirestoreCollection<Users>;
   users: Observable<Users[]>;
   userDoc: AngularFirestoreDocument<Users>
+  notificaitonsCollection: AngularFirestoreCollection<Notification>
+  notifications: Observable<Notification[]>
 
   constructor(public afs: AngularFirestore) {
     // this.users = this.afs.collection("UserTB").valueChanges();
@@ -23,6 +26,8 @@ export class AuthService {
         return data;
       });
     }));
+
+    this.notifications = this.afs.collection('Notification').valueChanges();
 
   }
 
@@ -38,6 +43,9 @@ export class AuthService {
   onDelete(id: String) {
     this.userDoc = this.afs.doc(`UserTB/${id}`)
     this.userDoc.delete();
+  }
+  getNotifications() {
+    return this.notifications;
   }
 
 }

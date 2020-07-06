@@ -1,10 +1,39 @@
-
 <div class=" content">
   <div class=" row">
     <div class=" col-md-12">
       <div class=" card card-plain">
         <div class=" card-header">Google Maps</div>
-        <div class=" card-body"><div class=" map" id="map"></div></div>
+        <div class=" card-body">
+          <!--  <div class=" map" id="map"> -->
+
+
+          <agm-map [latitude]="lat" [longitude]="lng">
+
+            <div *ngIf="trains?.length >0;">
+              <div *ngFor="let train of trains" class="collection">
+                <agm-marker [latitude]="train.position.geopoint.latitude"
+                  [longitude]="train.position.geopoint.longitude" [iconUrl]="icontrain"
+                  (mouseOver)="onMouseOver(infoWindow, $event)" (mouseOut)="onMouseOut(infoWindow, $event)">
+                  <agm-info-window [disableAutoPan]="false" #infoWindow>
+                    <strong style="color: darkred;">{{train.id}}</strong>
+                    <p>{{train.info}}</p>
+                  </agm-info-window>
+                </agm-marker>
+
+              </div>
+            </div>
+
+            <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="iconme"
+              (mouseOver)="onMouseOver(infoWindow, $event)" (mouseOut)="onMouseOut(infoWindow, $event)">
+              <agm-info-window [disableAutoPan]="false" #infoWindow>
+                <strong>I'm hear</strong>
+              </agm-info-window>
+            </agm-marker>
+          </agm-map>
+
+
+          <!-- </div>  -->
+        </div>
       </div>
     </div>
   </div>
