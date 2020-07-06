@@ -13,7 +13,7 @@ declare const google: any;
 
 @Component({
   selector: "app-map",
-  templateUrl: "map.component.html"
+  templateUrl: "map.component.html",
 })
 export class MapComponent implements OnInit {
 

@@ -3,7 +3,7 @@
     <div class=" col-md-6">
       <div class=" card">
         <div class=" card-header">
-          <h4 class=" card-title">Admin Notifications </h4>
+          <h4 class=" card-title">Sent Box </h4>
         </div>
         <div class=" card-body" *ngIf="notifications?.length > 0;else nonotification">
           <ngb-alert class=" alert-with-icon" data-notify="container" [type]="'info'" [dismissible]="false"
@@ -21,6 +21,45 @@
           </ngb-alert>
 
         </div>
+      </div>
+    </div>
+    <div class=" col-md-6">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Create Message </h4>
+        </div>
+
+
+        <div class=" card-body">
+          <div class="card" style="width:auto;">
+            <form>
+              <div class=" row">
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label> Subject </label>
+                    <input class=" form-control" placeholder="subject" type="text" name="subject" />
+                  </div>
+                </div>
+              </div>
+              <div class=" row">
+                <div class=" col-md-8">
+                  <div class=" form-group">
+                    <label> Message </label>
+                    <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike">
+                  </textarea>
+                  </div>
+                </div>
+              </div>
+              <div class=" card-footer">
+                <button style="width: 170px;" class=" btn btn-fill btn-warning" type="submit" value="submit"
+                  name="send">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
     <!-- <div class=" content">

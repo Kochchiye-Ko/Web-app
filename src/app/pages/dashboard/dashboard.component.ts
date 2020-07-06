@@ -22,10 +22,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // this.authservice.getUsers().subscribe(users => {
-    //   console.log(users);
-    // })
     var gradientChartOptionsConfigurationWithTooltipBlue: any = {
       maintainAspectRatio: false,
       legend: {
