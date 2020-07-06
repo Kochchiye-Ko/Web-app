@@ -15,13 +15,13 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-chart-pie-36",
     class: ""
   },
-  // {
-  //   path: "/icons",
-  //   title: "Icons",
-  //   rtlTitle: "الرموز",
-  //   icon: "icon-atom",
-  //   class: ""
-  // },
+  {
+    path: "/icons",
+    title: "Devices",
+    rtlTitle: "الرموز",
+    icon: "icon-mobile",
+    class: ""
+  },
   {
     path: "/maps",
     title: "Maps",
@@ -54,7 +54,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/typography",
     title: "About",
     rtlTitle: "طباعة",
-    icon: "icon-align-center",
+    icon: "icon-alert-circle-exc",
     class: ""
   },
   // {
