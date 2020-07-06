@@ -348,7 +348,7 @@ export class DashboardComponent implements OnInit {
     });
 
 
-    this.canvas = document.getElementById("chartLineGreen");
+    // this.canvas = document.getElementById("chartLineGreen");
     this.ctx = this.canvas.getContext("2d");
 
 
