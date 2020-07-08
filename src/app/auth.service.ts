@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Users } from './models/users'
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { Notification } from './models/notifications';
@@ -16,6 +16,7 @@ export class AuthService {
   userDoc: AngularFirestoreDocument<Users>
   notificaitonsCollection: AngularFirestoreCollection<Notification>
   notifications: Observable<Notification[]>
+
 
   constructor(public afs: AngularFirestore) {
     // this.users = this.afs.collection("UserTB").valueChanges();
@@ -46,6 +47,12 @@ export class AuthService {
   }
   getNotifications() {
     return this.notifications;
+  }
+
+
+
+  firequery(start, end) {
+    return this.afs.collection('UserTB', ref => ref.limit(4).orderBy("phoneno").startAt(start).endAt(end)).valueChanges();
   }
 
 }

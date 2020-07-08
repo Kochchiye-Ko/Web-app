@@ -4,6 +4,8 @@ import { Users } from '../../models/users';
 import { NgForm } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Subject, Observable, combineLatest } from 'rxjs';
+
 
 @Component({
   selector: "app-user",
@@ -19,14 +21,26 @@ export class UserComponent implements OnInit {
   ID: String;
   PHONENO: String;
 
+  searchSctram: String;
+  startAt = new Subject();
+  endAt = new Subject();
+  startObs = this.startAt.asObservable();
+  endObs = this.endAt.asObservable();
+  pno;
+
   constructor(private authservice: AuthService, private toster: ToastrService) { }
 
   ngOnInit() {
     this.authservice.getUsers().subscribe(usersx => {
-      // console.log(users);
       this.users = usersx;
     }),
       this.resetForm();
+    combineLatest(this.startObs, this.endObs).subscribe((value) => {
+      this.authservice.firequery(value[0], value[1]).subscribe((phoneno) => {
+        this.pno = phoneno;
+      })
+    })
+
   }
 
   onEdit(users: Users) {
@@ -61,6 +75,12 @@ export class UserComponent implements OnInit {
       email: null
 
     }
+  }
+
+  search($event) {
+    let word = $event.target.value;
+    this.startAt.next(word);
+    this.endAt.next(word + "\uf8ff")
   }
 
 }
