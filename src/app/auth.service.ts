@@ -52,7 +52,7 @@ export class AuthService {
 
 
   firequery(start, end) {
-    return this.afs.collection('UserTB', ref => ref.limit(4).orderBy("phoneno").startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('UserTB', ref => ref.orderBy("phoneno").startAt(start).endAt(end)).valueChanges();
   }
 
 }
