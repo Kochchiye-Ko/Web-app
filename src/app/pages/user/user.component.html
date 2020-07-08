@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class=" card-footer">
-              <button class=" btn btn-fill btn-info" [disable]="form.invalid" type="submit" value="submit"
+              <button class=" btn btn-fill btn-info" [disabled]="!form.valid" type="submit" value="submit"
                 name="submit">Update</button>
             </div>
           </form>
