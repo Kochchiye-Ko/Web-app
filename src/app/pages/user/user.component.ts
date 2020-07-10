@@ -4,7 +4,7 @@ import { Users } from '../../models/users';
 import { NgForm } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Subject, Observable, combineLatest } from 'rxjs';
+import { Subject, combineLatest } from 'rxjs';
 
 
 @Component({
