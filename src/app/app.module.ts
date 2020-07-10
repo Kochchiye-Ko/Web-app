@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from '../environments/environment';
 import { AuthService } from "../app/auth.service";
+//import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import { AuthService } from "../app/auth.service";
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
