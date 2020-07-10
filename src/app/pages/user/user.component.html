@@ -1,43 +1,26 @@
-
 <div class=" content">
   <div class=" row">
     <div class=" col-md-8">
       <div class=" card">
-        <div class=" card-header"><h5 class=" title">Edit Profile</h5></div>
+        <div class=" card-header">
+          <h5 class=" title">Edit Profile</h5>
+        </div>
         <div class=" card-body">
-          <form>
+
+          <form #form="ngForm" (ngSubmit)="onsubmit(form)" autocomplete="off">
+
+            <input class=" form-control" disabled="" name="id" #id="ngModel" [(ngModel)]="userToEdit.id"
+              placeholder="id" type="hidden" />
+
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Company (disabled) </label>
-                  <input
-                    class=" form-control"
-                    disabled=""
-                    placeholder="Company"
-                    type="text"
-                    value="Creative Code Inc."
-                  />
-                </div>
-              </div>
-              <div class=" col-md-3 px-md-1">
-                <div class=" form-group">
-                  <label> Username </label>
-                  <input
-                    class=" form-control"
-                    placeholder="Username"
-                    type="text"
-                    value="michael23"
-                  />
-                </div>
-              </div>
-              <div class=" col-md-4 pl-md-1">
-                <div class=" form-group">
-                  <label for="exampleInputEmail1"> Email address </label>
-                  <input
-                    class=" form-control"
-                    placeholder="mike@email.com"
-                    type="email"
-                  />
+                  <label> Phone Number</label>
+                  <input class=" form-control" disabled="" name="phoneno" #phoneno="ngModel"
+                    [(ngModel)]="userToEdit.phoneno" placeholder="Phone number" type="text" required />
+                  <span *ngIf="phoneno.invalid && phoneno.touched" class="validation-error"
+                    style="color: red;">*required</span>
+
                 </div>
               </div>
             </div>
@@ -45,141 +28,80 @@
               <div class=" col-md-6 pr-md-1">
                 <div class=" form-group">
                   <label> First Name </label>
-                  <input
-                    class=" form-control"
-                    placeholder="Company"
-                    type="text"
-                    value="Mike"
-                  />
+                  <input class=" form-control" placeholder="First name" type="text" name="firstname"
+                    #firstname="ngModel" [(ngModel)]="userToEdit.firstname" required />
+                  <span *ngIf="firstname.invalid && firstname.touched" class="validation-error"
+                    style="color: red;">*required</span>
                 </div>
               </div>
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label> Last Name </label>
-                  <input
-                    class=" form-control"
-                    placeholder="Last Name"
-                    type="text"
-                    value="Andrew"
-                  />
+                  <input class=" form-control" placeholder="Last Name" type="text" name="lastname" #lastname="ngModel"
+                    [(ngModel)]="userToEdit.lastname" required />
+                  <span *ngIf="lastname.invalid && lastname.touched" class="validation-error"
+                    style="color: red;">*required</span>
                 </div>
               </div>
             </div>
             <div class=" row">
               <div class=" col-md-12">
                 <div class=" form-group">
-                  <label> Address </label>
-                  <input
-                    class=" form-control"
-                    placeholder="Home Address"
-                    type="text"
-                    value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                  />
+                  <label> Email </label>
+                  <input class=" form-control" placeholder="Email" type="text" name="email" #email="ngModel"
+                    [(ngModel)]="userToEdit.email" required />
+                  <span *ngIf="email.invalid && email.touched" class="validation-error"
+                    style="color: red;">*required</span>
                 </div>
               </div>
             </div>
-            <div class=" row">
-              <div class=" col-md-4 pr-md-1">
-                <div class=" form-group">
-                  <label> City </label>
-                  <input
-                    class=" form-control"
-                    placeholder="City"
-                    type="text"
-                    value="Mike"
-                  />
-                </div>
-              </div>
-              <div class=" col-md-4 px-md-1">
-                <div class=" form-group">
-                  <label> Country </label>
-                  <input
-                    class=" form-control"
-                    placeholder="Country"
-                    type="text"
-                    value="Andrew"
-                  />
-                </div>
-              </div>
-              <div class=" col-md-4 pl-md-1">
-                <div class=" form-group">
-                  <label> Postal Code </label>
-                  <input
-                    class=" form-control"
-                    placeholder="ZIP Code"
-                    type="number"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-8">
-                <div class=" form-group">
-                  <label> About Me </label>
-                  <textarea
-                    class=" form-control"
-                    cols="80"
-                    placeholder="Here can be your description"
-                    rows="4"
-                    value="Mike"
-                  >
-Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.
-</textarea
-                  >
-                </div>
-              </div>
+            <div class=" card-footer">
+              <button class=" btn btn-fill btn-info" [disabled]="!form.valid" type="submit" value="submit"
+                name="submit">Update</button>
             </div>
           </form>
         </div>
-        <div class=" card-footer">
-          <button class=" btn btn-fill btn-danger" type="submit">Save</button>
-        </div>
+
       </div>
     </div>
     <div class=" col-md-4">
       <div class=" card card-user">
         <div class=" card-body">
-          <p class=" card-text"></p>
           <div class=" author">
-            <div class=" block block-one"></div>
-            <div class=" block block-two"></div>
-            <div class=" block block-three"></div>
-            <div class=" block block-four"></div>
-            <a href="javascript:void(0)">
-              <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
+            <img class=" avatar" src="https://img.icons8.com/bubbles/100/000000/user-female-circle.png" />
+            <h5 class=" title">Registerd Users List</h5>
+          </div>
 
-              <h5 class=" title">Mike Andrew</h5>
-            </a>
-            <p class=" description">Ceo/Co-Founder</p>
+          <div class="card" style="width:auto;">
+            <div class="card-header" style="height: 75px; background-color:#CACFD2;">
+              <div class="active-pink-3 active-pink-4 mb-4">
+                <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;" type="text" placeholder="Search" aria-label="Search">
+              </div>
+            </div>
+            <ul *ngFor="let users of pno" class="list-group list-group-flush">
+              <a class="secondary-content">
+                <li class="list-group-item" style="height: 10; background-color:#566573;" (mouseenter)="onEdit(users)">
+                  <center>
+                    <table style="width:350px">
+                      <tr>
+                        <td width="75">
+                          {{users.phoneno}}
+                        </td>
+                        <td width="200" align="right">
+                          <!-- <button (click)="onDelete(users.id)" class="btn btn-danger">X</button> -->
+                          <i (click)="onDelete(users.id)" class=" tim-icons icon-simple-remove"
+                            style="color:rgb(236, 129, 5) ;"></i>
+                        </td>
+                      </tr>
+                    </table>
+                  </center>
+                </li>
+              </a>
+            </ul>
           </div>
-          <div class=" card-description">
-            Do not be scared of the truth because we need to restart the human
-            foundation in truth And I love you like Kanye loves Kanye I love
-            Rick Owens’ bed design but the back is...
-          </div>
+
         </div>
-        <div class=" card-footer">
-          <div class=" button-container">
-            <button
-              class=" btn btn-icon btn-round btn-facebook"
-              href="javascript:void(0)"
-            >
-              <i class=" fab fa-facebook"> </i>
-            </button>
-            <button
-              class=" btn btn-icon btn-round btn-twitter"
-              href="javascript:void(0)"
-            >
-              <i class=" fab fa-twitter"> </i>
-            </button>
-            <button
-              class=" btn btn-icon btn-round btn-google"
-              href="javascript:void(0)"
-            >
-              <i class=" fab fa-google-plus"> </i>
-            </button>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: "app-root",
@@ -6,5 +7,6 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = "black-dashboard-angular";
+  title = "Koochchiya ko";
+  constructor(db: AngularFirestore) { }
 }
