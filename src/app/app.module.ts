@@ -21,9 +21,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from '../environments/environment';
 import { AuthService } from "../app/auth.service";
 
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+// import { NgbdTimepickerBasic } from './ngx-material-timepicker'
+import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    NgxMaterialTimepickerModule,
     FormsModule,
     HttpClientModule,
     ComponentsModule,
