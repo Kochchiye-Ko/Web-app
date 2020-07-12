@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import Chart from 'chart.js';
 import { Users } from "../../models/users"
 import { AuthService } from 'src/app/auth.service';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 @Component({
   selector: "app-dashboard",
@@ -17,11 +18,20 @@ export class DashboardComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
 
+  users: Users[];
+  time;
+
   constructor(private authservice: AuthService) {
 
   }
 
   ngOnInit() {
+
+    this.authservice.getUsers().subscribe(usersx => {
+      this.users = usersx;
+      console.log();
+    })
+
     var gradientChartOptionsConfigurationWithTooltipBlue: any = {
       maintainAspectRatio: false,
       legend: {
