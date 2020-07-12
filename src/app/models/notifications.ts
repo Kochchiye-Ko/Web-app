@@ -1,6 +1,7 @@
 export interface Notification {
+    id?: String;
     author?: String;
     dateTime?: String;
-    Message?: String;
+    message?: String;
     subject?: String;
 }

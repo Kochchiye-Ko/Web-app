@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth.service';
 import { Notification } from '../../models/notifications';
 
+
 @Component({
   selector: "app-notifications",
   templateUrl: "notifications.component.html"
@@ -16,8 +17,17 @@ export class NotificationsComponent implements OnInit {
   // staticAlertClosed5 = false;
   // staticAlertClosed6 = false;
   // staticAlertClosed7 = false;
-
+  
   notifications: Notification[];
+  addNot: Notification = {
+    author: '',
+    dateTime: '',
+    message: ' ',
+    subject: ' ' , 
+   
+   }
+   
+  
   constructor(private notService: AuthService) {
 
 
@@ -83,8 +93,20 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit() {
     this.notService.getNotifications().subscribe(notifications => {
-      // console.log(notifications);
+       //console.log(notifications);
       this.notifications = notifications;
     });
   }
-}
+
+
+
+  onSubmit() {
+    if (this.addNot.subject != '' && this.addNot.message != '') {
+      this.notService.addNotification(this.addNot);
+      this.addNot.author= '';
+      this.addNot.dateTime='';
+      this.addNot.message = '';
+      this.addNot.subject = '';
+    }
+  }
+ }

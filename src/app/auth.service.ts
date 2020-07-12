@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Users } from './models/users'
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
 import { TrainDetails } from './models/traindetails';
@@ -33,7 +33,15 @@ export class AuthService {
       });
     }));
 
-    this.notifications = this.afs.collection('Notification').valueChanges();
+    //this.notifications = this.afs.collection('Notification').valueChanges();
+    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('message' , 'asc'));
+    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Notification;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
 
     this.traindetails = this.afs.collection('TrainDetails').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -72,6 +80,10 @@ export class AuthService {
     return this.notifications;
   }
   //-----------------------------------------notifications//
+
+  addNotification (addNot: Notification) {
+    this.notificaitonsCollection.add(addNot);
+  }
 
 
 
