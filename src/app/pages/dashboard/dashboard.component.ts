@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject, LOCALE_ID, ɵDEFAULT_LOCALE_ID } from "@angular/core";
 import Chart from 'chart.js';
 import { Users } from "../../models/users"
 import { AuthService } from 'src/app/auth.service';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
+import { formatDate } from '@angular/common';
+import { count } from 'console';
 
 @Component({
   selector: "app-dashboard",
@@ -21,16 +23,84 @@ export class DashboardComponent implements OnInit {
   users: Users[];
   time;
 
-  constructor(private authservice: AuthService) {
+  constructor(private authservice: AuthService, @Inject(LOCALE_ID) private locale: string) {
 
   }
 
   ngOnInit() {
 
+    var jan, feb, march, april, may, june, july, aug, sep, oct, nov, dec = 0;
+
     this.authservice.getUsers().subscribe(usersx => {
       this.users = usersx;
-      console.log();
+      var count = 0;
+      usersx.forEach(element => {
+        count++;
+      });
+
+      usersx.forEach(element => {
+        this.time = element.dateTime;
+        var date = new Date(this.time.toDate());
+        var getdate = formatDate(date, 'yyyy/MM/ss', this.locale);
+        var month = getdate.split("/");
+
+        if (month[1] == "01") {
+          jan = jan + 1;
+          // console.log(june);
+        }
+        if (month[1] == "02") {
+          feb = feb + 1;
+          // console.log(may);
+        }
+        if (month[1] == "03") {
+          march = march + 1;
+          // console.log(june);
+        }
+        if (month[1] == "04") {
+          april = april + 1;
+          // console.log(may);
+        }
+        if (month[1] == "05") {
+          may = may + 1;
+          // console.log(june);
+        }
+        if (month[1] == "06") {
+          june = june + 1;
+          // console.log(may);
+        }
+        if (month[1] == "07") {
+          july = july + 1;
+          // console.log(june);
+        }
+        if (month[1] == "08") {
+          aug = aug + 1;
+          // console.log(may);
+        }
+        if (month[1] == "09") {
+          sep = sep + 1;
+          // console.log(june);
+        }
+        if (month[1] == "10") {
+          oct = oct + 1;
+          // console.log(may);
+        }
+        if (month[1] == "11") {
+          nov = nov + 1;
+          // console.log(june);
+        }
+        if (month[1] == "12") {
+          dec = dec + 1;
+          // console.log(may);
+        }
+
+
+      });
+      console.log(june);
+      console.log(may);
     })
+
+
+
 
     var gradientChartOptionsConfigurationWithTooltipBlue: any = {
       maintainAspectRatio: false,

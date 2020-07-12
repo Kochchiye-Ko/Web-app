@@ -34,8 +34,8 @@ export class AuthService {
     }));
 
     //this.notifications = this.afs.collection('Notification').valueChanges();
-    this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
-    this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('message' , 'asc'));
+    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
@@ -81,7 +81,7 @@ export class AuthService {
   }
   //-----------------------------------------notifications//
 
-  addNotification(addNot: Notification) {
+  addNotification (addNot: Notification) {
     this.notificaitonsCollection.add(addNot);
   }
 

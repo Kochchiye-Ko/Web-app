@@ -1,5 +1,4 @@
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
-import { DatePipe } from '@angular/common';
+
 
 export interface Users {
     firstname?: String;
@@ -7,5 +6,5 @@ export interface Users {
     email?: String;
     phoneno?: String;
     id?: String;
-    // dateTime?: DatePipe;
+    dateTime?: String;
 }
