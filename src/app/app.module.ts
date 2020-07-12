@@ -28,6 +28,7 @@ import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 import { TrainsheduleComponent } from './pages/home/tainShedule/trainshedule/trainshedule.component';
 import { MapComponent } from './pages/home/map/map/map.component';
+import { HomeComponent } from './pages/home/home/home/home.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,7 @@ import { MapComponent } from './pages/home/map/map/map.component';
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
