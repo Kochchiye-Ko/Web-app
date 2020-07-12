@@ -75,7 +75,8 @@
           <div class="card" style="width:auto;">
             <div class="card-header" style="height: 75px; background-color:#CACFD2;">
               <div class="active-pink-3 active-pink-4 mb-4">
-                <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;" type="text" placeholder="Search" aria-label="Search">
+                <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;"
+                  type="text" placeholder="Search" aria-label="Search">
               </div>
             </div>
             <ul *ngFor="let users of pno" class="list-group list-group-flush">
