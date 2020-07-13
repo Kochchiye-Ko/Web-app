@@ -22,7 +22,7 @@ export class NotificationsComponent implements OnInit {
   notifications: Notification[];
   addNot: Notification = {
     author: '',
-    //dateTime: '',
+   // dateTime: '',
     message: ' ',
     subject: ' ' , 
    
