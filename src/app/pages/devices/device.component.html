@@ -103,43 +103,43 @@
 
 
 
-                  <div class="card" style="width:auto;">
-                    <div class="card-header" style="height: 75px; background-color:#CACFD2;">
-                      <div class="active-pink-3 active-pink-4 mb-4">
-                        <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)"
-                          style="color: black;" type="text" placeholder="Search" aria-label="Search">
-                      </div>
-                    </div>
-                    <ul *ngFor="let dv of device" class="list-group list-group-flush">
-                      <a class="secondary-content">
-                        <li class="list-group-item" style="height: 10; background-color:#566573;"
-                          (mouseenter)="onEdit(dv)">
-                          <center>
-                            <table style="width:fit-content">
-                              <tr>
-                                <td width="75">
-                                  {{dv.id}}
-                                  <!-- {{users.dateTime.toDate() | date:'yyyy/MM/dd h:mm:ss a'}} -->
-                                </td>
-                                <td width="200" align="right">
-                                  <!-- <button (click)="onDelete(users.id)" class="btn btn-danger">X</button> -->
-                                  <i (click)="onDelete(dv.id)" class=" tim-icons icon-simple-remove"
-                                    style="color:rgb(236, 129, 5) ;"></i>
-                                </td>
-                              </tr>
-                            </table>
-                          </center>
-                        </li>
-                      </a>
-                    </ul>
-
-
-
-
-
+            <div class="card" style="width:auto;">
+              <div class="card-header" style="height: 75px; background-color:#CACFD2;">
+                <div class="active-pink-3 active-pink-4 mb-4">
+                  <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;"
+                    type="text" placeholder="Search" aria-label="Search">
+                </div>
               </div>
+              <ul *ngFor="let dv of device" class="list-group list-group-flush">
+                <a class="secondary-content">
+                  <li class="list-group-item" style="height: 10; background-color:#566573;" (mouseenter)="onEdit(dv)">
+                    <center>
+                      <table style="width:fit-content">
+                        <tr>
+                          <td width="200">
+                            <b style="color: rgb(226, 194, 213);">{{dv.deviceid}} </b> <span style="color: rgb(131, 128, 130);"> -->  </span>
+                            {{dv.assignedtrain}}
+                            <!-- {{users.dateTime.toDate() | date:'yyyy/MM/dd h:mm:ss a'}} -->
+                          </td>
+                          <td width="200" align="right">
+                            <!-- <button (click)="onDelete(dv.id)" class="btn btn-danger">X</button> -->
+                            <i (click)="onDelete(dv.id)" class=" tim-icons icon-simple-remove"
+                              style="color:rgb(236, 129, 5) ;"></i>
+                          </td>
+                        </tr>
+                      </table>
+                    </center>
+                  </li>
+                </a>
+              </ul>
+
+
+
+
+
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>

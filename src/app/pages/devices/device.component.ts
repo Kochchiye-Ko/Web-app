@@ -39,7 +39,15 @@ export class DeviceComponent implements OnInit {
   }
 
   onEdit(dv: Device) {
-    
+
+  }
+
+  onDelete(id: String) {
+    if ((confirm("Are you sure to delete this user?"))) {
+      this.deviceservice.onDelete(id);
+      this.toster.error("Successfully deleted");
+      this.resetForm();
+    }
   }
 
   onsubmit(form: NgForm) {
