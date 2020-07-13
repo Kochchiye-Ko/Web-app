@@ -30,27 +30,9 @@ export class AdminService {
   
 }
 
-
-
-  // getAdmin() {
-  //   return this.Admin;
-  // }
-
   getUsers() {
     return this.Admin;
   }
 
-  updateUsers(data: Users, ID: String) {
-    this.adminDoc = this.afs.doc(`UserTB/${ID}`)
-    this.adminDoc.update(data);
-  }
-
-  onDelete(id: String) {
-    this.adminDoc = this.afs.doc(`UserTB/${id}`)
-    this.adminDoc.delete();
-  }
-
-   firequery(start, end) {
-    return this.afs.collection('UserTB', ref => ref.orderBy("phoneno").startAt(start).endAt(end)).valueChanges();
-  }
+ 
 }
