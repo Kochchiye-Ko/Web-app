@@ -5,4 +5,6 @@ export interface Users{
     phoneno?: String;
     id?: String;
 
+    accountType?: String;
+
 }

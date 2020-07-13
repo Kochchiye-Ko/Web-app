@@ -29,7 +29,7 @@ export class AuthService {
     }));
 
     //this.notifications = this.afs.collection('Notification').valueChanges();
-    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('message' , 'asc'));
+    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'asc'));
     this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
@@ -66,5 +66,5 @@ export class AuthService {
   firequery(start, end) {
     return this.afs.collection('UserTB', ref => ref.orderBy("phoneno").startAt(start).endAt(end)).valueChanges();
   }
-
+ 
 }

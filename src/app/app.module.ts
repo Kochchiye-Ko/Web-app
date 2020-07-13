@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from '../environments/environment';
 import { AuthService } from "../app/auth.service";
+import {  AdminService } from "../app/admin.service";
 //import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 @NgModule({
@@ -40,7 +41,7 @@ import { AuthService } from "../app/auth.service";
     })
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ],
-  providers: [AuthService],
+  providers: [AuthService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

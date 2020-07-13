@@ -3,61 +3,62 @@
     <div class=" col-md-8">
       <div class=" card">
         <div class=" card-header">
-          <h5 class=" title">Edit Admin Profile</h5>
+          <h5 class=" title">Edit Profile</h5>
         </div>
         <div class=" card-body">
 
           <form #form="ngForm" (ngSubmit)="onsubmit(form)" autocomplete="off">
+            <div *ngFor="let users of users">
+              <input class=" form-control" disabled="" name="id" #id="ngModel" [(ngModel)]="users.id" placeholder="id"
+                type="hidden" />
 
-            <input class=" form-control" disabled="" name="id" #id="ngModel" [(ngModel)]="userToEdit.id"
-              placeholder="id" type="hidden" />
+              <div class=" row">
+                <div class=" col-md-5 pr-md-1">
+                  <div class=" form-group">
+                    <label> Phone Number</label>
+                    <input class=" form-control" disabled="" name="phoneno" #phoneno="ngModel"
+                      [(ngModel)]="users.phoneno" placeholder="Phone number" type="text" required />
+                    <span *ngIf="phoneno.invalid && phoneno.touched" class="validation-error"
+                      style="color: red;">*required</span>
 
-            <div class=" row">
-              <div class=" col-md-5 pr-md-1">
-                <div class=" form-group">
-                  <label> Phone Number</label>
-                  <input class=" form-control" disabled="" name="phoneno" #phoneno="ngModel"
-                    [(ngModel)]="userToEdit.phoneno" placeholder="Phone number" type="text" required />
-                  <span *ngIf="phoneno.invalid && phoneno.touched" class="validation-error"
-                    style="color: red;">*required</span>
-
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> First Name </label>
-                  <input class=" form-control" placeholder="First name" type="text" name="firstname"
-                    #firstname="ngModel" [(ngModel)]="userToEdit.firstname" required />
-                  <span *ngIf="firstname.invalid && firstname.touched" class="validation-error"
-                    style="color: red;">*required</span>
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+                    <label> First Name </label>
+                    <input class=" form-control" placeholder="First name" type="text" name="firstname"
+                      #firstname="ngModel" [(ngModel)]="users.firstname" required />
+                    <span *ngIf="firstname.invalid && firstname.touched" class="validation-error"
+                      style="color: red;">*required</span>
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> Last Name </label>
+                    <input class=" form-control" placeholder="Last Name" type="text" name="lastname" #lastname="ngModel"
+                      [(ngModel)]="users.lastname" required />
+                    <span *ngIf="lastname.invalid && lastname.touched" class="validation-error"
+                      style="color: red;">*required</span>
+                  </div>
                 </div>
               </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" form-group">
-                  <label> Last Name </label>
-                  <input class=" form-control" placeholder="Last Name" type="text" name="lastname" #lastname="ngModel"
-                    [(ngModel)]="userToEdit.lastname" required />
-                  <span *ngIf="lastname.invalid && lastname.touched" class="validation-error"
-                    style="color: red;">*required</span>
+              <div class=" row">
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label> Email </label>
+                    <input class=" form-control" placeholder="Email" type="text" name="email" #email="ngModel"
+                      [(ngModel)]="users.email" required />
+                    <span *ngIf="email.invalid && email.touched" class="validation-error"
+                      style="color: red;">*required</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-12">
-                <div class=" form-group">
-                  <label> Email </label>
-                  <input class=" form-control" placeholder="Email" type="text" name="email" #email="ngModel"
-                    [(ngModel)]="userToEdit.email" required />
-                  <span *ngIf="email.invalid && email.touched" class="validation-error"
-                    style="color: red;">*required</span>
-                </div>
+              <div class=" card-footer">
+                <button class=" btn btn-fill btn-info" [disabled]="!form.valid" type="submit" value="submit"
+                  name="submit">Update</button>
               </div>
-            </div>
-            <div class=" card-footer">
-              <button class=" btn btn-fill btn-info" [disabled]="!form.valid" type="submit" value="submit"
-                name="submit">Update</button>
             </div>
           </form>
         </div>
@@ -69,46 +70,19 @@
         <div class=" card-body">
           <div class=" author">
             <img class=" avatar" src="https://img.icons8.com/bubbles/100/000000/user-female-circle.png" />
-            <h5 class=" title">Admin Profile</h5>
+            <h5 class=" title">Registerd Users List</h5>
+          </div>
+          <div *ngFor="let user of users">
+            <label>First Name:</label> {{user.firstname}}<br>
+            <label>Last Name:</label> {{user.lastname}}<br>
+            <label>Email:</label>{{user.email}}<br>
           </div>
 
           <div class="card" style="width:auto;">
             <div class="card-header">
-              <div class="active-pink-3 active-pink-4 mb-4">
-                <div>
-                  <div *ngFor="let user of users" [value]="user.firstname" >
-                    {{user.firstname}}
-                    
-                     <!-- Name:- <label>{{user.firstname}} {{user.lastname}}</label> <br>
-                     Email:- <label>{{user.email}}</label> <br>
-                     Phone No:- <label>{{user.phoneno}}</label> 
-                       -->
-                    
-                  </div>
-
-                </div>
-              </div>
+              <!-- <button type="button" class="btn btn-primary">Edit</button> -->
             </div>
-            <ul *ngFor="let users of pno" class="list-group list-group-flush">
-              <a class="secondary-content">
-                <li class="list-group-item" style="height: 10; background-color:#566573;" (mouseenter)="onEdit(users)">
-                  <center>
-                    <table style="width:350px">
-                      <tr>
-                        <td width="75">
-                          {{users.phoneno}}
-                        </td>
-                        <td width="200" align="right">
-                          <!-- <button (click)="onDelete(users.id)" class="btn btn-danger">X</button> -->
-                          <i (click)="onDelete(users.id)" class=" tim-icons icon-simple-remove"
-                            style="color:rgb(236, 129, 5) ;"></i>
-                        </td>
-                      </tr>
-                    </table>
-                  </center>
-                </li>
-              </a>
-            </ul>
+
           </div>
 
         </div>
@@ -117,169 +91,3 @@
     </div>
   </div>
 </div>
-<!-- 
-<div class=" content">
-  <div class=" row">
-    <div class=" col-md-12">
-      <div class=" card">
-        <div class=" card-header mb-5">
-          <h5 class=" card-category">Black Table Heading</h5>
-          <h3 class=" card-title">Created using Poppins Font Family</h3>
-        </div>
-        <div class=" card-body">
-          <div class=" typography-line">
-            <h1><span> Header 1 </span> The Life of Black Dashboard</h1>
-          </div>
-          <div class=" typography-line">
-            <h2><span> Header 2 </span> The Life of Black Dashboard</h2>
-          </div>
-          <div class=" typography-line">
-            <h3><span> Header 3 </span> The Life of Black Dashboard</h3>
-          </div>
-          <div class=" typography-line">
-            <h4><span> Header 4 </span> The Life of Black Dashboard</h4>
-          </div>
-          <div class=" typography-line">
-            <h5><span> Header 5 </span> The Life of Black Dashboard</h5>
-          </div>
-          <div class=" typography-line">
-            <h6><span> Header 6 </span> The Life of Black Dashboard</h6>
-          </div>
-          <div class=" typography-line">
-            <p>
-              <span> Paragraph </span> I will be the leader of a company that
-              ends up being worth billions of dollars, because I got the
-              answers. I understand culture. I am the nucleus. I think thatâs a
-              responsibility that I have, to push possibilities, to show people,
-              this is the level that things could be at.
-            </p>
-          </div>
-          <div class=" typography-line">
-            <span> Quote </span>
-            <blockquote>
-              <p class=" blockquote blockquote-danger">
-                "I will be the leader of a company that ends up being worth
-                billions of dollars, because I got the answers. I understand
-                culture. I am the nucleus. I think that's a responsibility that
-                I have, to push possibilities, to show people, this is the level
-                that things could be at." <br />
-
-                <br />
-
-                <small> - Noaa </small>
-              </p>
-            </blockquote>
-          </div>
-          <div class=" typography-line">
-            <span> Muted Text </span>
-            <p class=" text-muted">
-              I will be the leader of a company that ends up being worth
-              billions of dollars, because I got the answers...
-            </p>
-          </div>
-          <div class=" typography-line">
-            <span> Primary Text </span>
-            <p class=" text-primary">
-              I will be the leader of a company that ends up being worth
-              billions of dollars, because I got the answers...
-            </p>
-          </div>
-          <div class=" typography-line">
-            <span> Info Text </span>
-            <p class=" text-info">
-              I will be the leader of a company that ends up being worth
-              billions of dollars, because I got the answers...
-            </p>
-          </div>
-          <div class=" typography-line">
-            <span> Success Text </span>
-            <p class=" text-success">
-              I will be the leader of a company that ends up being worth
-              billions of dollars, because I got the answers...
-            </p>
-          </div>
-          <div class=" typography-line">
-            <span> Warning Text </span>
-            <p class=" text-warning">
-              I will be the leader of a company that ends up being worth
-              billions of dollars, because I got the answers...
-            </p>
-          </div>
-          <div class=" typography-line">
-            <span> Danger Text </span>
-            <p class=" text-danger">
-              I will be the leader of a company that ends up being worth
-              billions of dollars, because I got the answers...
-            </p>
-          </div>
-          <div class=" typography-line">
-            <h2>
-              <span> Small Tag </span> Header with small subtitle <br />
-
-              <small> Use "small" tag for the headers </small>
-            </h2>
-          </div>
-          <div class=" typography-line">
-            <span> Lists </span>
-            <div class=" row">
-              <div class=" col-md-3">
-                <h5>Unordered List</h5>
-                <ul>
-                  <li>List Item</li>
-                  <li>List Item</li>
-                  <li class=" list-unstyled">
-                    <ul>
-                      <li>List Item</li>
-                      <li>List Item</li>
-                      <li>List Item</li>
-                    </ul>
-                  </li>
-                  <li>List Item</li>
-                </ul>
-              </div>
-              <div class=" col-md-3">
-                <h5>Ordered List</h5>
-                <ol>
-                  <li>List Item</li>
-                  <li>List Item</li>
-                  <li>List item</li>
-                  <li>List Item</li>
-                </ol>
-              </div>
-              <div class=" col-md-3">
-                <h5>Unstyled List</h5>
-                <ul class=" list-unstyled">
-                  <li>List Item</li>
-                  <li>List Item</li>
-                  <li>List item</li>
-                  <li>List Item</li>
-                </ul>
-              </div>
-              <div class=" col-md-3">
-                <h5>Inline List</h5>
-                <ul class=" list-inline">
-                  <li class=" list-inline-item">List1</li>
-                  <li class=" list-inline-item">List2</li>
-                  <li class=" list-inline-item">List3</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class=" typography-line">
-            <span> Code </span>
-            <p>
-              This is <code> .css-class-as-code </code> , an example of an
-              inline code element. Wrap inline code within a
-              <code> <code>...</code> </code> tag.
-            </p>
-            <pre>
-1. #This is an example of preformatted text.<br>
-
-2. #Here is another line of code
-</pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
