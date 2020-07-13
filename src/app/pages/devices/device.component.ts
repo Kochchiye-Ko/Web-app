@@ -4,6 +4,8 @@ import { TrainDetails } from 'src/app/models/traindetails';
 import { Device } from 'src/app/models/device';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Subject, combineLatest } from 'rxjs';
+import { DeviceService } from 'src/app/services/device.service';
 
 @Component({
   selector: "app-icons",
@@ -15,19 +17,34 @@ export class DeviceComponent implements OnInit {
   trainDetails: TrainDetails[];
   deviceData: Device;
 
-  constructor(private authservice: AuthService, private toster: ToastrService) { }
+  searchSctram: String;
+  startAt = new Subject();
+  endAt = new Subject();
+  startObs = this.startAt.asObservable();
+  endObs = this.endAt.asObservable();
+  device;
+
+  constructor(private authservice: AuthService, private deviceservice: DeviceService, private toster: ToastrService) { }
 
   ngOnInit() {
     this.authservice.getUTraindetails().subscribe(td => {
       this.trainDetails = td;
-      // console.log(td)
     })
     this.resetForm();
+    combineLatest(this.startObs, this.endObs).subscribe((value) => {
+      this.deviceservice.firequery(value[0], value[1]).subscribe((device) => {
+        this.device = device;
+      })
+    })
+  }
+
+  onEdit(dv: Device) {
+    
   }
 
   onsubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
-    this.authservice.adddevice(data);
+    this.deviceservice.adddevice(data);
     this.toster.success("Successfully Added.");
     this.resetForm();
   }
@@ -42,4 +59,10 @@ export class DeviceComponent implements OnInit {
       assignedtrain: null,
     }
   }
+  search($event) {
+    let word = $event.target.value;
+    this.startAt.next(word);
+    this.endAt.next(word + "\uf8ff")
+  }
+
 }

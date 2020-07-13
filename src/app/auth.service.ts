@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
 import { TrainDetails } from './models/traindetails';
-import { Device } from './models/device';
 
 @Injectable({
   providedIn: 'root'
@@ -63,15 +62,23 @@ export class AuthService {
   updateUsers(data: Users, ID: String) {
     this.userDoc = this.afs.doc(`UserTB/${ID}`)
     this.userDoc.update(data);
+    console.log(ID)
   }
 
   onDelete(id: String) {
     this.userDoc = this.afs.doc(`UserTB/${id}`)
     this.userDoc.delete();
+    console.log(id)
   }
 
   firequery(start, end) {
-    return this.afs.collection('UserTB', ref => ref.orderBy("phoneno").startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('UserTB', ref => ref.orderBy("phoneno").startAt(start).endAt(end)).snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Users;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
   }
   //-----------------------------------------users//
 
@@ -101,9 +108,4 @@ export class AuthService {
     return this.afs.collection('TrainDetails', ref => ref.orderBy("trainNumber", "asc").startAt(start).endAt(end)).valueChanges();
   }
 
-
-  //device--------------------------------------------------------------------------
-  adddevice(data: Device) {
-    this.afs.collection(`Devices`).add(data);
-  }
 }

@@ -60,7 +60,6 @@ export class UserComponent implements OnInit {
       this.authservice.onDelete(id);
       this.toster.error("Successfully deleted");
       this.resetForm();
-
     }
   }
 
