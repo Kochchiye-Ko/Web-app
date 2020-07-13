@@ -24,6 +24,10 @@ export class DeviceComponent implements OnInit {
   endObs = this.endAt.asObservable();
   device;
 
+  DeviceToEdit: Device;
+  ID: String;
+  DEVICEID: String;
+
   constructor(private authservice: AuthService, private deviceservice: DeviceService, private toster: ToastrService) { }
 
   ngOnInit() {
@@ -31,6 +35,7 @@ export class DeviceComponent implements OnInit {
       this.trainDetails = td;
     })
     this.resetForm();
+    this.resetForm2();
     combineLatest(this.startObs, this.endObs).subscribe((value) => {
       this.deviceservice.firequery(value[0], value[1]).subscribe((device) => {
         this.device = device;
@@ -39,7 +44,10 @@ export class DeviceComponent implements OnInit {
   }
 
   onEdit(dv: Device) {
-
+    this.DeviceToEdit = Object.assign({}, dv)
+    this.ID = this.DeviceToEdit.id;
+    this.DEVICEID = this.DeviceToEdit.deviceid;
+    // console.log(this.DeviceToEdit)
   }
 
   onDelete(id: String) {
@@ -51,7 +59,7 @@ export class DeviceComponent implements OnInit {
   }
 
   onsubmit(form: NgForm) {
-    let data = Object.assign({}, form.value);
+    let data = Object.assign({ activestates: "offline" }, form.value);
     this.deviceservice.adddevice(data);
     this.toster.success("Successfully Added.");
     this.resetForm();
@@ -61,6 +69,17 @@ export class DeviceComponent implements OnInit {
     if (form != null)
       form.resetForm();
     this.deviceData = {
+      id: null,
+      deviceid: null,
+      activestates: null,
+      assignedtrain: null,
+    }
+  }
+
+  resetForm2(form2?: NgForm) {
+    if (form2 != null)
+      form2.resetForm();
+    this.DeviceToEdit = {
       id: null,
       deviceid: null,
       activestates: null,
