@@ -10,9 +10,10 @@
             *ngFor="let notification of notifications">
             <span class=" tim-icons icon-bell-55" data-notify="icon">
             </span>
-            <span data-notify="message">
-              {{notification.message}}
-              {{notification.subject}}
+            <span data-notify="message" style="font-size: medium;">
+             <label style="font-size: small;"> Subject : </label> {{notification.subject}}<br>
+             <label style="font-size: small;"> Message : </label> {{notification.message}}<br>
+            
               <!-- {{notification.dateTime}} -->
             </span>
           </ngb-alert>
