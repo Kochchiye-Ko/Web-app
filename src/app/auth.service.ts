@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
 import { TrainDetails } from './models/traindetails';
+import { Device } from './models/device';
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +35,8 @@ export class AuthService {
     }));
 
     //this.notifications = this.afs.collection('Notification').valueChanges();
-    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('message' , 'asc'));
-    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+    this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
+    this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
@@ -81,7 +82,7 @@ export class AuthService {
   }
   //-----------------------------------------notifications//
 
-  addNotification (addNot: Notification) {
+  addNotification(addNot: Notification) {
     this.notificaitonsCollection.add(addNot);
   }
 
@@ -100,4 +101,9 @@ export class AuthService {
     return this.afs.collection('TrainDetails', ref => ref.orderBy("trainNumber", "asc").startAt(start).endAt(end)).valueChanges();
   }
 
+
+  //device--------------------------------------------------------------------------
+  adddevice(data: Device) {
+    this.afs.collection(`Devices`).add(data);
+  }
 }
