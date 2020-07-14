@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from 'src/app/auth.service';
 import { Notification } from '../../models/notifications';
-import {  } from "../../models/date";
 import { ToastrService } from 'ngx-toastr';
+import { DatePipe } from "@angular/common";
 
 
 @Component({
@@ -19,10 +19,11 @@ export class NotificationsComponent implements OnInit {
   // staticAlertClosed6 = false;
   // staticAlertClosed7 = false;
   
+  
   notifications: Notification[];
   addNot: Notification = {
     author: '',
-   // dateTime: '',
+    dateTime: '',
     message: ' ',
     subject: ' ' , 
    
@@ -31,6 +32,7 @@ export class NotificationsComponent implements OnInit {
    
   
   constructor(private notService: AuthService,private toster: ToastrService) {
+    
 
 
   }
@@ -106,7 +108,7 @@ export class NotificationsComponent implements OnInit {
     if (this.addNot.subject != '' && this.addNot.message != '') {
       this.notService.addNotification(this.addNot);
       this.addNot.author= '';
-      //this.addNot.dateTime='';
+      this.addNot.dateTime='';
       this.addNot.message = '';
       this.addNot.subject = '';
       this.toster.success("Sent message successfully", "" + this.addNot.author);
