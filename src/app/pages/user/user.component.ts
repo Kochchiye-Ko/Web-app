@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
   pno;
 
   constructor(private authservice: AuthService, private toster: ToastrService) { }
-
+ 
   ngOnInit() {
     this.authservice.getUsers().subscribe(usersx => {
       this.users = usersx;

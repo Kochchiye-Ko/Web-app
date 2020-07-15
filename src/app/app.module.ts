@@ -23,9 +23,20 @@ import { AuthService } from "../app/auth.service";
 import {  AdminService } from "../app/admin.service";
 //import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
+//  import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+// import { NgbdTimepickerBasic } from './ngx-material-timepicker'
+import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './pages/home/contactus/contact/contact.component';
+import { TrainsheduleComponent } from './pages/home/tainShedule/trainshedule/trainshedule.component';
+import { MapComponent } from './pages/home/map/map/map.component';
+import { HomeComponent } from './pages/home/home/home/home.component';
+import { NavbarComponent } from './pages/home/home/navbar/navbar.component';
+import { FooterComponent } from './pages/home/home/footer/footer.component';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    // NgxMaterialTimepickerModule,
     FormsModule,
     HttpClientModule,
     ComponentsModule,
@@ -40,8 +51,8 @@ import {  AdminService } from "../app/admin.service";
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ],
-  providers: [AuthService,AdminService],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, NavbarComponent, FooterComponent, ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
