@@ -12,6 +12,7 @@ export class DeviceService {
   devicelist: Observable<Device[]>
   DeviceDoc: AngularFirestoreDocument<Device>
 
+
   constructor(public afs: AngularFirestore) {
     this.devicelist = this.afs.collection('Devices').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -41,5 +42,11 @@ export class DeviceService {
   adddevice(data: Device) {
     this.afs.collection(`Devices`).add(data);
   }
+
+  updateState(data: Device, ID: String) {
+    this.DeviceDoc = this.afs.doc(`Devices/${ID}`)
+    this.DeviceDoc.update(data);
+  }
+
 }
 

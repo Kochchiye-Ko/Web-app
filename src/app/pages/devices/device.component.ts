@@ -25,8 +25,13 @@ export class DeviceComponent implements OnInit {
   device;
 
   DeviceToEdit: Device;
+  DeviceToEdit2: Device;
   ID: String;
   DEVICEID: String;
+
+  activeSyageButton: boolean;
+
+  actState: String;
 
   constructor(private authservice: AuthService, private deviceservice: DeviceService, private toster: ToastrService) { }
 
@@ -47,6 +52,7 @@ export class DeviceComponent implements OnInit {
     this.DeviceToEdit = Object.assign({}, dv)
     this.ID = this.DeviceToEdit.id;
     this.DEVICEID = this.DeviceToEdit.deviceid;
+    this.actState = this.DeviceToEdit.activestates;
     // console.log(this.DeviceToEdit)
   }
 
@@ -65,17 +71,38 @@ export class DeviceComponent implements OnInit {
     this.resetForm();
   }
 
-  onsubmitactORdect(form: NgForm) {
-    if (form.value.activestates == "online") {
-      let data = Object.assign({ activestates: "offline" }, form.value);
-      this.deviceservice.adddevice(data);
+  activate() {
+    this.activeSyageButton = true;
+    console.log("acticated")
+  }
+
+  deactivate() {
+    this.activeSyageButton = false;
+    console.log("deactivate")
+  }
+
+  onsubmitactORdect(form2: NgForm) {
+
+    if (this.activeSyageButton == true) {
+      let data = Object.assign({ activestates: "online" }, form2.value);
+      this.deviceservice.updateState(data, this.ID);
+      this.actState = "online"
       this.toster.success("Activated");
-      // this.resetForm();
     } else {
-      let data = Object.assign({ activestates: "online" }, form.value);
-      this.deviceservice.adddevice(data);
-      this.toster.success("Dectivated");
+      let data = Object.assign({ activestates: "offline" }, form2.value);
+      this.deviceservice.updateState(data, this.ID);
+      this.actState = "offline"
+      this.toster.success("Deactivated");
     }
+
+
+
+
+    // let data = Object.assign({ activestates: "offline" }, form2.value);
+    // console.log(form2.value)
+    // // this.deviceservice.updateState(data, this.ID);
+    // this.toster.success("dilanka");
+    // // this.resetForm();
 
   }
 

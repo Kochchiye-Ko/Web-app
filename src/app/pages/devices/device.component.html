@@ -23,7 +23,7 @@
         <div class=" card-body">
           <div class="card" style="width:auto;">
 
-            <form #form2='ngForm' (ngSubmit)="onsubmitactORdect(form)" autocomplete=" off">
+            <form #form2='ngForm' (ngSubmit)="onsubmitactORdect(form2)" autocomplete=" off">
 
               <input style="background-color: silver;" class=" form-control" placeholder="Device ID" name="deviceid"
                 disabled #deviceid="ngModel" [(ngModel)]="DeviceToEdit.id" type="hidden" required />
@@ -42,9 +42,11 @@
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
                     <label> Active States </label>
-                    <input style="background-color: silver;" disabled class=" form-control" placeholder="Active State"
+                    <!-- <input style="background-color: silver;" disabled class=" form-control" placeholder="Active State"
                       type="text" name="activestates" disa #activestates="ngModel"
-                      [(ngModel)]="DeviceToEdit.activestates" />
+                      [(ngModel)]="DeviceToEdit.activestates" /> -->
+                    <input style="background-color: silver;" disabled class=" form-control" placeholder="Active State"
+                      type="text" name="activestates" value="{{actState}}" />
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -60,10 +62,10 @@
                 <table>
                   <tr>
                     <td><button style="width: fit-content;" class=" btn btn-fill btn-success" type="submit"
-                        value="activate" [disabled]="!DeviceToEdit.activestates " name="submit">Activate</button></td>
+                        (click)="activate()" [disabled]="!DeviceToEdit.activestates ">Activate</button></td>
                     <td width="20"></td>
                     <td><button style="width: fit-content;" class=" btn btn-fill btn-danger" type="submit"
-                        value="deactivate" [disabled]="!DeviceToEdit.activestates" name="submit">Deactivate</button>
+                        (click)="deactivate()" [disabled]=" !DeviceToEdit.activestates">Deactivate</button>
                     </td>
                   </tr>
                 </table>
@@ -87,7 +89,6 @@
 
             <form #form='ngForm' autocomplete="off" (ngSubmit)="onsubmit(form)">
 
-
               <div class=" row">
                 <div class=" col-md-5 pr-md-1">
                   <div class=" form-group">
@@ -96,27 +97,22 @@
                       type="text" required />
                   </div>
                 </div>
-                <div class=" col-md-6 pl-md-1">
+                <div class=" col-md-5 pl-md-1">
                   <div class=" form-group">
                     <label> Assigned train </label>
                     <select name="assignedtrain" #trainid="ngModel" [(ngModel)]="deviceData.assignedtrain"
-                      id="assignedtrain" class="btn dropdown-toggle" required>
+                      id="assignedtrain" class="form-control btn dropdown-toggle" required>
                       <option *ngFor="let train of trainDetails" value="{{train.id}}">{{train.id}}</option>
                     </select>
                   </div>
-                  <!-- <div class=" form-group">
-                    <input class=" form-control" style="background-color:#27293d ;" name="activestates"
-                      #activestates="ngModel" [(ngModel)]="deviceData.activestates" type="text" value="offline"
-                      placeholder='*default active state value set as offline' readonly />
-                  </div> -->
-                </div>
-
-                <div class=" card-footer">
-                  <button style="width: 170px;" class=" btn btn-fill btn-info" type="submit" value="submit"
-                    [disabled]="!form.valid" name="submit">Add
-                    to list</button>
                 </div>
               </div>
+              <div class=" card-footer">
+                <button style="width: 170px;" class=" btn btn-fill btn-info" type="submit" value="submit"
+                  [disabled]="!form.valid" name="submit">Add
+                  to list</button>
+              </div>
+
             </form>
 
 
