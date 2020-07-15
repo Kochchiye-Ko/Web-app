@@ -87,12 +87,12 @@ export class DeviceComponent implements OnInit {
       let data = Object.assign({ activestates: "online" }, form2.value);
       this.deviceservice.updateState(data, this.ID);
       this.actState = "online"
-      this.toster.success("Activated");
+      this.toster.success("Device gitActivated");
     } else {
       let data = Object.assign({ activestates: "offline" }, form2.value);
       this.deviceservice.updateState(data, this.ID);
       this.actState = "offline"
-      this.toster.success("Deactivated");
+      this.toster.error("Device Deactivated");
     }
 
 

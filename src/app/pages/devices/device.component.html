@@ -45,8 +45,9 @@
                     <!-- <input style="background-color: silver;" disabled class=" form-control" placeholder="Active State"
                       type="text" name="activestates" disa #activestates="ngModel"
                       [(ngModel)]="DeviceToEdit.activestates" /> -->
-                    <input style="background-color: silver;" disabled class=" form-control" placeholder="Active State"
-                      type="text" name="activestates" value="{{actState}}" />
+                    <input style="background-color: rgb(169, 241, 202); font-weight: bold; color: red;" disabled
+                      class=" form-control" placeholder="Active State" type="text" name="activestates"
+                      value="{{actState}}" />
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -65,7 +66,7 @@
                         (click)="activate()" [disabled]="!DeviceToEdit.activestates ">Activate</button></td>
                     <td width="20"></td>
                     <td><button style="width: fit-content;" class=" btn btn-fill btn-danger" type="submit"
-                        (click)="deactivate()" [disabled]=" !DeviceToEdit.activestates">Deactivate</button>
+                        (click)="deactivate()" [disabled]=" !DeviceToEdit.activestates  ">Deactivate</button>
                     </td>
                   </tr>
                 </table>
