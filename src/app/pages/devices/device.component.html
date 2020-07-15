@@ -22,14 +22,19 @@
 
         <div class=" card-body">
           <div class="card" style="width:auto;">
-            
-            <form #form2='ngForm' autocomplete="off">
+
+            <form #form2='ngForm' (ngSubmit)="onsubmitactORdect(form)" autocomplete=" off">
+
+              <input style="background-color: silver;" class=" form-control" placeholder="Device ID" name="deviceid"
+                disabled #deviceid="ngModel" [(ngModel)]="DeviceToEdit.id" type="hidden" required />
+
               <div class=" row">
                 <div class=" col-md-5 pr-md-1">
                   <div class=" form-group">
                     <label> Device ID</label>
-                    <input class=" form-control" placeholder="Device ID" name="deviceid"  disabled #deviceid="ngModel" [(ngModel)]="DeviceToEdit.deviceid"
-                      type="text" required />
+                    <input style="background-color: silver;" class=" form-control" placeholder="Device ID"
+                      name="deviceid" disabled #deviceid="ngModel" [(ngModel)]="DeviceToEdit.deviceid" type="text"
+                      required />
                   </div>
                 </div>
               </div>
@@ -37,24 +42,29 @@
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
                     <label> Active States </label>
-                    <input class=" form-control" placeholder="Active State" type="text" name="activestates" #activestates="ngModel" [(ngModel)]="DeviceToEdit.activestates" />
+                    <input style="background-color: silver;" disabled class=" form-control" placeholder="Active State"
+                      type="text" name="activestates" disa #activestates="ngModel"
+                      [(ngModel)]="DeviceToEdit.activestates" />
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
                   <div class=" form-group">
                     <label> Assigned train </label>
-                    <input class=" form-control" placeholder="Assigned Train" type="text"  name="assignedtrain" #assignedtrain="ngModel" [(ngModel)]="DeviceToEdit.assignedtrain"  />
+                    <input style="background-color: silver;" disabled class=" form-control" placeholder="Assigned Train"
+                      type="text" name="assignedtrain" #assignedtrain="ngModel"
+                      [(ngModel)]="DeviceToEdit.assignedtrain" />
                   </div>
                 </div>
               </div>
               <div class=" card-footer">
                 <table>
                   <tr>
-                    <td><button style="width: 170px;" class=" btn btn-fill btn-success" type="submit" value="submit"
-                        name="submit">Activate</button></td>
+                    <td><button style="width: fit-content;" class=" btn btn-fill btn-success" type="submit"
+                        value="activate" [disabled]="!DeviceToEdit.activestates " name="submit">Activate</button></td>
                     <td width="20"></td>
-                    <td><button style="width: 170px;" class=" btn btn-fill btn-danger" type="submit" value="submit"
-                        name="submit">Deactivate</button></td>
+                    <td><button style="width: fit-content;" class=" btn btn-fill btn-danger" type="submit"
+                        value="deactivate" [disabled]="!DeviceToEdit.activestates" name="submit">Deactivate</button>
+                    </td>
                   </tr>
                 </table>
 

@@ -65,6 +65,20 @@ export class DeviceComponent implements OnInit {
     this.resetForm();
   }
 
+  onsubmitactORdect(form: NgForm) {
+    if (form.value.activestates == "online") {
+      let data = Object.assign({ activestates: "offline" }, form.value);
+      this.deviceservice.adddevice(data);
+      this.toster.success("Activated");
+      // this.resetForm();
+    } else {
+      let data = Object.assign({ activestates: "online" }, form.value);
+      this.deviceservice.adddevice(data);
+      this.toster.success("Dectivated");
+    }
+
+  }
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
