@@ -30,8 +30,8 @@ import { ContactComponent } from './pages/home/contactus/contact/contact.compone
 import { TrainsheduleComponent } from './pages/home/tainShedule/trainshedule/trainshedule.component';
 import { MapComponent } from './pages/home/map/map/map.component';
 import { HomeComponent } from './pages/home/home/home/home.component';
-import { NavbarComponent } from './pages/home/home/navbar/navbar.component';
-import { FooterComponent } from './pages/home/home/footer/footer.component';
+import { HomeNavComponent } from './pages/home/home/home-nav/home-nav.component';
+import { HomefooterComponent } from './pages/home/home/homefooter/homefooter.component';
 
 @NgModule({
   imports: [
@@ -51,7 +51,7 @@ import { FooterComponent } from './pages/home/home/footer/footer.component';
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, NavbarComponent, FooterComponent, ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
