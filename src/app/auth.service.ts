@@ -21,8 +21,7 @@ export class AuthService {
   notifications: Observable<Notification[]>
 
   //trainlist--------------------------------------------------------------------
-  TrainDetailsCollection: AngularFirestoreCollection<TrainDetails>
-  traindetails: Observable<TrainDetails[]>
+
 
   constructor(public afs: AngularFirestore) {
     this.users = this.afs.collection('UserTB').snapshotChanges().pipe(map(changes => {
@@ -40,14 +39,6 @@ export class AuthService {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
         return data;
-      });
-    }));
-
-    this.traindetails = this.afs.collection('TrainDetails').snapshotChanges().pipe(map(changes => {
-      return changes.map(a => {
-        const data2 = a.payload.doc.data() as TrainDetails;
-        data2.id = a.payload.doc.id;
-        return data2;
       });
     }));
 
@@ -94,18 +85,6 @@ export class AuthService {
   }
 
 
-
-  //trainD-----------------------------------------
-
-  firequerytraindetils(start, end) {
-    return this.afs.collection('TrainDetails', ref => ref.orderBy("trainName", "asc").startAt(start).endAt(end)).valueChanges();
-  }
-  getUTraindetails() {
-    return this.traindetails;
-  }
-
-  firequerytraindetilsbyNumber(start, end) {
-    return this.afs.collection('TrainDetails', ref => ref.orderBy("trainNumber", "asc").startAt(start).endAt(end)).valueChanges();
-  }
+  
 
 }

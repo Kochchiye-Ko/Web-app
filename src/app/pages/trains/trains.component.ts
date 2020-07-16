@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Subject, combineLatest } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 import { TrainDetails } from 'src/app/models/traindetails';
+import { TrainsheduleService } from 'src/app/services/trainshedule.service';
 
 @Component({
   selector: "ngbd-timepicker-basic",
@@ -23,25 +24,27 @@ export class TrainsComponent implements OnInit {
   tdstartObs2 = this.tdstartAt2.asObservable();
   tdendObs2 = this.tdendAt2.asObservable();
   trainD2;
-  
+
 
 
   trainDetails: TrainDetails[];
-  constructor(private authservice: AuthService) { }
+  constructor(private TrainsheduleService: TrainsheduleService) {
+
+  }
 
   ngOnInit() {
-    this.authservice.getUTraindetails().subscribe(td => {
+    this.TrainsheduleService.getUTraindetails().subscribe(td => {
       this.trainDetails = td;
       console.log(td)
     }),
       combineLatest(this.tdstartObs, this.tdendObs).subscribe((value) => {
-        this.authservice.firequerytraindetils(value[0], value[1]).subscribe((traind) => {
+        this.TrainsheduleService.firequerytraindetils(value[0], value[1]).subscribe((traind) => {
           this.trainD = traind;
           console.log(traind)
         })
       }),
       combineLatest(this.tdstartObs2, this.tdendObs2).subscribe((value) => {
-        this.authservice.firequerytraindetilsbyNumber(value[0], value[1]).subscribe((traind) => {
+        this.TrainsheduleService.firequerytraindetilsbyNumber(value[0], value[1]).subscribe((traind) => {
           this.trainD = traind;
           console.log(traind)
         })

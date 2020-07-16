@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, combineLatest } from 'rxjs';
 import { DeviceService } from 'src/app/services/device.service';
+import { TrainsheduleService } from 'src/app/services/trainshedule.service';
 
 @Component({
   selector: "app-icons",
@@ -33,10 +34,10 @@ export class DeviceComponent implements OnInit {
 
   actState: String;
 
-  constructor(private authservice: AuthService, private deviceservice: DeviceService, private toster: ToastrService) { }
+  constructor(private authservice: AuthService, private deviceservice: DeviceService, private toster: ToastrService, private TrainsheduleService: TrainsheduleService) { }
 
   ngOnInit() {
-    this.authservice.getUTraindetails().subscribe(td => {
+    this.TrainsheduleService.getUTraindetails().subscribe(td => {
       this.trainDetails = td;
     })
     this.resetForm();
@@ -94,15 +95,6 @@ export class DeviceComponent implements OnInit {
       this.actState = "offline"
       this.toster.error("Device Deactivated");
     }
-
-
-
-
-    // let data = Object.assign({ activestates: "offline" }, form2.value);
-    // console.log(form2.value)
-    // // this.deviceservice.updateState(data, this.ID);
-    // this.toster.success("dilanka");
-    // // this.resetForm();
 
   }
 
