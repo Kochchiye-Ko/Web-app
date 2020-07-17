@@ -5,6 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { AgmCoreModule } from '@agm/core';
+import {APP_BASE_HREF} from '@angular/common';
+
 
 
 import { AppComponent } from "./app.component";
@@ -52,7 +54,7 @@ import { HomefooterComponent } from './pages/home/home/homefooter/homefooter.com
     })
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, ],
-  providers: [AuthService],
+  providers: [AuthService,{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
