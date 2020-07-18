@@ -3,6 +3,10 @@ import { Subject, combineLatest } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 import { TrainDetails } from 'src/app/models/traindetails';
 import { TrainsheduleService } from 'src/app/services/trainshedule.service';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { TShedule } from 'src/app/models/trainshedule';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: "ngbd-timepicker-basic",
@@ -11,6 +15,7 @@ import { TrainsheduleService } from 'src/app/services/trainshedule.service';
 
 
 export class TrainsComponent implements OnInit {
+
   searchSctram2: String;
   tdstartAt = new Subject();
   tdendAt = new Subject();
@@ -25,28 +30,40 @@ export class TrainsComponent implements OnInit {
   tdendObs2 = this.tdendAt2.asObservable();
   trainD2;
 
-
-
   trainDetails: TrainDetails[];
-  constructor(private TrainsheduleService: TrainsheduleService) {
+  stationDetails: TShedule[];
+
+
+  TrainToEdit: TrainDetails;
+
+  constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule) {
 
   }
 
   ngOnInit() {
+
+    this.resetForm();
+
+    this.TrainsheduleService.getstaion().subscribe(stationDetails => {
+      this.stationDetails = stationDetails;
+
+      this.stationDetails.forEach(element => {
+        console.log(element.stlist[0])
+      });
+      // console.log(stationDetails)
+    });
+
     this.TrainsheduleService.getUTraindetails().subscribe(td => {
       this.trainDetails = td;
-      console.log(td)
     }),
       combineLatest(this.tdstartObs, this.tdendObs).subscribe((value) => {
         this.TrainsheduleService.firequerytraindetils(value[0], value[1]).subscribe((traind) => {
           this.trainD = traind;
-          console.log(traind)
         })
       }),
       combineLatest(this.tdstartObs2, this.tdendObs2).subscribe((value) => {
         this.TrainsheduleService.firequerytraindetilsbyNumber(value[0], value[1]).subscribe((traind) => {
           this.trainD = traind;
-          console.log(traind)
         })
       })
   }
@@ -61,5 +78,31 @@ export class TrainsComponent implements OnInit {
     this.tdstartAt2.next(word);
     this.tdendAt2.next(word + "\uf8ff")
   }
+
+
+  resetForm(form?: NgForm) {
+    if (form != null)
+      form.resetForm();
+    this.TrainToEdit = {
+      id: null,
+      dailyOrweekend: null,
+      endStaion: null,
+      startStaion: null,
+      trainName: null,
+      trainNumber: null,
+      trainType: null,
+
+    }
+  }
+
+  onEdit(trains: TrainDetails) {
+    this.TrainToEdit = Object.assign({}, trains)
+    // this.ID = this.userToEdit.id;
+    // this.PHONENO = this.userToEdit.phoneno;
+  }
+
+
+
+
 
 }

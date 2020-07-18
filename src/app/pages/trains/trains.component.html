@@ -8,21 +8,25 @@
           </div>
           <div class=" card-body">
 
-            <form #form="" autocomplete="off">
+            <form #form="ngForm" (ngSubmit)="onsubmit(form)" autocomplete="off">
 
               <div class=" row">
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
                     <label> Train Number</label>
-                    <input class=" form-control" name="trainnmber" placeholder="Train number" type="text" required />
-                    <span class="validation-error" style="color: red;">*required</span>
+                    <input class=" form-control" name="trainnmber" #trainnmber="ngModel"
+                      [(ngModel)]="TrainToEdit.trainNumber" placeholder="Train number" type="text" required />
+                    <span class="validation-error" *ngIf="trainnmber.invalid && trainnmber.touched"
+                      style="color: red;">*required</span>
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
                   <div class=" form-group">
                     <label> Train Name </label>
-                    <input class=" form-control" placeholder="Train Name" type="text" name="trainname" required />
-                    <span class="validation-error" style="color: red;">*required</span>
+                    <input class=" form-control" placeholder="Train Name" type="text" name="trainname"
+                      #trainname="ngModel" [(ngModel)]="TrainToEdit.trainName" required />
+                    <span class="validation-error" style="color: red;"
+                      *ngIf="trainname.invalid && trainname.touched">*required</span>
                   </div>
                 </div>
               </div>
@@ -32,56 +36,46 @@
 
                     <label for="traintype">Choose Train Type: </label>
                     <br />
-                    <select name="traintype" id="traintype" class="btn dropdown-toggle">
-                      <option>Select a type</option>
+                    <select name="traintype" id="traintype" class="btn dropdown-toggle" #traintype="ngModel"
+                      [(ngModel)]="TrainToEdit.trainType">
+                      <option></option>
                       <option value="Express">Express</option>
                       <option value="Intercity">Intercity</option>
                       <option value="LongDistance">Long Distance</option>
                       <option value="Night">Night</option>
                     </select>
-
-                    <span class="validation-error" style="color: red;">*required</span>
+                    <span class="validation-error" *ngIf="traintype.invalid && traintype.touched"
+                      style="color: red;">*required</span>
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
                   <div class=" form-group">
                     <label for="runtime">Choose Run Time: </label>
                     <br />
-                    <select name="runtime" id="runtime" class="btn dropdown-toggle">
-                      <option>Select Run time</option>
+                    <select name="runtime" id="runtime" #runtime="ngModel" [(ngModel)]="TrainToEdit.dailyOrweekend"
+                      class="btn dropdown-toggle">
+                      <option></option>
                       <option value="Daily">Daily</option>
                       <option value="Weekends">Weekends</option>
                       <option value="Special">Special</option>
                     </select>
-                    <span class="validation-error" style="color: red;">*required</span>
+                    <span class="validation-error" *ngIf="runtime.invalid && runtime.touched"
+                      style="color: red;">*required</span>
                   </div>
                 </div>
               </div>
+
               <div class=" row">
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
 
-                    <label for="trainline">Choose Train Line: </label>
-                    <br />
-                    <select name="trainline" id="trainline" class="btn dropdown-toggle">
-                      <option value="Express">------</option>
-                    </select>
-
-                    <span class="validation-error" style="color: red;">*required</span>
-                  </div>
-                </div>
-              </div>
-              <div class=" row">
-                <div class=" col-md-6 pr-md-1">
-                  <div class=" form-group">
 
                     <label for="traintype">Choose Start Staion: </label>
                     <br />
+
                     <select name="traintype" id="traintype" class="btn dropdown-toggle">
-                      <option value="Express">Express</option>
-                      <option value="Intercity">Intercity</option>
-                      <option value="LongDistance">Long Distance</option>
-                      <option value="Night">Night</option>
+                      <option *ngFor="let stationDetails of stationDetails" value="{{stationDetails.stlist}}">
+                      </option>
                     </select>
 
                     <span class="validation-error" style="color: red;">*required</span>
@@ -106,12 +100,12 @@
 
                     <label for="traintype">Choose Start Time: </label>
                     <br />
-                    <select name="traintype" id="traintype" class="btn dropdown-toggle">
-                      <option value="Express">Express</option>
-                      <option value="Intercity">Intercity</option>
-                      <option value="LongDistance">Long Distance</option>
-                      <option value="Night">Night</option>
-                    </select>
+                    <div class=" col-md-6 pr-md-1">
+                      <div class=" form-group">
+                        <input class=" form-control" type="time" name="starttime" #starttime="ngModel"
+                          [(ngModel)]="TrainToEdit.startTime" atp-time-picker value="20:55" />
+                      </div>
+                    </div>
 
                     <span class="validation-error" style="color: red;">*required</span>
                   </div>
@@ -120,12 +114,11 @@
                   <div class=" form-group">
                     <label for="runtime">Choose end Time: </label>
                     <br />
-
-
-                    <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
-                    <hr>
-
-
+                    <div class=" col-md-6 pr-md-1">
+                      <div class=" form-group">
+                        <input class=" form-control" type="time" atp-time-picker value="20:55" />
+                      </div>
+                    </div>
                     <span class="validation-error" style="color: red;">*required</span>
                   </div>
                 </div>
@@ -166,7 +159,7 @@
             </div>
             <ul *ngFor="let train of trainD" class="list-group list-group-flush">
               <a class="secondary-content">
-                <li class="list-group-item" style="height: 10; background-color:#566573;">
+                <li class="list-group-item" style="height: 10; background-color:#566573;" (mouseenter)="onEdit(train)">
                   <center>
                     <table style="width:fit-content">
                       <tr>

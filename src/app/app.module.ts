@@ -24,16 +24,19 @@ import { AuthService } from "../app/auth.service";
 
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 // import { NgbdTimepickerBasic } from './ngx-material-timepicker'
-import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+import { NgbTimepicker } from '@ng-bootstrap/ng-bootstrap';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 import { TrainsheduleComponent } from './pages/home/tainShedule/trainshedule/trainshedule.component';
 import { MapComponent } from './pages/home/map/map/map.component';
 import { HomeComponent } from './pages/home/home/home/home.component';
 
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     NgxMaterialTimepickerModule,
+    AmazingTimePickerModule,
     FormsModule,
     HttpClientModule,
     ComponentsModule,
@@ -48,7 +51,7 @@ import { HomeComponent } from './pages/home/home/home/home.component';
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent,],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
