@@ -1,27 +1,25 @@
 <div class=" content">
     <div class=" row">
       <div class=" col-md-6">
-        <div class=" card">
+        <div class=" card" style="margin-top: 50px;">
           <div class=" card-header">
-            <h4 class=" card-title">Sent Box </h4>
-          </div>
-          <div class=" card-body" *ngIf="notifications?.length > 0;else notification">
-            <ngb-alert class=" alert-with-icon" data-notify="container" [type]="'info'" [dismissible]="false"
-              *ngFor="let notification of notifications">
-              <span class=" tim-icons icon-bell-55" data-notify="icon">
-              </span>
-              <span data-notify="message" style="font-size: medium;">
-               <label style="font-size: small;"> Subject : </label> {{notification.subject}}<br>
-               <label style="font-size: small;"> Message : </label> {{notification.message}}<br>
-              <!-- {{notification.dateTime.toDate() | date:'yyyy/MM/dd  h:mm:ss'}} -->
-              {{notification.dateTime}}
-              </span>
-            </ngb-alert>
-          </div>
+            <div class="head">
+              <h1>Just ask.<br> Get answers <img class="img1" src="../../../../../assets/img/last.png" style="width: 150px; height: 150px; margin-left: 80px; align-self: right;"></h1>
+              <h3>Find us here!</h3>
+              <h4><u>contact@kochchiyako.com</u></h4>
+              <img class="img1" src="../../../../../assets/img/facebook.png" style="width: 30px; height: 30px; margin-top: 20px; margin-bottom: 20px;">
+              <img class="img1" src="../../../../../assets/img/twitter.png" style="width: 30px; height: 30px; margin-top: 20px; margin-bottom: 20px; margin: 15px;">
+              <img class="img1" src="../../../../../assets/img/google-plus.png" style="width: 30px; height: 30px; margin-top: 20px; margin-bottom: 20px; ">
+              <img class="img1" src="../../../../../assets/img/spotify.png" style="width: 30px; height: 30px; margin-top: 20px; margin-bottom: 20px; margin: 15px; ">
+             
+              
+
+            </div>
+            </div>
         </div>
       </div>
       <div class=" col-md-6">
-        <div class=" card">
+        <div class=" card" style="margin-top: 50px;">
           <div class=" card-body">
             <div class="card" style="width:auto;"> 
           <div class=" card-header">
