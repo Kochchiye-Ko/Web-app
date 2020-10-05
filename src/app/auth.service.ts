@@ -24,6 +24,7 @@ export class AuthService {
 
 
   constructor(public afs: AngularFirestore) {
+    
     this.users = this.afs.collection('UserTB').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Users;

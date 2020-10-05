@@ -61,7 +61,7 @@ export class DeviceComponent implements OnInit {
     if ((confirm("Are you sure to delete this user?"))) {
       this.deviceservice.onDelete(id);
       this.toster.error("Successfully deleted");
-      this.resetForm();
+      this.resetForm2();
     }
   }
 
@@ -74,7 +74,7 @@ export class DeviceComponent implements OnInit {
 
   activate() {
     this.activeSyageButton = true;
-    console.log("acticated")
+    console.log("activated")
   }
 
   deactivate() {
@@ -88,7 +88,7 @@ export class DeviceComponent implements OnInit {
       let data = Object.assign({ activestates: "online" }, form2.value);
       this.deviceservice.updateState(data, this.ID);
       this.actState = "online"
-      this.toster.success("Device gitActivated");
+      this.toster.success("Device Activated");
     } else {
       let data = Object.assign({ activestates: "offline" }, form2.value);
       this.deviceservice.updateState(data, this.ID);
@@ -98,9 +98,9 @@ export class DeviceComponent implements OnInit {
 
   }
 
-  resetForm(form?: NgForm) {
-    if (form != null)
-      form.resetForm();
+  resetForm(form2?: NgForm) {
+    if (form2 != null)
+      form2.resetForm();
     this.deviceData = {
       id: null,
       deviceid: null,

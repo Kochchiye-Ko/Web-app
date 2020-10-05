@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebaseConfig: {
     apiKey: "AIzaSyCbrNjz2D1RDK5QEj9RgwgNVL2V62pGZ9c",
     authDomain: "kochchiye-ko.firebaseapp.com",
     databaseURL: "https://kochchiye-ko.firebaseio.com",
@@ -14,7 +14,7 @@ export const environment = {
     appId: "1:281836320699:web:02d8d75f1172ea314c769e",
     measurementId: "G-SR2DLFM2XR"
   },
-  googleMapsKey: "AIzaSyCUqr9Jo1g_rH4j-W5wXw8hgu0T7eKzFuA"
+  googleMapsKey : "AIzaSyBG6bIDrWAEmvgrvqlqGo1M7Za4QJxzVi4" 
 };
 
 /*

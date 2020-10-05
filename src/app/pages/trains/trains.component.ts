@@ -33,8 +33,8 @@ export class TrainsComponent implements OnInit {
   trainDetails: TrainDetails[];
   stationDetails: TShedule[];
 
-
   TrainToEdit: TrainDetails;
+  activeSyageButton: boolean;
 
   constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule) {
 
@@ -97,8 +97,20 @@ export class TrainsComponent implements OnInit {
 
   onEdit(trains: TrainDetails) {
     this.TrainToEdit = Object.assign({}, trains)
+    console.log(this.TrainToEdit.endTime);
     // this.ID = this.userToEdit.id;
     // this.PHONENO = this.userToEdit.phoneno;
+  }
+
+  clear() {
+    this.resetForm();
+    this.activeSyageButton = false;
+  }
+
+  onsubmit(form) {
+    if (this.activeSyageButton != false) {
+      console.log("onsubmit")
+    }
   }
 
 

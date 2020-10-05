@@ -6,7 +6,6 @@ import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { AgmCoreModule } from '@agm/core';
 
-
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
@@ -32,6 +31,9 @@ import { HomeComponent } from './pages/home/home/home/home.component';
 
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 
+
+export const firebaseconfig = environment.firebaseConfig;
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -46,7 +48,7 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     ToastrModule.forRoot(),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
+    AngularFireModule.initializeApp(firebaseconfig, 'angularfs'),
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
     })
