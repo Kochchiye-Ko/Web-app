@@ -6,7 +6,6 @@ import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { AgmCoreModule } from '@agm/core';
 
-
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
@@ -24,16 +23,22 @@ import { AuthService } from "../app/auth.service";
 
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 // import { NgbdTimepickerBasic } from './ngx-material-timepicker'
-import { NgbTimepicker} from '@ng-bootstrap/ng-bootstrap';
+import { NgbTimepicker } from '@ng-bootstrap/ng-bootstrap';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 import { TrainsheduleComponent } from './pages/home/tainShedule/trainshedule/trainshedule.component';
 import { MapComponent } from './pages/home/map/map/map.component';
 import { HomeComponent } from './pages/home/home/home/home.component';
 
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+
+
+export const firebaseconfig = environment.firebaseConfig;
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     NgxMaterialTimepickerModule,
+    AmazingTimePickerModule,
     FormsModule,
     HttpClientModule,
     ComponentsModule,
@@ -43,12 +48,12 @@ import { HomeComponent } from './pages/home/home/home/home.component';
     ToastrModule.forRoot(),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
+    AngularFireModule.initializeApp(firebaseconfig, 'angularfs'),
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent,],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
