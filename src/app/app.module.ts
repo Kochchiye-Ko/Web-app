@@ -42,7 +42,7 @@ export const firebaseconfig = environment.firebaseConfig;
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    NgxMaterialTimepickerModule,
+    // NgxMaterialTimepickerModule,
     AmazingTimePickerModule,
     FormsModule,
     HttpClientModule,

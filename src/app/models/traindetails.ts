@@ -11,4 +11,5 @@ export interface TrainDetails {
     trainName?: string;
     trainNumber?: string;
     trainType?: string;
+    
 }
