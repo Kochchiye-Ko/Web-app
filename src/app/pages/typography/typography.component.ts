@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from 'src/app/auth.service';
+import { AdminService } from '../../admin.service';
 import { Users } from '../../models/users';
 import { NgForm } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, combineLatest } from 'rxjs';
+
 
 
 @Component({
@@ -13,11 +14,7 @@ import { Subject, combineLatest } from 'rxjs';
 })
 export class TypographyComponent implements OnInit {
 
-  users: Users[]= [
-    {
-      firstname: 'Isuri', lastname: 'Geethma', email: 'isuri@gmail.com',phoneno: '0712222222',id: ''
-    }
-  ];
+  users: Users[];
   userToEdit: Users;
   editState: boolean = false;
   userslist: Users;
@@ -30,14 +27,18 @@ export class TypographyComponent implements OnInit {
   startObs = this.startAt.asObservable();
   endObs = this.endAt.asObservable();
   pno;
-  constructor(private authservice: AuthService, private toster: ToastrService) {}
+
+ 
+ 
+ 
+  constructor(private authservice:AdminService,private toster: ToastrService) {}
 
   ngOnInit() {
     this.authservice.getUsers().subscribe(usersx => {
-      //console.log(this.users)
       this.users = usersx;
+   
     }),
-      this.resetForm();
+    this.resetForm();
     combineLatest(this.startObs, this.endObs).subscribe((value) => {
       this.authservice.firequery(value[0], value[1]).subscribe((phoneno) => {
         this.pno = phoneno;
@@ -45,6 +46,7 @@ export class TypographyComponent implements OnInit {
     })
 
   }
+
   onEdit(users: Users) {
     this.userToEdit = Object.assign({}, users)
     this.ID = this.userToEdit.id;
@@ -74,8 +76,19 @@ export class TypographyComponent implements OnInit {
       phoneno: null,
       firstname: null,
       lastname: null,
-      email: null
+      email: null,
+      accountType:null
 
     }
   }
-}
+
+  search($event) {
+    let word = $event.target.value;
+    this.startAt.next(word);
+    this.endAt.next(word + "\uf8ff")
+  }
+
+
+   
+  }
+
