@@ -11,7 +11,7 @@ import { MapComponent } from "../../pages/map/map.component";
 import { NotificationsComponent } from "../../pages/notifications/notifications.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { TrainsComponent } from "../../pages/trains/trains.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
+import { AboutComponent } from "../../pages/about/about.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -29,7 +29,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     UserComponent,
     TrainsComponent,
     DeviceComponent,
-    TypographyComponent,
+    AboutComponent,
     NotificationsComponent,
     MapComponent,
     // RtlComponent

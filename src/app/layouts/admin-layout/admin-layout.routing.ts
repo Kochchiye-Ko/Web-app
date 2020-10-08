@@ -6,7 +6,7 @@ import { MapComponent } from "../../pages/map/map.component";
 import { NotificationsComponent } from "../../pages/notifications/notifications.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { TrainsComponent } from "../../pages/trains/trains.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
+import { AboutComponent } from "../../pages/about/about.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -16,6 +16,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "notifications", component: NotificationsComponent },
   { path: "user", component: UserComponent },
   { path: "trains", component: TrainsComponent },
-  { path: "typography", component: TypographyComponent },
+  { path: "about", component: AboutComponent },
   // { path: "rtl", component: RtlComponent }
 ];

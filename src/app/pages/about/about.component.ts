@@ -10,9 +10,9 @@ import { Subject, combineLatest } from 'rxjs';
 
 @Component({
   selector: "app-typography",
-  templateUrl: "typography.component.html"
+  templateUrl: "about.component.html"
 })
-export class TypographyComponent implements OnInit {
+export class AboutComponent implements OnInit {
 
   users: Users[];
   userToEdit: Users;
