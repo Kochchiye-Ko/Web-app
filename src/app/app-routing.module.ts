@@ -5,29 +5,12 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { HomeComponent } from './pages/home/home/home/home.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 
 const routes: Routes = [
- {
-    path:'',
-    redirectTo: "home",
-    pathMatch: 'full'
-    },
-    {
-      path: 'home',
-      component:HomeComponent
-    },
-    {
-      path: "contact",
-      component: ContactComponent
-
-  },
-
   {
     path: "",
-    component:DashboardComponent
+    redirectTo: "dashboard",
+    pathMatch: "full"
   },
   {
     path: "",
@@ -51,15 +34,17 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "home"
+    redirectTo: "dashboard"
   }
- ];
+];
 
 @NgModule({
   imports: [
-    // CommonModule,
-    // BrowserModule,
-    RouterModule.forRoot(routes)
+    CommonModule,
+    BrowserModule,
+    RouterModule.forRoot(routes, {
+      useHash: true
+    })
   ],
   exports: [RouterModule]
 })

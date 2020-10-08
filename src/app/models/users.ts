@@ -6,7 +6,5 @@ export interface Users {
     email?: String;
     phoneno?: String;
     id?: String;
-
-    accountType?: String;
     dateTime?: String;
 }
