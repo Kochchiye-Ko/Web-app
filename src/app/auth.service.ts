@@ -88,6 +88,4 @@ export class AuthService {
     this.notificaitonsCollection.add(addNot);
   }
 
-
-
 }
