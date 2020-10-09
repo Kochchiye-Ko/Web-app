@@ -103,7 +103,8 @@ export class AuthService {
 
 
   addMessages(addmessages: Messages){
-    // this.messageCollection.add(addmessages);
+    //  this.messageCollection.add(addmessages);
+     this.afs.collection(`Messages`).add(addmessages);
   }
  
 
