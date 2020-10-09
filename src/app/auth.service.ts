@@ -20,8 +20,6 @@ export class AuthService {
   notificaitonsCollection: AngularFirestoreCollection<Notification>
   notifications: Observable<Notification[]>
 
-  //trainlist--------------------------------------------------------------------
-
 
   constructor(public afs: AngularFirestore) {
 
@@ -89,6 +87,5 @@ export class AuthService {
   addNotification(addNot: Notification) {
     this.notificaitonsCollection.add(addNot);
   }
-
 
 }

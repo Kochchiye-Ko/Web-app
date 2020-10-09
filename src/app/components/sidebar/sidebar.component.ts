@@ -59,19 +59,13 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/typography",
+    path: "/about",
     title: "About",
     rtlTitle: "طباعة",
     icon: "icon-alert-circle-exc",
     class: ""
   },
-  // {
-  //   path: "/rtl",
-  //   title: "RTL Support",
-  //   rtlTitle: "ار تي ال",
-  //   icon: "icon-world",
-  //   class: ""
-  // }
+
 ];
 
 @Component({

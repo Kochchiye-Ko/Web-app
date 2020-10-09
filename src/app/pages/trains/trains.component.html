@@ -189,10 +189,11 @@
                       <div class=" form-group">
                         <input class=" form-control" type="time" name="starttime" #starttime="ngModel"
                           [(ngModel)]="TrainToEdit.startTime" atp-time-picker value="{{TrainToEdit.startTime}}" />
+                          <span class="validation-error" *ngIf="TrainToEdit.invalid && TrainToEdit.touched" style="color: red;">*required</span>
                       </div>
                     </div>
-
-                    <span class="validation-error" style="color: red;">*required</span>
+                    <span>{{TrainToEdit.startTime}}</span>
+                   
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -202,9 +203,9 @@
                     <div class=" col-md-6 pr-md-1">
                       <div class=" form-group">
                         <input class=" form-control" type="time" atp-time-picker value="20:55" />
+                        <span class="validation-error" style="color: red;">*required</span>
                       </div>
                     </div>
-                    <span class="validation-error" style="color: red;">*required</span>
                   </div>
                 </div>
               </div>
