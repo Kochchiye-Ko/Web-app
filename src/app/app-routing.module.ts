@@ -11,8 +11,8 @@ import { ContactComponent } from './pages/home/contactus/contact/contact.compone
 import { TrainsheduleComponent } from "./pages/home/tainShedule/trainshedule/trainshedule.component";
 
 const routes: Routes = [
- {
-    path:'',
+  {
+    path: '',
     redirectTo: "home",
     pathMatch: 'full'
     },
@@ -32,7 +32,7 @@ const routes: Routes = [
 
   {
     path: "",
-    component:DashboardComponent
+    component: DashboardComponent
   },
   {
     path: "",
@@ -58,7 +58,7 @@ const routes: Routes = [
     path: "**",
     redirectTo: "home"
   }
- ];
+];
 
 @NgModule({
   imports: [
@@ -68,4 +68,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
