@@ -1,1 +1,117 @@
-<p>lostitem works!</p>
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-8">
+            <div class=" card">
+                <div class=" card-header">
+                    <h5 class=" title">Lost Items</h5>
+                </div>
+                <div class=" card-body">
+
+                    <form #form="ngForm" (ngSubmit)="onsubmit(form)" autocomplete="off">
+
+                        <input class=" form-control" disabled="" name="id" #id="ngModel"
+                            [(ngModel)]="lostItemDetailsToEdit.id" placeholder="id" type="hidden" />
+
+                        <div class=" row">
+                            <div class=" col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Item Title</label>
+                                    <input class=" form-control" name="itemtitle" #itemtitle="ngModel"
+                                        [(ngModel)]="lostItemDetailsToEdit.itemtitle" placeholder="Title" type="text" />
+                                </div>
+                            </div>
+                            <div class=" col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label> State</label>
+                                    <input class=" form-control" name="state" #state="ngModel"
+                                        [(ngModel)]="lostItemDetailsToEdit.state" placeholder="State" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label> User ID</label>
+                                    <input class=" form-control" name="uid" #uid="ngModel"
+                                        [(ngModel)]="lostItemDetailsToEdit.uid" placeholder="User ID" type="text" />
+                                </div>
+                            </div>
+                            <div class=" col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Phone Number</label>
+                                    <input class=" form-control" name="userphonenumber" #userphonenumber="ngModel"
+                                        [(ngModel)]="lostItemDetailsToEdit.userphonenumber" placeholder="Phone number"
+                                        type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-5 pr-md-1">
+                                <div class=" form-group">
+                                    <label> Date</label>
+                                    <input class=" form-control" name="date" #date="ngModel"
+                                        [(ngModel)]="lostItemDetailsToEdit.date" placeholder="Date" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-8">
+                                <div class=" form-group">
+                                    <label> Descriptions</label>
+                                    <textarea class=" form-control" cols="80" placeholder="Desc" rows="4" value="Mike"
+                                        #descriptions="ngModel" [(ngModel)]="lostItemDetailsToEdit.descriptions"
+                                        [ngModelOptions]="{standalone: true}">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" card-footer">
+                            <!-- <button class=" btn btn-fill btn-info" [disabled]="!form.valid" type="submit" value="submit"
+                                name="submit">Update</button> -->
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class=" card card-user">
+                <div class=" card-body">
+                    <div class=" author">
+                        <img class=" avatar" src="https://img.icons8.com/bubbles/100/000000/phone-crown.png" />
+                        <h5 class=" title">Lost Items</h5>
+                    </div>
+
+                    <div class="card" style="width:auto;">
+                        <div class="card-header" style="height: 45px; background-color:#393e41;">
+                            List
+                        </div>
+                        <ul *ngFor="let items of lostItemDetails" class="list-group list-group-flush">
+                            <a class="secondary-content">
+                                <li class="list-group-item" style="height: 10; background-color:#566573;"
+                                    (mouseenter)="onEdit(items)">
+                                    <center>
+                                        <table style="width:fit-content">
+                                            <tr>
+                                                <td width="75%">
+                                                    {{items.uid}} | {{items.userphonenumber}}
+                                                </td>
+                                                <td width="200" align="right">
+                                                    <i (click)="onDelete(items.id)"
+                                                        class=" tim-icons icon-simple-remove"
+                                                        style="color:rgb(236, 129, 5) ;"></i>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </center>
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
