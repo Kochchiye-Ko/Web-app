@@ -34,6 +34,7 @@ import { HomeComponent } from './pages/home/home/home/home.component';
 import { HomeNavComponent } from './pages/home/home/home-nav/home-nav.component';
 import { HomefooterComponent } from './pages/home/home/homefooter/homefooter.component';
 
+
 // import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 

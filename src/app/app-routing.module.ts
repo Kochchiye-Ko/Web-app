@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { HomeComponent } from './pages/home/home/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
+import { TrainsheduleComponent } from "./pages/home/tainShedule/trainshedule/trainshedule.component";
 
 const routes: Routes = [
  {
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
       path: 'home',
       component:HomeComponent
+    },
+    {
+      path:"trainschedule",
+      component: TrainsheduleComponent
     },
     {
       path: "contact",
