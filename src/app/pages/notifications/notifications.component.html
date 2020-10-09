@@ -10,11 +10,13 @@
             *ngFor="let notification of notifications">
             <span class=" tim-icons icon-bell-55" data-notify="icon">
             </span>
+
             <span data-notify="message" style="font-size: medium;">
              <label style="font-size: small;"> Subject : </label> {{notification.subject}}<br>
              <label style="font-size: small;"> Message : </label> {{notification.message}}<br>
             <!-- {{notification.dateTime.toDate() | date:'yyyy/MM/dd  h:mm:ss'}} -->
             {{notification.dateTime}}
+
             </span>
           </ngb-alert>
         </div>
@@ -23,43 +25,45 @@
     <div class=" col-md-6">
       <div class=" card">
         <div class=" card-body">
-          <div class="card" style="width:auto;"> 
-        <div class=" card-header">
-          <h4 class=" card-title">Create Message</h4>
-        </div>
-        <form (ngSubmit)="onSubmit()">
-          <div class=" row">
-            <div class=" col-md-12">
-              <div class=" form-group">
-                <label> Subject </label>
-                <input class=" form-control" placeholder="subject" type="text" #subject="ngModel" [(ngModel)]="addNot.subject" [ngModelOptions]="{standalone: true}" name="subject" required/>
-                <span *ngIf="subject.invalid && subject.touched" class="validation-error"
-                    style="color: red;">*required</span>
-              </div>
+          <div class="card" style="width:auto;">
+            <div class=" card-header">
+              <h4 class=" card-title">Create Message</h4>
             </div>
-          </div>
-          <div class=" row">
-            <div class=" col-md-8">
-              <div class=" form-group">
-                <label> Message </label>
-                <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike" #message="ngModel" [(ngModel)]="addNot.message" [ngModelOptions]="{standalone: true}" required>
+            <form (ngSubmit)="onSubmit()">
+              <div class=" row">
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label> Subject </label>
+                    <input class=" form-control" placeholder="subject" type="text" #subject="ngModel"
+                      [(ngModel)]="addNot.subject" [ngModelOptions]="{standalone: true}" name="subject" required />
+                    <span *ngIf="subject.invalid && subject.touched" class="validation-error"
+                      style="color: red;">*required</span>
+                  </div>
+                </div>
+              </div>
+              <div class=" row">
+                <div class=" col-md-8">
+                  <div class=" form-group">
+                    <label> Message </label>
+                    <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike"
+                      #message="ngModel" [(ngModel)]="addNot.message" [ngModelOptions]="{standalone: true}" required>
               </textarea><span *ngIf="message.invalid && message.touched" class="validation-error"
-              style="color: red;">*required</span>
+                      style="color: red;">*required</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class=" card-footer">
-            <button style="width: 170px;" class=" btn btn-fill btn-warning"  type="submit" value="submit"
-              name="send">Send</button>
-          </div>
-        </form>
+              <div class=" card-footer">
+                <button style="width: 170px;" class=" btn btn-fill btn-warning" type="submit" value="submit"
+                  name="send">Send</button>
+              </div>
+            </form>
 
-      
-           
+
+
           </div>
         </div>
-       </div>
-     </div>
+      </div>
+    </div>
     <!-- <div class=" content">
   <div class=" row">
     <div class=" col-md-6">

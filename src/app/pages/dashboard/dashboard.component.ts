@@ -491,7 +491,7 @@ export class DashboardComponent implements OnInit {
         data: {
           labels: chart_labels,
           datasets: [{
-            label: "My First dataset",
+            label: "New Users",
             fill: true,
             backgroundColor: gradientStroke,
             borderColor: '#ec250d',
