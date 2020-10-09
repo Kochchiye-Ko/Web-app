@@ -10,24 +10,24 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 
 const routes: Routes = [
- {
-    path:'',
+  {
+    path: '',
     redirectTo: "home",
     pathMatch: 'full'
-    },
-    {
-      path: 'home',
-      component:HomeComponent
-    },
-    {
-      path: "contact",
-      component: ContactComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: "contact",
+    component: ContactComponent
 
   },
 
   {
     path: "",
-    component:DashboardComponent
+    component: DashboardComponent
   },
   {
     path: "",
@@ -53,7 +53,7 @@ const routes: Routes = [
     path: "**",
     redirectTo: "home"
   }
- ];
+];
 
 @NgModule({
   imports: [
@@ -63,4 +63,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
