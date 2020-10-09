@@ -21,7 +21,7 @@ export class AuthService {
   notificaitonsCollection: AngularFirestoreCollection<Notification>
   notifications: Observable<Notification[]>
 
- //contact us
+ //contact us ---------------------------------------------------------
 
  messageCollection : AngularFirestoreCollection<Messages>
  messages: Observable<Messages[]>
@@ -36,10 +36,7 @@ export class AuthService {
       });
     }));
 
-    //this.notifications = this.afs.collection('Notification').valueChanges();
-
-   // this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'asc'));
-    //this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+  //Notifications..........................................................................
 
     this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
     this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
@@ -101,9 +98,10 @@ export class AuthService {
     return this.afs.collection('TrainDetails', ref => ref.orderBy("trainName", "asc").startAt(start).endAt(end)).valueChanges();
   }
 
+//Meaasages ------------------------------------------------------
 
   addMessages(addmessages: Messages){
-    //  this.messageCollection.add(addmessages);
+ 
      this.afs.collection(`Messages`).add(addmessages);
   }
  
