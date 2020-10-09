@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
 import { TrainDetails } from './models/traindetails';
+import { Messages } from './models/messages';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class AuthService {
   //trainlist--------------------------------------------------------------------
   TrainDetailsCollection: AngularFirestoreCollection<TrainDetails>
   traindetails: Observable<TrainDetails[]>
+  //contact us-------------------------------------------------------------------
+  MessageCollection:AngularFirestoreCollection<Messages>
+  messages: Observable<Messages[]>
 
   constructor(public afs: AngularFirestore) {
     this.users = this.afs.collection('UserTB').snapshotChanges().pipe(map(changes => {
@@ -50,6 +54,15 @@ export class AuthService {
         return data2;
       });
     }));
+
+  
+    this.messages = this.afs.collection('Messages').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data =  a.payload.doc.data() as Messages;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }))
 
   }
 
@@ -98,6 +111,11 @@ export class AuthService {
 
   firequerytraindetilsbyNumber(start, end) {
     return this.afs.collection('TrainDetails', ref => ref.orderBy("trainNumber", "asc").startAt(start).endAt(end)).valueChanges();
+  }
+  //messagess------------------------------------------------------
+  
+  addMessages(addmessages: Messages){
+    this.MessageCollection.add(addmessages);
   }
  
 }
