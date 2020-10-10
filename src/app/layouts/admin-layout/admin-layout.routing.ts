@@ -9,6 +9,7 @@ import { TrainsComponent } from "../../pages/trains/trains.component";
 
 import { AboutComponent } from "../../pages/userprof/userprof.component";
 import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.component"
+import { HomeComponent } from 'src/app/pages/home/home/home/home.component';
 
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
@@ -19,6 +20,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "notifications", component: NotificationsComponent },
   { path: "user", component: UserComponent },
   { path: "trains", component: TrainsComponent },
+  { path: "home", component: HomeComponent },
 
   { path: "userprofile", component: AboutComponent },
 
