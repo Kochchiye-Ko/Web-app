@@ -47,6 +47,7 @@ export class TrainsheduleService {
       });
     }));
   }
+
   getUTraindetails() {
     return this.traindetails;
   }
@@ -60,6 +61,8 @@ export class TrainsheduleService {
       });
     }));
   }
+
+
   onDelete(id: String) {
     this.userDoc = this.afs.doc(`TrainDetails/${id}`)
     this.userDoc.delete();

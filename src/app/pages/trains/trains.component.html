@@ -490,12 +490,13 @@
                   <center>
                     <table style="width:fit-content">
                       <tr>
-                        <td width="950">
+                        <td width="500">
                           {{train.trainNumber}} : {{train.trainName}}
                         </td>
                         <td width="200" align="right">
                           <!-- <button (click)="onDelete(users.id)" class="btn btn-danger">X</button> -->
-                          <i class=" tim-icons icon-simple-remove" style="color:rgb(236, 129, 5) ;"></i>
+                          <i class=" tim-icons icon-simple-remove" (click)="onDelete(train.id)"
+                            style="color:rgb(236, 129, 5) ;"></i>
                         </td>
                       </tr>
                     </table>

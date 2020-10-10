@@ -98,12 +98,6 @@ export class TrainsComponent implements OnInit {
     this.ID = this.TrainToEdit.id;
   }
 
-  clear() {
-    this.resetForm();
-  }
-  clear2() {
-    this.resetForm2();
-  }
   resetForm2(form2?: NgForm) {
     if (form2 != null)
       form2.resetForm();
@@ -122,7 +116,6 @@ export class TrainsComponent implements OnInit {
   onsubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
     this.TrainsheduleService.updateTrains(data, this.ID);
-    console.log(this.ID);
     this.toster.success("Successfully updated");
   }
 
@@ -130,7 +123,7 @@ export class TrainsComponent implements OnInit {
     if ((confirm("Are you sure to delete this user?"))) {
       this.TrainsheduleService.onDelete(this.ID);
       this.toster.error("Successfully deleted");
-      this.resetForm2();
+      this.resetForm();
     }
   }
 
