@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { HomeComponent } from './pages/home/home/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
+import { LoginComponent } from './pages/home/login/login/login.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
     component: ContactComponent
 
   },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+
 
   {
     path: "",
