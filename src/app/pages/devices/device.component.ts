@@ -31,7 +31,6 @@ export class DeviceComponent implements OnInit {
   DEVICEID: String;
 
   activeSyageButton: boolean;
-
   actState: String;
 
   constructor(private authservice: AuthService, private deviceservice: DeviceService, private toster: ToastrService, private TrainsheduleService: TrainsheduleService) { }

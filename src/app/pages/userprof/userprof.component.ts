@@ -10,7 +10,7 @@ import { Subject, combineLatest } from 'rxjs';
 
 @Component({
   selector: "app-typography",
-  templateUrl: "about.component.html"
+  templateUrl: "userprof.component.html"
 })
 export class AboutComponent implements OnInit {
 

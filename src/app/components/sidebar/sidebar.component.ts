@@ -59,10 +59,10 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/about",
-    title: "About",
+    path: "/userprofile",
+    title: "Profile",
     rtlTitle: "طباعة",
-    icon: "icon-alert-circle-exc",
+    icon: "icon-badge",
     class: ""
   },
 

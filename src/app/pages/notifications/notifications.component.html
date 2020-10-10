@@ -12,10 +12,10 @@
             </span>
 
             <span data-notify="message" style="font-size: medium;">
-             <label style="font-size: small;"> Subject : </label> {{notification.subject}}<br>
-             <label style="font-size: small;"> Message : </label> {{notification.message}}<br>
-            <!-- {{notification.dateTime.toDate() | date:'yyyy/MM/dd  h:mm:ss'}} -->
-            {{notification.dateTime}}
+              <label style="font-size: small;"> Subject : </label> {{notification.subject}}<br>
+              <label style="font-size: small;"> Message : </label> {{notification.message}}<br>
+              <!-- {{notification.dateTime.toDate() | date:'yyyy/MM/dd  h:mm:ss'}} -->
+              {{notification.dateTime}}
 
             </span>
           </ngb-alert>
@@ -47,7 +47,7 @@
                     <label> Message </label>
                     <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike"
                       #message="ngModel" [(ngModel)]="addNot.message" [ngModelOptions]="{standalone: true}" required>
-              </textarea><span *ngIf="message.invalid && message.touched" class="validation-error"
+                        </textarea><span *ngIf="message.invalid && message.touched" class="validation-error"
                       style="color: red;">*required</span>
                   </div>
                 </div>
