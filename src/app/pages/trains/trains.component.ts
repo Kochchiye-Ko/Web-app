@@ -36,6 +36,8 @@ export class TrainsComponent implements OnInit {
 
   TrainToEdit: TrainDetails;
   ID: String;
+  
+  trainData : TrainDetails;
 
   constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule, private toster: ToastrService) {
 
@@ -95,17 +97,34 @@ export class TrainsComponent implements OnInit {
   onEdit(trains: TrainDetails) {
     this.TrainToEdit = Object.assign({}, trains)
     this.ID = this.TrainToEdit.id;
-    console.log(this.TrainToEdit);
   }
 
   clear() {
     this.resetForm();
   }
+  clear2() {
+    this.resetForm2();
+  }
+  resetForm2(form2?: NgForm) {
+    if (form2 != null)
+      form2.resetForm();
+    this.trainData = {
+      id: null,
+      dailyOrweekend: null,
+      endStaion: null,
+      startStaion: null,
+      trainName: null,
+      trainNumber: null,
+      trainType: null,
+
+    }
+  }
 
   onsubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
-    // this.deviceservice.adddevice(data);
-    this.toster.success("Successfully Updated.");
+    this.TrainsheduleService.updateTrains(data, this.ID);
+    console.log(this.ID);
+    this.toster.success("Successfully updated");
   }
 
   onDelete(id: String) {
@@ -116,5 +135,11 @@ export class TrainsComponent implements OnInit {
     }
   }
 
+  onsubmitnew(form: NgForm) {
+    let data = Object.assign({}, form.value);
+    this.TrainsheduleService.addNewTrain(data);
+    this.toster.success("Successfully Added.");
+    this.resetForm();
+  }
 
 }

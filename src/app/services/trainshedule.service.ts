@@ -65,7 +65,14 @@ export class TrainsheduleService {
     this.userDoc.delete();
     console.log(id)
   }
+  updateTrains(data: TrainDetails, ID: String) {
+    this.userDoc = this.afs.doc(`TrainDetails/${ID}`)
+    this.userDoc.update(data);
+  }
 
+  addNewTrain(data: TrainDetails) {
+    this.afs.collection(`TrainDetails`).add(data);
+  }
 
 
 }

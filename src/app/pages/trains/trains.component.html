@@ -17,7 +17,7 @@
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
                     <label> Train Number</label>
-                    <input class=" form-control" name="trainnmber" #trainnmber="ngModel"
+                    <input class=" form-control" name="trainNumber" #trainnmber="ngModel"
                       [(ngModel)]="TrainToEdit.trainNumber" placeholder="Train number" type="text" required />
                     <span *ngIf="trainnmber.invalid && trainnmber.touched" class="validation-error"
                       style="color: red;">*required</span>
@@ -26,7 +26,7 @@
                 <div class=" col-md-6 pl-md-1">
                   <div class=" form-group">
                     <label> Train Name </label>
-                    <input class=" form-control" placeholder="Train Name" type="text" name="trainname"
+                    <input class=" form-control" placeholder="Train Name" type="text" name="trainName"
                       #trainname="ngModel" [(ngModel)]="TrainToEdit.trainName" required />
                     <span class="validation-error" style="color: red;"
                       *ngIf="trainname.invalid && trainname.touched">*required</span>
@@ -37,9 +37,9 @@
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
 
-                    <label for="traintype">Choose Train Type: </label>
+                    <label for="trainType">Choose Train Type: </label>
                     <br />
-                    <select name="traintype" id="traintype" class="btn dropdown-toggle" #traintype="ngModel"
+                    <select name="trainType" id="traintype" class="btn dropdown-toggle" #traintype="ngModel"
                       [(ngModel)]="TrainToEdit.trainType">
                       <option></option>
                       <option value="Express">Express</option>
@@ -55,7 +55,7 @@
                   <div class=" form-group">
                     <label for="runtime">Choose Run Time: </label>
                     <br />
-                    <select name="runtime" id="runtime" #runtime="ngModel" [(ngModel)]="TrainToEdit.dailyOrweekend"
+                    <select name="dailyOrweekend" id="runtime" #runtime="ngModel" [(ngModel)]="TrainToEdit.dailyOrweekend"
                       class="btn dropdown-toggle">
                       <option></option>
                       <option value="Daily">Daily</option>
@@ -215,11 +215,10 @@
               <div class=" card-footer">
                 <table>
                   <tr>
-
-                    <td><button class=" btn btn-fill btn-info" type="submit" [disabled]="!form.valid" value="submit"
-                        name="submit">Update</button></td>
-                    <td width=20></td>
-
+                      <td><button class=" btn btn-fill btn-info" type="submit" [disabled]="!form.valid" value="submit"
+                          name="submit">Update</button></td>
+                      <td width=20></td>
+                     
                     <td><button class=" btn btn-fill btn-warning" (click)="clear()" [disabled]="!form.valid"
                         type="submit" value="reset" name="reset">Reset</button>
                     </td>
@@ -262,11 +261,11 @@
                   <center>
                     <table style="width:fit-content">
                       <tr>
-                        <td width="75">
+                        <td width="75%">
                           {{train.trainNumber}} : {{train.trainName}}
                         <td width="200" align="right">
                           <!-- <button (click)="onDelete(users.id)" class="btn btn-danger">X</button> -->
-                          <i class=" tim-icons icon-simple-remove" (click)="onDelete(train.id)"
+                          <i class=" tim-icons icon-simple-remove" (click)="onDelete(train.trainD)"
                             style="color:rgb(236, 129, 5) ;"></i>
                         </td>
                       </tr>
