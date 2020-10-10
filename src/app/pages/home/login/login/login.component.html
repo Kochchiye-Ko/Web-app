@@ -1,0 +1,70 @@
+
+<app-home-nav></app-home-nav>
+<div class="container "> 
+    <div class="row"> <!--ro 01-->
+        <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+              <mat-card class="login">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                     <mat-card-title>Login With Us</mat-card-title>
+                </mat-card-header>
+                 <mat-card-content>
+                    <form class="example-form" (ngSubmit)="login()">
+
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Email*</mat-label>
+                          <input matInput [formControl]="emailFormControl" name="email" [(ngModel)]="email" placeholder="Ex. abc@example.com"  >
+                          <!-- ngModel for data binding -->
+                          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                          </mat-error>
+                          <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                          </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill" class="example-full-width">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" placeholder="Password"  required >
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                          </mat-form-field>
+
+                        
+
+                      <div>
+                      <div class="text-center">
+                        <!-- Forgot password -->
+                        <!-- <a href="../forgot-password">Forgot password?</a> -->
+                      </div>
+                      </div>
+
+                
+                <mat-card-actions>
+                    <button mat-raised-button color="accent" class="example-full-width" >Login</button>
+                 </mat-card-actions>
+
+                </form>
+                <!-- Register -->
+                <p>Not a member?
+                <!-- <a href="../register">Register</a> -->
+                </p>
+
+                <div class="form-group">
+                  <!-- give firebase error message -->
+                  <p *ngIf="errorMessage.length > 0" class="text-danger"> 
+                  <strong>{{errorMessage}}</strong>
+                  </p>
+                  <p *ngIf="error.message.length > 0" class="text-danger">
+                    <strong>{{error.message}}</strong>
+                  </p>
+                </div>
+
+              </mat-card-content>
+            </mat-card>
+        </div>
+    </div> <!--end of row 1-->
+  </div> <!--end of container-->
+  <br/><br/><br/><br/><br/><br/><br/><br/>
+  <app-homefooter></app-homefooter>
