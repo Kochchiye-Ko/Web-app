@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { HomeComponent } from './pages/home/home/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
+import { RegisterComponent } from './pages/home/register/register/register.component';
 import { LoginComponent } from './pages/home/login/login/login.component';
 
 const routes: Routes = [
@@ -29,11 +30,11 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent
   },
-
   {
-    path: "",
-    component: DashboardComponent
+    path: "register",
+    component: RegisterComponent
   },
+
   {
     path: "",
     component: AdminLayoutComponent,

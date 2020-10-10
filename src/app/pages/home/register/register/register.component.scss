@@ -1,0 +1,29 @@
+.register {
+    max-width: 600px;
+    margin-top: 70px;
+  }
+
+.header-image {
+    // background-image: url('../../../assets/images/Picture1.png');
+    background-size: cover;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  td {
+    padding-right: 0px;
+  }
+
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  

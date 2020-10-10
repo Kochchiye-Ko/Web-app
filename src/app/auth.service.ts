@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
 import { TrainDetails } from './models/traindetails';
+import { Messages } from './models/messages';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class AuthService {
   notificaitonsCollection: AngularFirestoreCollection<Notification>
   notifications: Observable<Notification[]>
 
+ //contact us ---------------------------------------------------------
+
+ messageCollection : AngularFirestoreCollection<Messages>
+ messages: Observable<Messages[]>
+
 
   constructor(public afs: AngularFirestore) {
 
@@ -31,10 +37,13 @@ export class AuthService {
       });
     }));
 
+  //Notifications..........................................................................
+
     //this.notifications = this.afs.collection('Notification').valueChanges();
 
     // this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'asc'));
     //this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+
 
     this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
     this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
@@ -87,5 +96,20 @@ export class AuthService {
   addNotification(addNot: Notification) {
     this.notificaitonsCollection.add(addNot);
   }
+
+
+  //trainD-----------------------------------------
+
+  firequerytraindetils(start, end) {
+    return this.afs.collection('TrainDetails', ref => ref.orderBy("trainName", "asc").startAt(start).endAt(end)).valueChanges();
+  }
+
+//Meaasages ------------------------------------------------------
+
+  addMessages(addmessages: Messages){
+ 
+     this.afs.collection(`Messages`).add(addmessages);
+  }
+ 
 
 }

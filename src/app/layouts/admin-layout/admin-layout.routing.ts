@@ -10,6 +10,8 @@ import { TrainsComponent } from "../../pages/trains/trains.component";
 import { AboutComponent } from "../../pages/userprof/userprof.component";
 import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.component"
 import { HomeComponent } from 'src/app/pages/home/home/home/home.component';
+import { LoginComponent } from 'src/app/pages/home/login/login/login.component';
+import { RegisterComponent } from 'src/app/pages/home/register/register/register.component';
 
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
@@ -21,9 +23,9 @@ export const AdminLayoutRoutes: Routes = [
   { path: "user", component: UserComponent },
   { path: "trains", component: TrainsComponent },
   { path: "home", component: HomeComponent },
-  
+  { path: "login", component: LoginComponent },
   { path: "userprofile", component: AboutComponent },
-
+  { path: "register", component: RegisterComponent },
   { path: "lostItem", component: LostitemComponent },
   // { path: "rtl", component: RtlComponent }
 ];
