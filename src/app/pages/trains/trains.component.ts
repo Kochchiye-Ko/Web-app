@@ -6,6 +6,7 @@ import { TrainsheduleService } from 'src/app/services/trainshedule.service';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TShedule } from 'src/app/models/trainshedule';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class TrainsComponent implements OnInit {
   tdendAt = new Subject();
   tdstartObs = this.tdstartAt.asObservable();
   tdendObs = this.tdendAt.asObservable();
-  trainD;
+  trainD: TrainDetails[];
 
   searchSctram3: String;
   tdstartAt2 = new Subject();
@@ -34,9 +35,9 @@ export class TrainsComponent implements OnInit {
   stationDetails: TShedule[];
 
   TrainToEdit: TrainDetails;
-  activeSyageButton: boolean;
+  ID: String;
 
-  constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule) {
+  constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule, private toster: ToastrService) {
 
   }
 
@@ -46,11 +47,6 @@ export class TrainsComponent implements OnInit {
 
     this.TrainsheduleService.getstaion().subscribe(stationDetails => {
       this.stationDetails = stationDetails;
-
-      this.stationDetails.forEach(element => {
-        console.log(element.stlist[0])
-      });
-      // console.log(stationDetails)
     });
 
     this.TrainsheduleService.getUTraindetails().subscribe(td => {
@@ -60,6 +56,7 @@ export class TrainsComponent implements OnInit {
         this.TrainsheduleService.firequerytraindetils(value[0], value[1]).subscribe((traind) => {
           this.trainD = traind;
         })
+        console.log(this.trainD)
       }),
       combineLatest(this.tdstartObs2, this.tdendObs2).subscribe((value) => {
         this.TrainsheduleService.firequerytraindetilsbyNumber(value[0], value[1]).subscribe((traind) => {
@@ -97,24 +94,27 @@ export class TrainsComponent implements OnInit {
 
   onEdit(trains: TrainDetails) {
     this.TrainToEdit = Object.assign({}, trains)
-    console.log(this.TrainToEdit.endTime);
-    // this.ID = this.userToEdit.id;
-    // this.PHONENO = this.userToEdit.phoneno;
+    this.ID = this.TrainToEdit.id;
+    console.log(this.TrainToEdit);
   }
 
   clear() {
     this.resetForm();
-    this.activeSyageButton = false;
   }
 
-  onsubmit(form) {
-    if (this.activeSyageButton != false) {
-      console.log("onsubmit")
+  onsubmit(form: NgForm) {
+    let data = Object.assign({}, form.value);
+    // this.deviceservice.adddevice(data);
+    this.toster.success("Successfully Updated.");
+  }
+
+  onDelete(id: String) {
+    if ((confirm("Are you sure to delete this user?"))) {
+      this.TrainsheduleService.onDelete(this.ID);
+      this.toster.error("Successfully deleted");
+      this.resetForm();
     }
   }
-
-
-
 
 
 }

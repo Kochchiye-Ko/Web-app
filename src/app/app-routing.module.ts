@@ -57,9 +57,12 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    // CommonModule,
-    // BrowserModule,
-    RouterModule.forRoot(routes)
+    CommonModule,
+    BrowserModule,
+    // RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {
+      useHash: true
+    })
   ],
   exports: [RouterModule]
 })

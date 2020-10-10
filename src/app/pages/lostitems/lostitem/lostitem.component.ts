@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { LostItems } from 'src/app/models/lostItem';
 import { LostitemserviceService } from 'src/app/services/lostitemservice.service';
@@ -16,7 +16,7 @@ export class LostitemComponent implements OnInit {
 
   lostItemDetails: LostItems[];
   lostItemDetailsToEdit: LostItems;
-
+  date
   constructor(private lostitemserviceService: LostitemserviceService, private toster: ToastrService) {
 
   }
@@ -35,7 +35,8 @@ export class LostitemComponent implements OnInit {
       this.resetForm();
     }
   }
-  onEdit(items: LostItems) {
+  onEdit(items: LostItems, asd) {
+    console.log(asd);
     this.lostItemDetailsToEdit = Object.assign({}, items)
   }
 
