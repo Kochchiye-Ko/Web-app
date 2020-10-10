@@ -1,1 +1,74 @@
-<p>register works!</p>
+<app-home-nav></app-home-nav>
+<div class="container">
+    <div class="row">
+        <!--ro 01-->
+        <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+            <mat-card class="register">
+                <mat-card-header>
+                    <div mat-card-avatar class="header-image"></div>
+                    <mat-card-title>Register With Us</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form class="example-form" (ngSubmit)="register()">
+                        <!-- <table class="example-full-width" cellspacing="0" ><tr>
+                            <td><mat-form-field class="example-full-width"  appearance="fill" >
+                              <mat-label>First name</mat-label>
+                              <input matInput name="firstName" [(ngModel)]="firstName" required>
+                            </mat-form-field></td>
+                            <td><mat-form-field class="example-full-width" appearance="fill" >
+                              <mat-label>Second Name</mat-label>
+                              <input matInput name="secondName" [(ngModel)]="secondName" required>
+                            </mat-form-field></td>
+                            </tr></table> -->
+
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput placeholder="abc@example.com" [formControl]="emailFormControl" name="email"
+                                [(ngModel)]="email" required>
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password"
+                                placeholder="Your Password" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                        <mat-card-actions>
+                            <button mat-raised-button color="accent" class="example-full-width">Register</button>
+                        </mat-card-actions>
+
+                    </form>
+
+                    <!-- back to login-->
+                    <p>Back to Login
+                        <a href="../login">Login</a>
+                    </p>
+
+
+                    <div class="form-group">
+                        <!-- give firebase error message -->
+                        <p *ngIf="errorMessage.length > 0" class="text-danger">
+                            {{errorMessage}}
+                        </p>
+                        <p *ngIf="error.message.length > 0" class="text-danger">
+                            {{error.message}}
+                        </p>
+                        <p *ngIf="message.length > 0" class="text-info">
+                            {{message}}
+                        </p>
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <!--end of ro 01-->
+</div>
+<!--end of container-->
+<br /><br /><br /><br /><br /><br /><br /><br />
+<app-homefooter></app-homefooter>
