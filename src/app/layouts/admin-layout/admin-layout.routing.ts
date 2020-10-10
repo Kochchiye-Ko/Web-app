@@ -21,7 +21,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "user", component: UserComponent },
   { path: "trains", component: TrainsComponent },
   { path: "home", component: HomeComponent },
-
+  
   { path: "userprofile", component: AboutComponent },
 
   { path: "lostItem", component: LostitemComponent },
