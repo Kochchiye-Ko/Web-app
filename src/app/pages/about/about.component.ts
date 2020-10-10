@@ -31,16 +31,16 @@ export class AboutComponent implements OnInit {
  
  
  
-  constructor(private authservice:AdminService,private toster: ToastrService) {}
+  constructor(private adminservice:AdminService,private toster: ToastrService) {}
 
   ngOnInit() {
-    this.authservice.getUsers().subscribe(usersx => {
+    this.adminservice.getUsers().subscribe(usersx => {
       this.users = usersx;
    
     }),
     this.resetForm();
     combineLatest(this.startObs, this.endObs).subscribe((value) => {
-      this.authservice.firequery(value[0], value[1]).subscribe((phoneno) => {
+      this.adminservice.firequery(value[0], value[1]).subscribe((phoneno) => {
         this.pno = phoneno;
       })
     })
@@ -55,18 +55,18 @@ export class AboutComponent implements OnInit {
 
   onsubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
-    this.authservice.updateUsers(data, this.ID);
+    this.adminservice.updateUsers(data, this.ID);
     this.toster.success("Successfully updated", "" + this.PHONENO);
   }
 
-  onDelete(id: String) {
-    if ((confirm("Are you sure to delete this user?"))) {
-      this.authservice.onDelete(id);
-      this.toster.error("Successfully deleted");
-      this.resetForm();
+  // onDelete(id: String) {
+  //   if ((confirm("Are you sure to delete this user?"))) {
+  //     this.authservice.onDelete(id);
+  //     this.toster.error("Successfully deleted");
+  //     this.resetForm();
 
-    }
-  }
+  //   }
+  // }
 
   resetForm(form?: NgForm) {
     if (form != null)
@@ -82,11 +82,11 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  search($event) {
-    let word = $event.target.value;
-    this.startAt.next(word);
-    this.endAt.next(word + "\uf8ff")
-  }
+  // search($event) {
+  //   let word = $event.target.value;
+  //   this.startAt.next(word);
+  //   this.endAt.next(word + "\uf8ff")
+  // }
 
 
    

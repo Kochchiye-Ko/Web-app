@@ -34,8 +34,8 @@ export class AdminService {
     return this.Admin;
   }
 
-  updateUsers(data: Users, ID: String) {
-    this.adminDoc = this.afs.doc(`UserTB/${ID}`)
+  updateUsers(data: Users, PHONENO: String) {
+    this.adminDoc = this.afs.doc(`UserTB/${PHONENO}`)
     this.adminDoc.update(data);
   }
 

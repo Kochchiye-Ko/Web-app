@@ -4,7 +4,6 @@ import { Users } from './models/users'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
-import { TrainDetails } from './models/traindetails';
 import { Messages } from './models/messages';
 
 @Injectable({
@@ -39,16 +38,9 @@ export class AuthService {
 
   //Notifications..........................................................................
 
-    //this.notifications = this.afs.collection('Notification').valueChanges();
-
-    // this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'asc'));
-    //this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
-
-
     this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
     this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
-
-      return changes.map(a => {
+        return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
         return data;
