@@ -36,6 +36,7 @@ import { HomefooterComponent } from './pages/home/home/homefooter/homefooter.com
 
 import { LostitemComponent } from './pages/lostitems/lostitem/lostitem.component';
 import { LoginComponent } from './pages/home/login/login/login.component';
+import { RegisterComponent } from './pages/home/register/register/register.component';
 
 
 
@@ -59,7 +60,7 @@ export const firebaseconfig = environment.firebaseConfig;
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, ],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent, ],
   providers: [AuthService,{provide: APP_BASE_HREF, useValue : '/' }],
 
   bootstrap: [AppComponent]
