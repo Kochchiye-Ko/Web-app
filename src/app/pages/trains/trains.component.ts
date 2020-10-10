@@ -22,7 +22,7 @@ export class TrainsComponent implements OnInit {
   tdendAt = new Subject();
   tdstartObs = this.tdstartAt.asObservable();
   tdendObs = this.tdendAt.asObservable();
-  trainD: TrainDetails[];
+  trainD;
 
   searchSctram3: String;
   tdstartAt2 = new Subject();
@@ -35,9 +35,12 @@ export class TrainsComponent implements OnInit {
   stationDetails: TShedule[];
 
   TrainToEdit: TrainDetails;
+  activeSyageButton: boolean;
+
+  TrainToEdit1: TrainDetails;
   ID: String;
-  
-  trainData : TrainDetails;
+
+
 
   constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule, private toster: ToastrService) {
 
@@ -46,10 +49,7 @@ export class TrainsComponent implements OnInit {
   ngOnInit() {
 
     this.resetForm();
-
-    this.TrainsheduleService.getstaion().subscribe(stationDetails => {
-      this.stationDetails = stationDetails;
-    });
+    this.resetForm2();
 
     this.TrainsheduleService.getUTraindetails().subscribe(td => {
       this.trainDetails = td;
@@ -58,7 +58,6 @@ export class TrainsComponent implements OnInit {
         this.TrainsheduleService.firequerytraindetils(value[0], value[1]).subscribe((traind) => {
           this.trainD = traind;
         })
-        console.log(this.trainD)
       }),
       combineLatest(this.tdstartObs2, this.tdendObs2).subscribe((value) => {
         this.TrainsheduleService.firequerytraindetilsbyNumber(value[0], value[1]).subscribe((traind) => {
@@ -67,8 +66,8 @@ export class TrainsComponent implements OnInit {
       })
   }
 
-  searchtrains($event) {
-    let word = $event.target.value;
+  searchtrains($event1) {
+    let word = $event1.target.value;
     this.tdstartAt.next(word);
     this.tdendAt.next(word + "\uf8ff")
   }
@@ -108,7 +107,7 @@ export class TrainsComponent implements OnInit {
   resetForm2(form2?: NgForm) {
     if (form2 != null)
       form2.resetForm();
-    this.trainData = {
+    this.TrainToEdit1 = {
       id: null,
       dailyOrweekend: null,
       endStaion: null,
@@ -131,15 +130,17 @@ export class TrainsComponent implements OnInit {
     if ((confirm("Are you sure to delete this user?"))) {
       this.TrainsheduleService.onDelete(this.ID);
       this.toster.error("Successfully deleted");
-      this.resetForm();
+      this.resetForm2();
     }
   }
 
-  onsubmitnew(form: NgForm) {
+  onAddNewTrain(form: NgForm) {
     let data = Object.assign({}, form.value);
     this.TrainsheduleService.addNewTrain(data);
     this.toster.success("Successfully Added.");
-    this.resetForm();
+    this.resetForm2();
   }
+
+
 
 }
