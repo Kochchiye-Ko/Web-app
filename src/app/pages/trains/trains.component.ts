@@ -3,7 +3,7 @@ import { Subject, combineLatest } from 'rxjs';
 import { AuthService } from 'src/app/auth.service';
 import { TrainDetails } from 'src/app/models/traindetails';
 import { TrainsheduleService } from 'src/app/services/trainshedule.service';
-import { AmazingTimePickerModule } from 'amazing-time-picker';
+// import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TShedule } from 'src/app/models/trainshedule';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -39,8 +39,6 @@ export class TrainsComponent implements OnInit {
 
   TrainToEdit1: TrainDetails;
   ID: String;
-
-
 
   constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule, private toster: ToastrService) {
 
