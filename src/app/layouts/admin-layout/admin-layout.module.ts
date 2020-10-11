@@ -12,7 +12,7 @@ import { NotificationsComponent } from "../../pages/notifications/notifications.
 import { UserComponent } from "../../pages/user/user.component";
 import { TrainsComponent } from "../../pages/trains/trains.component";
 import { AboutComponent } from "../../pages/about/about.component";
-import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.component"
+//import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.component"
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -31,7 +31,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     TrainsComponent,
     DeviceComponent,
     AboutComponent,
-    LostitemComponent,
+    //LostitemComponent,
     NotificationsComponent,
     MapComponent,
     // RtlComponent

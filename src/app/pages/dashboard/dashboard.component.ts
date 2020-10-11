@@ -3,6 +3,8 @@ import Chart from 'chart.js';
 import { Users } from "../../models/users"
 import { AuthService } from 'src/app/auth.service';
 import { formatDate } from '@angular/common';
+import { browserRefresh } from "../../app.component";
+
 
 @Component({
   selector: "app-dashboard",
@@ -22,6 +24,7 @@ export class DashboardComponent implements OnInit {
   time;
 
   january;
+  public browserRefresh: boolean;
 
   // jan; feb; march; april; may; june; july; aug; sep; oct; nov; dec;
 
@@ -31,7 +34,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.browserRefresh = browserRefresh;
+  
 
     var jan = 0, feb = 0, march = 0, april = 0, may = 0, june = 0, july = 0, aug = 0, sep = 0, oct = 0, nov = 0, dec = 0;
 

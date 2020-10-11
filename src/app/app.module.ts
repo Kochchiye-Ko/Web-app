@@ -59,7 +59,7 @@ export const firebaseconfig = environment.firebaseConfig;
     })
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, ],
-  providers: [AuthService,{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [AuthService,{provide: APP_BASE_HREF, useValue : '/' },AdminService],
 
   bootstrap: [AppComponent]
 })

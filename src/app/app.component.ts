@@ -12,19 +12,19 @@ export let browserRefresh = false;
 })
 export class AppComponent {
   title = "Koochchiya ko";
-  subscription : Subscription;
+ // subscription: Subscription;
 
 
-  constructor(db: AngularFirestore,private router: Router) { 
-    this.subscription = router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        browserRefresh = !router.navigated;
-      }
-    })
-   }
-
-  onDestroy(){
-    this.subscription .unsubscribe();
+  constructor(db: AngularFirestore, private router: Router) {
+    // this.subscription = router.events.subscribe((event) => {
+    //   if (event instanceof NavigationStart) {
+    //     browserRefresh = !router.navigated;
+    //   }
+    // })
   }
-  
+
+  // onDestroy(){
+  //   this.subscription .unsubscribe();
+  // }
+
 }

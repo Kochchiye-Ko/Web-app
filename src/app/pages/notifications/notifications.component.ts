@@ -3,7 +3,10 @@ import { AuthService } from 'src/app/auth.service';
 import { Notification } from '../../models/notifications';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from "@angular/common";
+import { NavigationStart, Router } from "@angular/router";
+import { Subscription } from "rxjs";
 
+//export let browserRefresh = false;
 
 @Component({
   selector: "app-notifications",
@@ -18,21 +21,27 @@ export class NotificationsComponent implements OnInit {
   // staticAlertClosed5 = false;
   // staticAlertClosed6 = false;
   // staticAlertClosed7 = false;
-  
-  
+
+ // subscription: Subscription;
   notifications: Notification[];
   addNot: Notification = {
     author: '',
     dateTime: '',
     message: ' ',
-    subject: ' ' , 
-   
-   }
-  
-   
-  
-  constructor(private notService: AuthService,private toster: ToastrService) {
-    
+    subject: ' ',
+
+  }
+
+
+
+  constructor(private notService: AuthService, private toster: ToastrService, private router: Router) {
+
+    // this.subscription = router.events.subscribe((event) => {
+    //   if (event instanceof NavigationStart) {
+    //     browserRefresh = !router.navigated;
+    //   }
+    // })
+
 
 
   }
@@ -97,7 +106,7 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit() {
     this.notService.getNotifications().subscribe(notifications => {
-       //console.log(notifications);
+      //console.log(notifications);
       this.notifications = notifications;
     });
   }
@@ -107,14 +116,21 @@ export class NotificationsComponent implements OnInit {
   onSubmit() {
     if (this.addNot.subject != '' && this.addNot.message != '') {
       this.notService.addNotification(this.addNot);
-      this.addNot.author= '';
-      this.addNot.dateTime='';
+      this.addNot.author = '';
+      this.addNot.dateTime = '';
       this.addNot.message = '';
       this.addNot.subject = '';
       this.toster.success("Sent message successfully", "" + this.addNot.author);
     }
   }
 
-  
- }
+
+
+}
+
+// onDestroy(){
+//   this.subscription .unsubscribe();
+// }
+
+
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: "app-admin-layout",
@@ -7,8 +9,15 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AdminLayoutComponent implements OnInit {
   public sidebarColor: string = "red";
+  //subscription: Subscription;
+ 
 
-  constructor() {
+  constructor(router: Router) {
+    // this.subscription = router.events.subscribe((event) => {
+    //   if (event instanceof NavigationStart) {
+    //     browserRefresh = !router.navigated;
+    //   }
+    // })
    
   }
 

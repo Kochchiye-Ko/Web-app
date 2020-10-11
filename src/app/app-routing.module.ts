@@ -10,7 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 import { TrainsheduleComponent } from "./pages/home/tainShedule/trainshedule/trainshedule.component";
 
-export let browserRefresh = false;
+
 
 const routes: Routes = [
   {
@@ -29,8 +29,7 @@ const routes: Routes = [
     {
       path: "contact",
       component: ContactComponent
-
-  },
+   },
   {
     path: "",
     component: DashboardComponent
@@ -55,10 +54,10 @@ const routes: Routes = [
       }
     ]
   },
-  {
+ {
     path: "**",
     redirectTo: "home"
-  }
+ }
 ];
 
 @NgModule({

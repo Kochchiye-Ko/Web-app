@@ -13,7 +13,8 @@ import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.compo
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
+  
+  { path: "dashboard", component: DashboardComponent},
   { path: "devices", component: DeviceComponent },
   { path: "maps", component: MapComponent },
   { path: "notifications", component: NotificationsComponent },
