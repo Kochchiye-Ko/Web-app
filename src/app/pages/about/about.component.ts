@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from '../../admin.service';
+import { AuthService } from "../../auth.service";
 import { Users } from '../../models/users';
 import { NgForm } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
@@ -47,8 +48,8 @@ export class AboutComponent implements OnInit {
 
   }
 
-  onEdit(users: Users) {
-    this.userToEdit = Object.assign({}, users)
+  onEdit(admin: Users) {
+    this.userToEdit = Object.assign({}, admin)
     this.ID = this.userToEdit.id;
     this.PHONENO = this.userToEdit.phoneno;
   }
@@ -59,14 +60,14 @@ export class AboutComponent implements OnInit {
     this.toster.success("Successfully updated", "" + this.PHONENO);
   }
 
-  // onDelete(id: String) {
-  //   if ((confirm("Are you sure to delete this user?"))) {
-  //     this.authservice.onDelete(id);
-  //     this.toster.error("Successfully deleted");
-  //     this.resetForm();
+  onDelete(id: String) {
+    if ((confirm("Are you sure to delete this user?"))) {
+      this.adminservice.onDelete(id);
+      this.toster.error("Successfully deleted");
+      this.resetForm();
 
-  //   }
-  // }
+    }
+  }
 
   resetForm(form?: NgForm) {
     if (form != null)
@@ -82,11 +83,11 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  // search($event) {
-  //   let word = $event.target.value;
-  //   this.startAt.next(word);
-  //   this.endAt.next(word + "\uf8ff")
-  // }
+  search($event) {
+    let word = $event.target.value;
+    this.startAt.next(word);
+    this.endAt.next(word + "\uf8ff")
+  }
 
 
    

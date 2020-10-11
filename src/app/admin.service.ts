@@ -11,7 +11,7 @@ import { state } from '@angular/animations';
 })
 export class AdminService {
 
-  adminCollection: AngularFirestoreCollection<Users>;
+  //adminCollection: AngularFirestoreCollection<Users>;
   Admin: Observable<Users[]>;
   adminDoc: AngularFirestoreDocument<Users>
  
@@ -34,8 +34,8 @@ export class AdminService {
     return this.Admin;
   }
 
-  updateUsers(data: Users, PHONENO: String) {
-    this.adminDoc = this.afs.doc(`UserTB/${PHONENO}`)
+  updateUsers(data: Users, ID: String) {
+    this.adminDoc = this.afs.doc(`UserTB/${ID}`)
     this.adminDoc.update(data);
   }
 

@@ -25,6 +25,7 @@ export class AuthService {
  messageCollection : AngularFirestoreCollection<Messages>
  messages: Observable<Messages[]>
 
+//Users----------------------------------------------------------------------------------
 
   constructor(public afs: AngularFirestore) {
 
@@ -102,6 +103,6 @@ export class AuthService {
  
      this.afs.collection(`Messages`).add(addmessages);
   }
- 
+ //------------------------------------------------------Messages//
 
 }

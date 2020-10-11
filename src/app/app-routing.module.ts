@@ -10,6 +10,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 import { TrainsheduleComponent } from "./pages/home/tainShedule/trainshedule/trainshedule.component";
 
+export let browserRefresh = false;
+
 const routes: Routes = [
   {
     path: '',
@@ -54,15 +56,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: "**",
-    redirectTo: "home"
+    path: '',
+    redirectTo: "home",
+    pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [
     // CommonModule,
-    // BrowserModule,
+    //BrowserModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
