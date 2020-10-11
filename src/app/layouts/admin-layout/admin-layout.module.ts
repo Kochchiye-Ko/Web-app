@@ -31,7 +31,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     TrainsComponent,
     DeviceComponent,
     AboutComponent,
-    LostitemComponent,
+    // LostitemComponent,
     NotificationsComponent,
     MapComponent,
     // RtlComponent
