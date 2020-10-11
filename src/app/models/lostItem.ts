@@ -3,7 +3,7 @@ import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 export interface LostItems {
     id?: String;
-    date?: Timestamp<Time>;
+    date?: Date;
     descriptions?: String;
     itemtitle?: string;
     uid?: String;

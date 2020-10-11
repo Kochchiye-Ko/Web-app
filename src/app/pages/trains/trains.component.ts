@@ -6,6 +6,8 @@ import { TrainsheduleService } from 'src/app/services/trainshedule.service';
 // import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TShedule } from 'src/app/models/trainshedule';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 
 @Component({
@@ -36,22 +38,17 @@ export class TrainsComponent implements OnInit {
   TrainToEdit: TrainDetails;
   activeSyageButton: boolean;
 
-  constructor(private TrainsheduleService: TrainsheduleService) {
+  TrainToEdit1: TrainDetails;
+  ID: String;
+
+  constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule  , private toster: ToastrService) {
 
   }
 
   ngOnInit() {
 
     this.resetForm();
-
-    this.TrainsheduleService.getstaion().subscribe(stationDetails => {
-      this.stationDetails = stationDetails;
-
-      this.stationDetails.forEach(element => {
-        console.log(element.stlist[0])
-      });
-      // console.log(stationDetails)
-    });
+    this.resetForm2();
 
     this.TrainsheduleService.getUTraindetails().subscribe(td => {
       this.trainDetails = td;
@@ -68,8 +65,8 @@ export class TrainsComponent implements OnInit {
       })
   }
 
-  searchtrains($event) {
-    let word = $event.target.value;
+  searchtrains($event1) {
+    let word = $event1.target.value;
     this.tdstartAt.next(word);
     this.tdendAt.next(word + "\uf8ff")
   }
@@ -97,23 +94,44 @@ export class TrainsComponent implements OnInit {
 
   onEdit(trains: TrainDetails) {
     this.TrainToEdit = Object.assign({}, trains)
-    console.log(this.TrainToEdit.endTime);
-    // this.ID = this.userToEdit.id;
-    // this.PHONENO = this.userToEdit.phoneno;
+    this.ID = this.TrainToEdit.id;
   }
 
-  clear() {
-    this.resetForm();
-    this.activeSyageButton = false;
-  }
+  resetForm2(form2?: NgForm) {
+    if (form2 != null)
+      form2.resetForm();
+    this.TrainToEdit1 = {
+      id: null,
+      dailyOrweekend: null,
+      endStaion: null,
+      startStaion: null,
+      trainName: null,
+      trainNumber: null,
+      trainType: null,
 
-  onsubmit(form) {
-    if (this.activeSyageButton != false) {
-      console.log("onsubmit")
     }
   }
 
+  onsubmit(form: NgForm) {
+    let data = Object.assign({}, form.value);
+    this.TrainsheduleService.updateTrains(data, this.ID);
+    this.toster.success("Successfully updated");
+  }
 
+  onDelete(id: String) {
+    if ((confirm("Are you sure to delete this user?"))) {
+      this.TrainsheduleService.onDelete(this.ID);
+      this.toster.error("Successfully deleted");
+      this.resetForm();
+    }
+  }
+
+  onAddNewTrain(form: NgForm) {
+    let data = Object.assign({}, form.value);
+    this.TrainsheduleService.addNewTrain(data);
+    this.toster.success("Successfully Added.");
+    this.resetForm2();
+  }
 
 
 

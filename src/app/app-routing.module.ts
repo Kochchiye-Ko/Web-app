@@ -8,28 +8,39 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { HomeComponent } from './pages/home/home/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
-import { TrainsheduleComponent } from "./pages/home/tainShedule/trainshedule/trainshedule.component";
-
-
+import { LoginComponent } from './pages/home/login/login/login.component';
+import { RegisterComponent } from './pages/home/register/register/register.component';
+import { TrainsheduleComponent } from './pages/home/tainShedule/trainshedule/trainshedule.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: "home",
     pathMatch: 'full'
-    },
-    {
-      path: 'home',
-      component:HomeComponent
-    },
-    {
-      path:"trainshedule",
-      component: TrainsheduleComponent
-    },
-    {
-      path: "contact",
-      component: ContactComponent
-   },
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: "trainshedule",
+    component: TrainsheduleComponent
+  },
+  {
+    path: "contact",
+    component: ContactComponent
+
+  },
+  
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "register",
+    component: RegisterComponent
+  },
+
   {
     path: "",
     component: DashboardComponent
@@ -62,9 +73,12 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    // CommonModule,
-    //BrowserModule,
-    RouterModule.forRoot(routes)
+    CommonModule,
+    BrowserModule,
+    // RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {
+      useHash: true
+    })
   ],
   exports: [RouterModule]
 })

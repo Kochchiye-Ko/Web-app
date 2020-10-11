@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { AgmCoreModule } from '@agm/core';
-import {APP_BASE_HREF} from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 import { AppComponent } from "./app.component";
@@ -21,7 +21,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from '../environments/environment';
 import { AuthService } from "../app/auth.service";
-import {  AdminService } from "../app/admin.service";
+import { AdminService } from "../app/admin.service";
+
+import { AboutComponent } from "../app/pages/userprof/userprof.component";
 //import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 //  import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
@@ -35,13 +37,30 @@ import { HomeNavComponent } from './pages/home/home/home-nav/home-nav.component'
 import { HomefooterComponent } from './pages/home/home/homefooter/homefooter.component';
 
 import { LostitemComponent } from './pages/lostitems/lostitem/lostitem.component';
+import { LoginComponent } from './pages/home/login/login/login.component';
+import { RegisterComponent } from './pages/home/register/register/register.component';
 
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 export const firebaseconfig = environment.firebaseConfig;
 
 @NgModule({
   imports: [
+
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatIconModule,
+
     BrowserAnimationsModule,
     // NgxMaterialTimepickerModule,
     FormsModule,
@@ -58,8 +77,8 @@ export const firebaseconfig = environment.firebaseConfig;
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, ],
-  providers: [AuthService,{provide: APP_BASE_HREF, useValue : '/' },AdminService],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent,AboutComponent],
+  providers: [AuthService, { provide: APP_BASE_HREF, useValue: '/' }],
 
   bootstrap: [AppComponent]
 })

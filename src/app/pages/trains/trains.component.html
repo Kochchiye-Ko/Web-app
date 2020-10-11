@@ -4,26 +4,29 @@
       <div class=" card card-user">
         <div class=" card">
           <div class=" card-header">
-            <h5 class=" title">Add/Update Trains</h5>
+            <h5 class=" title">Update Trains</h5>
           </div>
           <div class=" card-body">
 
             <form #form="ngForm" (ngSubmit)="onsubmit(form)" autocomplete="off">
 
+              <input class=" form-control" disabled="" name="id" #id="ngModel" [(ngModel)]="TrainToEdit.id"
+                placeholder="id" type="hidden" />
+
               <div class=" row">
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
                     <label> Train Number</label>
-                    <input class=" form-control" name="trainnmber" #trainnmber="ngModel"
+                    <input class=" form-control" name="trainNumber" #trainnmber="ngModel"
                       [(ngModel)]="TrainToEdit.trainNumber" placeholder="Train number" type="text" required />
-                    <span class="validation-error" *ngIf="trainnmber.invalid && trainnmber.touched"
+                    <span *ngIf="trainnmber.invalid && trainnmber.touched" class="validation-error"
                       style="color: red;">*required</span>
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
                   <div class=" form-group">
                     <label> Train Name </label>
-                    <input class=" form-control" placeholder="Train Name" type="text" name="trainname"
+                    <input class=" form-control" placeholder="Train Name" type="text" name="trainName"
                       #trainname="ngModel" [(ngModel)]="TrainToEdit.trainName" required />
                     <span class="validation-error" style="color: red;"
                       *ngIf="trainname.invalid && trainname.touched">*required</span>
@@ -34,9 +37,9 @@
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
 
-                    <label for="traintype">Choose Train Type: </label>
+                    <label for="trainType">Choose Train Type: </label>
                     <br />
-                    <select name="traintype" id="traintype" class="btn dropdown-toggle" #traintype="ngModel"
+                    <select name="trainType" id="traintype" class="btn dropdown-toggle" #traintype="ngModel"
                       [(ngModel)]="TrainToEdit.trainType">
                       <option></option>
                       <option value="Express">Express</option>
@@ -52,8 +55,8 @@
                   <div class=" form-group">
                     <label for="runtime">Choose Run Time: </label>
                     <br />
-                    <select name="runtime" id="runtime" #runtime="ngModel" [(ngModel)]="TrainToEdit.dailyOrweekend"
-                      class="btn dropdown-toggle">
+                    <select name="dailyOrweekend" id="runtime" #runtime="ngModel"
+                      [(ngModel)]="TrainToEdit.dailyOrweekend" class="btn dropdown-toggle">
                       <option></option>
                       <option value="Daily">Daily</option>
                       <option value="Weekends">Weekends</option>
@@ -73,51 +76,51 @@
                     <label for="startStaion">Choose Start Staion: </label>
                     <br />
                     <select name="startStaion" id="startStaion" class="btn dropdown-toggle" #startStaion="ngModel"
-                      [(ngModel)]="TrainToEdit.startStaion">
-                      <option value="Colombo Fort"> Colombo Fort </option>
-                      <option value="Maradana"> Maradana </option>
-                      <option value="Ragama"> Ragama </option>
-                      <option value="Gampaha"> Gampaha </option>
-                      <option value="Veyangoda"> Veyangoda </option>
-                      <option value="Polgahawela"> Polgahawela </option>
-                      <option value="Rambukkana"> Rambukkana </option>
-                      <option value="Peradeniya"> Peradeniya </option>
-                      <option value="Nawalapitiya"> Nawalapitiya </option>
-                      <option value="Hatton"> Hatton </option>
-                      <option value="Nanu Oya"> Nanu Oya </option>
-                      <option value="Bandarawela"> Bandarawela </option>
-                      <option value="Badulla"> Badulla </option>
-                      <option value="Kandy"> Kandy </option>
-                      <option value="Katugastota"> Katugastota </option>
-                      <option value="Matale"> Matale </option>
-                      <option value="Negombo"> Negombo </option>
-                      <option value="Chilaw"> Chilaw </option>
-                      <option value="Puttalam"> Puttalam </option>
-                      <option value="Avissawella"> Avissawella </option>
-                      <option value="Anuradhapura"> Anuradhapura </option>
-                      <option value="Vavuniya"> Vavuniya </option>
-                      <option value="Kilinochchi"> Kilinochchi </option>
-                      <option value="Kodikamamam"> </option>
-                      <option value="Chavakachcheri"> Chavakachcheri </option>
-                      <option value="Kankesanthurai"> Kankesanthurai </option>
-                      <option value="Mannar"> Mannar </option>
-                      <option value="Talaimannar"> Talaimannar </option>
-                      <option value="Maho"> Maho </option>
-                      <option value="Polonnaruwa"> Polonnaruwa </option>
-                      <option value="Valaichchenai"> Valaichchenai </option>
-                      <option value="Kollupitiya"> Kollupitiya </option>
-                      <option value="Moratuwa"> Moratuwa </option>
-                      <option value="Panadura"> Panadura </option>
+                      [(ngModel)]="TrainToEdit.startStaion" required>
                       <option value="Aluthgama"> Aluthgama</option>
-                      <option value="Bentota"> Bentota</option>
-                      <option value="Balapitiya"> Balapitiya</option>
                       <option value="Ambalangoda"> Ambalangoda</option>
-                      <option value="Hikkaduwa"> Hikkaduwa</option>
-                      <option value="Galle"> Galle</option>
-                      <option value="Matara"> Matara</option>
-                      <option value="Hambantota"> Hambantota</option>
+                      <option value="Anuradhapura"> Anuradhapura </option>
+                      <option value="Avissawella"> Avissawella </option>
+                      <option value="Badulla"> Badulla </option>
+                      <option value="Balapitiya"> Balapitiya</option>
+                      <option value="Bandarawela"> Bandarawela </option>
                       <option value="Beliatta"> Beliatta</option>
+                      <option value="Bentota"> Bentota</option>
+                      <option value="Chavakachcheri"> Chavakachcheri </option>
+                      <option value="Chilaw"> Chilaw </option>
+                      <option value="Colombo Fort"> Colombo Fort </option>
+                      <option value="Galle"> Galle</option>
+                      <option value="Gampaha"> Gampaha </option>
+                      <option value="Hambantota"> Hambantota</option>
+                      <option value="Hatton"> Hatton </option>
+                      <option value="Hikkaduwa"> Hikkaduwa</option>
+                      <option value="Kandy"> Kandy </option>
+                      <option value="Kankesanthurai"> Kankesanthurai </option>
                       <option value="Kataragama"> Kataragama</option>
+                      <option value="Katugastota"> Katugastota </option>
+                      <option value="Kilinochchi"> Kilinochchi </option>
+                      <option value="Kodikamamam"> Kodikamamam</option>
+                      <option value="Kollupitiya"> Kollupitiya </option>
+                      <option value="Maho"> Maho </option>
+                      <option value="Mannar"> Mannar </option>
+                      <option value="Maradana"> Maradana </option>
+                      <option value="Moratuwa"> Moratuwa </option>
+                      <option value="Matale"> Matale </option>
+                      <option value="Matara"> Matara</option>
+                      <option value="Nanu Oya"> Nanu Oya </option>
+                      <option value="Nawalapitiya"> Nawalapitiya </option>
+                      <option value="Negombo"> Negombo </option>
+                      <option value="Panadura"> Panadura </option>
+                      <option value="Peradeniya"> Peradeniya </option>
+                      <option value="Polgahawela"> Polgahawela </option>
+                      <option value="Polonnaruwa"> Polonnaruwa </option>
+                      <option value="Puttalam"> Puttalam </option>
+                      <option value="Ragama"> Ragama </option>
+                      <option value="Rambukkana"> Rambukkana </option>
+                      <option value="Talaimannar"> Talaimannar </option>
+                      <option value="Valaichchenai"> Valaichchenai </option>
+                      <option value="Vavuniya"> Vavuniya </option>
+                      <option value="Veyangoda"> Veyangoda </option>
                     </select>
                     <span class="validation-error" *ngIf="startStaion.invalid && startStaion.touched"
                       style="color: red;">*required</span>
@@ -128,58 +131,58 @@
                     <label for="runtime">Choose end Staion: </label>
                     <br />
                     <select name="endStaion" id="endStaion" class="btn dropdown-toggle" #endStaion="ngModel"
-                      [(ngModel)]="TrainToEdit.endStaion">
-                      <option value="Colombo Fort"> Colombo Fort </option>
-                      <option value="Maradana"> Maradana </option>
-                      <option value="Ragama"> Ragama </option>
-                      <option value="Gampaha"> Gampaha </option>
-                      <option value="Veyangoda"> Veyangoda </option>
-                      <option value="Polgahawela"> Polgahawela </option>
-                      <option value="Rambukkana"> Rambukkana </option>
-                      <option value="Peradeniya"> Peradeniya </option>
-                      <option value="Nawalapitiya"> Nawalapitiya </option>
-                      <option value="Hatton"> Hatton </option>
-                      <option value="Nanu Oya"> Nanu Oya </option>
-                      <option value="Bandarawela"> Bandarawela </option>
-                      <option value="Badulla"> Badulla </option>
-                      <option value="Kandy"> Kandy </option>
-                      <option value="Katugastota"> Katugastota </option>
-                      <option value="Matale"> Matale </option>
-                      <option value="Negombo"> Negombo </option>
-                      <option value="Chilaw"> Chilaw </option>
-                      <option value="Puttalam"> Puttalam </option>
-                      <option value="Avissawella"> Avissawella </option>
-                      <option value="Anuradhapura"> Anuradhapura </option>
-                      <option value="Vavuniya"> Vavuniya </option>
-                      <option value="Kilinochchi"> Kilinochchi </option>
-                      <option value="Kodikamamam"> </option>
-                      <option value="Chavakachcheri"> Chavakachcheri </option>
-                      <option value="Kankesanthurai"> Kankesanthurai </option>
-                      <option value="Mannar"> Mannar </option>
-                      <option value="Talaimannar"> Talaimannar </option>
-                      <option value="Maho"> Maho </option>
-                      <option value="Polonnaruwa"> Polonnaruwa </option>
-                      <option value="Valaichchenai"> Valaichchenai </option>
-                      <option value="Kollupitiya"> Kollupitiya </option>
-                      <option value="Moratuwa"> Moratuwa </option>
-                      <option value="Panadura"> Panadura </option>
+                      [(ngModel)]="TrainToEdit.endStaion" required>
                       <option value="Aluthgama"> Aluthgama</option>
-                      <option value="Bentota"> Bentota</option>
-                      <option value="Balapitiya"> Balapitiya</option>
                       <option value="Ambalangoda"> Ambalangoda</option>
-                      <option value="Hikkaduwa"> Hikkaduwa</option>
-                      <option value="Galle"> Galle</option>
-                      <option value="Matara"> Matara</option>
-                      <option value="Hambantota"> Hambantota</option>
+                      <option value="Anuradhapura"> Anuradhapura </option>
+                      <option value="Avissawella"> Avissawella </option>
+                      <option value="Badulla"> Badulla </option>
+                      <option value="Balapitiya"> Balapitiya</option>
+                      <option value="Bandarawela"> Bandarawela </option>
                       <option value="Beliatta"> Beliatta</option>
+                      <option value="Bentota"> Bentota</option>
+                      <option value="Chavakachcheri"> Chavakachcheri </option>
+                      <option value="Chilaw"> Chilaw </option>
+                      <option value="Colombo Fort"> Colombo Fort </option>
+                      <option value="Galle"> Galle</option>
+                      <option value="Gampaha"> Gampaha </option>
+                      <option value="Hambantota"> Hambantota</option>
+                      <option value="Hatton"> Hatton </option>
+                      <option value="Hikkaduwa"> Hikkaduwa</option>
+                      <option value="Kandy"> Kandy </option>
+                      <option value="Kankesanthurai"> Kankesanthurai </option>
                       <option value="Kataragama"> Kataragama</option>
+                      <option value="Katugastota"> Katugastota </option>
+                      <option value="Kilinochchi"> Kilinochchi </option>
+                      <option value="Kodikamamam"> Kodikamamam</option>
+                      <option value="Kollupitiya"> Kollupitiya </option>
+                      <option value="Maho"> Maho </option>
+                      <option value="Mannar"> Mannar </option>
+                      <option value="Maradana"> Maradana </option>
+                      <option value="Moratuwa"> Moratuwa </option>
+                      <option value="Matale"> Matale </option>
+                      <option value="Matara"> Matara</option>
+                      <option value="Nanu Oya"> Nanu Oya </option>
+                      <option value="Nawalapitiya"> Nawalapitiya </option>
+                      <option value="Negombo"> Negombo </option>
+                      <option value="Panadura"> Panadura </option>
+                      <option value="Peradeniya"> Peradeniya </option>
+                      <option value="Polgahawela"> Polgahawela </option>
+                      <option value="Polonnaruwa"> Polonnaruwa </option>
+                      <option value="Puttalam"> Puttalam </option>
+                      <option value="Ragama"> Ragama </option>
+                      <option value="Rambukkana"> Rambukkana </option>
+                      <option value="Talaimannar"> Talaimannar </option>
+                      <option value="Valaichchenai"> Valaichchenai </option>
+                      <option value="Vavuniya"> Vavuniya </option>
+                      <option value="Veyangoda"> Veyangoda </option>
                     </select>
                     <span class="validation-error" *ngIf="endStaion.invalid && endStaion.touched"
                       style="color: red;">*required</span>
                   </div>
                 </div>
               </div>
-              <div class=" row">
+              <!-- <div class=" row">
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
 
@@ -192,7 +195,6 @@
                           <span class="validation-error" *ngIf="TrainToEdit.invalid && TrainToEdit.touched" style="color: red;">*required</span>
                       </div>
                     </div>
-                    <span>{{TrainToEdit.startTime}}</span>
                    
                   </div>
                 </div>
@@ -208,15 +210,244 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
+
+
+
 
               <div class=" card-footer">
                 <table>
                   <tr>
-                    <td><button class=" btn btn-fill btn-info" type="submit" value="submit"
+                    <td><button class=" btn btn-fill btn-info" type="submit" [disabled]="!form.valid" value="submit"
+                        name="submit">Update</button></td>
+                    <td width=20></td>
+
+                    <td><button class=" btn btn-fill btn-warning" (click)="clear()" [disabled]="!form.valid"
+                        type="submit" value="reset" name="reset">Reset</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class=" card card-user">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class=" title">ADD Trains</h5>
+          </div>
+          <div class=" card-body">
+
+            <form #form2="ngForm" (ngSubmit)="onAddNewTrain(form2)" autocomplete="off">
+
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+                    <label> Train Number</label>
+                    <input class=" form-control" name="trainNumber" #trainnmber1="ngModel"
+                      [(ngModel)]="TrainToEdit1.trainNumber" placeholder="Train number" type="text" required />
+                    <span *ngIf="trainnmber1.invalid && trainnmber1.touched" class="validation-error"
+                      style="color: red;">*required</span>
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> Train Name </label>
+                    <input class=" form-control" placeholder="Train Name" type="text" name="trainName"
+                      #trainname1="ngModel" [(ngModel)]="TrainToEdit1.trainName" required />
+                    <span class="validation-error" style="color: red;"
+                      *ngIf="trainname1.invalid && trainname1.touched">*required</span>
+                  </div>
+                </div>
+              </div>
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+
+                    <label for="trainType">Choose Train Type: </label>
+                    <br />
+                    <select name="trainType" id="traintype1" class="btn dropdown-toggle" #traintype1="ngModel"
+                      [(ngModel)]="TrainToEdit1.trainType">
+                      <option value="Express">Express</option>
+                      <option value="Intercity">Intercity</option>
+                      <option value="LongDistance">Long Distance</option>
+                      <option value="Night">Night</option>
+                    </select>
+                    <!-- <span class="validation-error" *ngIf="traintype1.invalid && traintype1.touched"
+                      style="color: red;">*required</span> -->
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label for="runtime">Choose Run Time: </label>
+                    <br />
+                    <select name="dailyOrweekend" id="runtime1" #runtime1="ngModel"
+                      [(ngModel)]="TrainToEdit1.dailyOrweekend" class="btn dropdown-toggle">
+                      <option value="Daily">Daily</option>
+                      <option value="Weekends">Weekends</option>
+                      <option value="Special">Special</option>
+                    </select>
+                    <!-- <span class="validation-error" *ngIf="runtime1.invalid && runtime1.touched"
+                      style="color: red;">*required</span> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+
+
+                    <label for="startStaion">Choose Start Staion: </label>
+                    <br />
+                    <select name="startStaion" id="startStaion11" class="btn dropdown-toggle" #startStaion11="ngModel"
+                      [(ngModel)]="TrainToEdit1.startStaion" required>
+                      <option value="Aluthgama"> Aluthgama</option>
+                      <option value="Ambalangoda"> Ambalangoda</option>
+                      <option value="Anuradhapura"> Anuradhapura </option>
+                      <option value="Avissawella"> Avissawella </option>
+                      <option value="Badulla"> Badulla </option>
+                      <option value="Balapitiya"> Balapitiya</option>
+                      <option value="Bandarawela"> Bandarawela </option>
+                      <option value="Beliatta"> Beliatta</option>
+                      <option value="Bentota"> Bentota</option>
+                      <option value="Chavakachcheri"> Chavakachcheri </option>
+                      <option value="Chilaw"> Chilaw </option>
+                      <option value="Colombo Fort"> Colombo Fort </option>
+                      <option value="Galle"> Galle</option>
+                      <option value="Gampaha"> Gampaha </option>
+                      <option value="Hambantota"> Hambantota</option>
+                      <option value="Hatton"> Hatton </option>
+                      <option value="Hikkaduwa"> Hikkaduwa</option>
+                      <option value="Kandy"> Kandy </option>
+                      <option value="Kankesanthurai"> Kankesanthurai </option>
+                      <option value="Kataragama"> Kataragama</option>
+                      <option value="Katugastota"> Katugastota </option>
+                      <option value="Kilinochchi"> Kilinochchi </option>
+                      <option value="Kodikamamam"> Kodikamamam</option>
+                      <option value="Kollupitiya"> Kollupitiya </option>
+                      <option value="Maho"> Maho </option>
+                      <option value="Mannar"> Mannar </option>
+                      <option value="Maradana"> Maradana </option>
+                      <option value="Moratuwa"> Moratuwa </option>
+                      <option value="Matale"> Matale </option>
+                      <option value="Matara"> Matara</option>
+                      <option value="Nanu Oya"> Nanu Oya </option>
+                      <option value="Nawalapitiya"> Nawalapitiya </option>
+                      <option value="Negombo"> Negombo </option>
+                      <option value="Panadura"> Panadura </option>
+                      <option value="Peradeniya"> Peradeniya </option>
+                      <option value="Polgahawela"> Polgahawela </option>
+                      <option value="Polonnaruwa"> Polonnaruwa </option>
+                      <option value="Puttalam"> Puttalam </option>
+                      <option value="Ragama"> Ragama </option>
+                      <option value="Rambukkana"> Rambukkana </option>
+                      <option value="Talaimannar"> Talaimannar </option>
+                      <option value="Valaichchenai"> Valaichchenai </option>
+                      <option value="Vavuniya"> Vavuniya </option>
+                      <option value="Veyangoda"> Veyangoda </option>
+                    </select>
+                    <!-- <span class="validation-error" *ngIf="startStaion1.invalid && startStaion1.touched"
+                      style="color: red;">*required</span> -->
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label for="runtime">Choose end Staion: </label>
+                    <br />
+                    <select name="endStaion" id="endStaion1" class="btn dropdown-toggle" #endStaion1="ngModel"
+                      [(ngModel)]="TrainToEdit1.endStaion" required>
+                      <option value="Aluthgama"> Aluthgama</option>
+                      <option value="Ambalangoda"> Ambalangoda</option>
+                      <option value="Anuradhapura"> Anuradhapura </option>
+                      <option value="Avissawella"> Avissawella </option>
+                      <option value="Badulla"> Badulla </option>
+                      <option value="Balapitiya"> Balapitiya</option>
+                      <option value="Bandarawela"> Bandarawela </option>
+                      <option value="Beliatta"> Beliatta</option>
+                      <option value="Bentota"> Bentota</option>
+                      <option value="Chavakachcheri"> Chavakachcheri </option>
+                      <option value="Chilaw"> Chilaw </option>
+                      <option value="Colombo Fort"> Colombo Fort </option>
+                      <option value="Galle"> Galle</option>
+                      <option value="Gampaha"> Gampaha </option>
+                      <option value="Hambantota"> Hambantota</option>
+                      <option value="Hatton"> Hatton </option>
+                      <option value="Hikkaduwa"> Hikkaduwa</option>
+                      <option value="Kandy"> Kandy </option>
+                      <option value="Kankesanthurai"> Kankesanthurai </option>
+                      <option value="Kataragama"> Kataragama</option>
+                      <option value="Katugastota"> Katugastota </option>
+                      <option value="Kilinochchi"> Kilinochchi </option>
+                      <option value="Kodikamamam"> Kodikamamam</option>
+                      <option value="Kollupitiya"> Kollupitiya </option>
+                      <option value="Maho"> Maho </option>
+                      <option value="Mannar"> Mannar </option>
+                      <option value="Maradana"> Maradana </option>
+                      <option value="Moratuwa"> Moratuwa </option>
+                      <option value="Matale"> Matale </option>
+                      <option value="Matara"> Matara</option>
+                      <option value="Nanu Oya"> Nanu Oya </option>
+                      <option value="Nawalapitiya"> Nawalapitiya </option>
+                      <option value="Negombo"> Negombo </option>
+                      <option value="Panadura"> Panadura </option>
+                      <option value="Peradeniya"> Peradeniya </option>
+                      <option value="Polgahawela"> Polgahawela </option>
+                      <option value="Polonnaruwa"> Polonnaruwa </option>
+                      <option value="Puttalam"> Puttalam </option>
+                      <option value="Ragama"> Ragama </option>
+                      <option value="Rambukkana"> Rambukkana </option>
+                      <option value="Talaimannar"> Talaimannar </option>
+                      <option value="Valaichchenai"> Valaichchenai </option>
+                      <option value="Vavuniya"> Vavuniya </option>
+                      <option value="Veyangoda"> Veyangoda </option>
+                    </select>
+                    <!-- <span class="validation-error" *ngIf="endStaion1.invalid && endStaion1.touched"
+                      style="color: red;">*required</span> -->
+                  </div>
+                </div>
+              </div>
+              <!-- <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+
+                    <label for="traintype">Choose Start Time: </label>
+                    <br />
+                    <div class=" col-md-6 pr-md-1">
+                      <div class=" form-group">
+                        <input class=" form-control" type="time" name="starttime" #starttime="ngModel"
+                          [(ngModel)]="TrainToEdit.startTime" atp-time-picker value="{{TrainToEdit.startTime}}" />
+                          <span class="validation-error" *ngIf="TrainToEdit.invalid && TrainToEdit.touched" style="color: red;">*required</span>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label for="runtime">Choose end Time: </label>
+                    <br />
+                    <div class=" col-md-6 pr-md-1">
+                      <div class=" form-group">
+                        <input class=" form-control" type="time" atp-time-picker value="20:55" />
+                        <span class="validation-error" style="color: red;">*required</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class=" card-footer">
+                <table>
+                  <tr>
+                    <td><button class=" btn btn-fill btn-info" type="submit" [disabled]="!form2.valid" value="submit"
                         name="submit">Submit</button></td>
                     <td width=20></td>
-                    <td><button class=" btn btn-fill btn-warning" (click)="clear()"  type="submit" value="reset"
+
+                    <td><button class=" btn btn-fill btn-warning" (click)="clear()" type="submit" value="reset"
                         name="reset">Reset</button>
                     </td>
                   </tr>
@@ -224,10 +455,7 @@
               </div>
             </form>
           </div>
-
         </div>
-
-
       </div>
     </div>
 
@@ -258,12 +486,13 @@
                   <center>
                     <table style="width:fit-content">
                       <tr>
-                        <td width="75">
+                        <td width="500">
                           {{train.trainNumber}} : {{train.trainName}}
                         </td>
                         <td width="200" align="right">
                           <!-- <button (click)="onDelete(users.id)" class="btn btn-danger">X</button> -->
-                          <i class=" tim-icons icon-simple-remove" style="color:rgb(236, 129, 5) ;"></i>
+                          <i class=" tim-icons icon-simple-remove" (click)="onDelete(train.id)"
+                            style="color:rgb(236, 129, 5) ;"></i>
                         </td>
                       </tr>
                     </table>
@@ -272,15 +501,8 @@
               </a>
             </ul>
           </div>
-
         </div>
-
       </div>
     </div>
-
-
-
-
-
   </div>
 </div>

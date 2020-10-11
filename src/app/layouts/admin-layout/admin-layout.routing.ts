@@ -7,8 +7,11 @@ import { NotificationsComponent } from "../../pages/notifications/notifications.
 import { UserComponent } from "../../pages/user/user.component";
 import { TrainsComponent } from "../../pages/trains/trains.component";
 
-import { AboutComponent } from "../../pages/about/about.component";
+import { AboutComponent } from "../../pages/userprof/userprof.component";
 import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.component"
+import { HomeComponent } from 'src/app/pages/home/home/home/home.component';
+import { LoginComponent } from 'src/app/pages/home/login/login/login.component';
+import { RegisterComponent } from 'src/app/pages/home/register/register/register.component';
 
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
@@ -20,9 +23,10 @@ export const AdminLayoutRoutes: Routes = [
   { path: "notifications", component: NotificationsComponent },
   { path: "user", component: UserComponent },
   { path: "trains", component: TrainsComponent },
-
-  { path: "about", component: AboutComponent },
-
+  { path: "home", component: HomeComponent },
+  { path: "login", component: LoginComponent },
+  { path: "userprofile", component: AboutComponent },
+  { path: "register", component: RegisterComponent },
   { path: "lostItem", component: LostitemComponent },
   // { path: "rtl", component: RtlComponent }
 ];
