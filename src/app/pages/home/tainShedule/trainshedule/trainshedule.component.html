@@ -1,3 +1,4 @@
+<app-home-nav></app-home-nav>
 <div class=" col-md-4">
     <div class=" card card-user" style="margin-top: 50px;">
       <div class=" card-header">
@@ -11,25 +12,25 @@
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Start</label>
+                  <label> Start Station</label>
                   <input class=" form-control" name="deviceid" #deviceid="ngModel" [(ngModel)]="deviceData.deviceid"
                     type="text" required />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
                   <div class=" form-group">
-                    <label> End</label>
+                    <label> End Station</label>
                     <input class=" form-control" name="deviceid" #deviceid="ngModel" [(ngModel)]="deviceData.deviceid"
                       type="text" required />
                   </div>
                 </div>
               <div class=" col-md-5 pl-md-1">
                 <div class=" form-group">
-                  <label> Assigned train </label>
-                  <select name="assignedtrain" #trainid="ngModel" [(ngModel)]="deviceData.assignedtrain"
+                  
+                  <!-- <select name="assignedtrain" #trainid="ngModel" [(ngModel)]="deviceData.assignedtrain"
                     id="assignedtrain" class="form-control btn dropdown-toggle" required>
                     <option *ngFor="let train of trainDetails" value="{{train.id}}">{{train.id}}</option>
-                  </select>
+                  </select> -->
                 </div>
               </div>
             </div>
@@ -43,12 +44,12 @@
 
 
           <div class="card" style="width:auto;">
-            <div class="card-header" style="height: 75px; background-color:#CACFD2;">
+            <!-- <div class="card-header" style="height: 75px; background-color:#8b9da8;">
               <div class="active-pink-3 active-pink-4 mb-4">
-                <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;"
-                  type="text" placeholder="Search" aria-label="Search">
-              </div>
-            </div>
+                <!-- <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;"
+                  type="text" placeholder="Search" aria-label="Search"> -->
+              <!-- </div>
+            </div>  -->
             <ul *ngFor="let dv of device" class="list-group list-group-flush">
               <a class="secondary-content">
                 <li class="list-group-item" style="height: 10; background-color:#566573;" (mouseenter)="onEdit(dv)">
