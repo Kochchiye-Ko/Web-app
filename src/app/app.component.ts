@@ -21,7 +21,7 @@ export class AppComponent {
         browserRefresh = !router.navigated;
       }
     })
-  }
+   }
 
   onDestroy(){
     this.subscription .unsubscribe();
