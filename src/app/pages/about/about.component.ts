@@ -48,8 +48,8 @@ export class AboutComponent implements OnInit {
 
   }
 
-  onEdit(admin: Users) {
-    this.userToEdit = Object.assign({}, admin)
+  onEdit(users: Users) {
+    this.userToEdit = Object.assign({}, users)
     this.ID = this.userToEdit.id;
     this.PHONENO = this.userToEdit.phoneno;
   }
