@@ -32,13 +32,13 @@
             <div class=" card-header">
               <h4 class=" card-title">Get In Touch</h4>
             </div>
-            <form (ngSubmit)="onSubmit()">
+            <form  #form='ngForm' autocomplete="off" (ngSubmit)="onSubmit()">
               <div class=" row">
                 <div class=" col-md-12">
                   <div class=" form-group">
                     <label>Name </label>
                     <input class=" form-control" placeholder="Your name" type="text" #subject="ngModel"
-                      [(ngModel)]="addNot.subject" [ngModelOptions]="{standalone: true}" name="subject" required />
+                      [(ngModel)]="addmessages.name" [ngModelOptions]="{standalone: true}" name="subject" required />
                     <span *ngIf="subject.invalid && subject.touched" class="validation-error"
 
                       style="color: red;">*required</span>
@@ -51,7 +51,7 @@
                     <label>Email</label>
 
                     <input class=" form-control" placeholder="Email " type="text" #subject="ngModel"
-                      [(ngModel)]="addNot.subject" [ngModelOptions]="{standalone: true}" name="subject" required />
+                      [(ngModel)]="addmessages.email" [ngModelOptions]="{standalone: true}" name="subject" required />
 
                     <span *ngIf="subject.invalid && subject.touched" class="validation-error"
                       style="color: red;">*required</span>
@@ -64,7 +64,7 @@
                   <div class=" form-group">
                     <label> Message </label>
                     <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike"
-                      #message="ngModel" [(ngModel)]="addNot.message" [ngModelOptions]="{standalone: true}" required>
+                      #message="ngModel" [(ngModel)]="addmessages.message" [ngModelOptions]="{standalone: true}" required>
 
                 </textarea><span *ngIf="message.invalid && message.touched" class="validation-error"
                       style="color: red;">*required</span>
@@ -74,7 +74,7 @@
 
               <div class=" card-footer">
                 <button style="width: 170px;" class=" btn btn-fill btn-warning" type="submit" value="submit"
-                  name="send">Send</button>
+                  name="send" >Send</button>
               </div>
             </form>
 

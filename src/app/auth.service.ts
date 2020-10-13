@@ -86,9 +86,6 @@ export class AuthService {
   }
   //-----------------------------------------notifications//
 
-  // addNotification(addNot: Notification) {
-  //   this.notificaitonsCollection.add(addNot);
-  // }
   addNotification(data: Notification) {
     this.afs.collection(`Notification`).add(data);
   }
