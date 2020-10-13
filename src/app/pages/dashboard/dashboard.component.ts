@@ -138,23 +138,6 @@ export class DashboardComponent implements OnInit {
         }
       };
 
-      this.canvas = document.getElementById("chartLineRed");
-      this.ctx = this.canvas.getContext("2d");
-
-      var gradientStroke = this.ctx.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
-      gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
-      gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-
-      this.ctx = this.canvas.getContext("2d");
-
-      var gradientStroke = this.ctx.createLinearGradient(0, 230, 0, 50);
-
-      gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
-      gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
-      gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
-
       var chart_labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
       this.datasets = [
