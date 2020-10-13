@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/auth.service';
 import { Notification } from '../../models/notifications';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from "@angular/common";
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -13,34 +14,49 @@ export class NotificationsComponent implements OnInit {
 
 
   notifications: Notification[];
-  addNot: Notification = {
-    author: '',
-    dateTime: '',
-    message: ' ',
-    subject: ' ',
-  }
-
+  addNot: Notification;
 
   constructor(private notService: AuthService, private toster: ToastrService) {
   }
 
+
+
   ngOnInit() {
+    this.resetForm();
     this.notService.getNotifications().subscribe(notifications => {
-      //console.log(notifications);
       this.notifications = notifications;
     });
   }
 
-  onSubmit() {
-    if (this.addNot.subject != '' && this.addNot.message != '') {
-      this.notService.addNotification(this.addNot);
-      this.addNot.author = '';
-      this.addNot.dateTime = '';
-      this.addNot.message = '';
-      this.addNot.subject = '';
-      this.toster.success("Sent message successfully", "" + this.addNot.author);
+  onsubmit(form: NgForm) {
+    let data = Object.assign({ dateTime: Date.now(), author: "admin" }, form.value);
+    console.log(form.value);  
+    this.notService.addNotification(data);
+    this.toster.success("Sent message successfully");
+    this.resetForm();
+  }
+
+  resetForm(form?: NgForm) {
+    if (form != null)
+      form.resetForm();
+    this.addNot = {
+      id: null,
+      subject: null,
+      message: null,
+      dateTime: null,
     }
   }
+
+  // onSubmit() {
+  //   if (this.addNot.subject != '' && this.addNot.message != '') {
+  //     this.notService.addNotification(this.addNot);
+  //     this.addNot.author = '';
+  //     this.addNot.dateTime = '';
+  //     this.addNot.message = '';
+  //     this.addNot.subject = '';
+  //     this.toster.success("Sent message successfully", "" + this.addNot.author);
+  //   }
+  // }
 
 
 }
