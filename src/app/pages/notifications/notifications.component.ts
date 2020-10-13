@@ -2,9 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from 'src/app/auth.service';
 import { Notification } from '../../models/notifications';
 import { ToastrService } from 'ngx-toastr';
-import { DatePipe } from "@angular/common";
-import { NavigationStart, Router } from "@angular/router";
-import { Subscription } from "rxjs";
+import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
 
 //export let browserRefresh = false;
 
@@ -36,12 +35,7 @@ export class NotificationsComponent implements OnInit {
 
   constructor(private notService: AuthService, private toster: ToastrService, private router: Router) {
 
-    // this.subscription = router.events.subscribe((event) => {
-    //   if (event instanceof NavigationStart) {
-    //     browserRefresh = !router.navigated;
-    //   }
-    // })
-
+   
 
 
   }
@@ -106,31 +100,30 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit() {
     this.notService.getNotifications().subscribe(notifications => {
-      //console.log(notifications);
-      this.notifications = notifications;
+    this.notifications = notifications;
     });
   }
 
 
 
-  onSubmit() {
-    if (this.addNot.subject != '' && this.addNot.message != '') {
-      this.notService.addNotification(this.addNot);
-      this.addNot.author = '';
-      this.addNot.dateTime = '';
-      this.addNot.message = '';
-      this.addNot.subject = '';
-      this.toster.success("Sent message successfully", "" + this.addNot.author);
-    }
+  onSubmit(form: NgForm) {
+    let data = Object.assign({dateTime: Date.now()}, form.value);
+      console.log(form.value);
+    // if (this.addNot.subject != '' && this.addNot.message != '') {
+    //   this.notService.addNotification(this.addNot);
+    //   this.toster.success("Sent message successfully");
+    // }
+    this.notService.addNotification(data);
+      this.toster.success("Sent message successfully");
+      
+   
   }
 
 
 
+
+
+
 }
-
-// onDestroy(){
-//   this.subscription .unsubscribe();
-// }
-
 
 

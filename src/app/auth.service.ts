@@ -39,8 +39,12 @@ export class AuthService {
 
   //Notifications..........................................................................
 
-    this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
-    this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+  
+    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'desc'));
+    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+
+    // this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
+    // this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
         return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
@@ -87,7 +91,7 @@ export class AuthService {
   //-----------------------------------------notifications//
 
   addNotification(addNot: Notification) {
-    this.notificaitonsCollection.add(addNot);
+    this.afs.collection('Notification').add(addNot);
   }
 
 

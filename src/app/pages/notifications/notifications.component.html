@@ -14,8 +14,7 @@
             <span data-notify="message" style="font-size: medium;">
               <label style="font-size: small;"> Subject : </label> {{notification.subject}}<br>
               <label style="font-size: small;"> Message : </label> {{notification.message}}<br>
-              <!-- {{notification.dateTime.toDate() | date:'yyyy/MM/dd  h:mm:ss'}} -->
-              {{notification.dateTime}}
+              {{notification.dateTime | date: "yyyy/MM/dd h:mm:ss"}}
 
             </span>
           </ngb-alert>
@@ -29,15 +28,20 @@
             <div class=" card-header">
               <h4 class=" card-title">Create Message</h4>
             </div>
-            <form (ngSubmit)="onSubmit()">
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
               <div class=" row">
                 <div class=" col-md-12">
                   <div class=" form-group">
                     <label> Subject </label>
                     <input class=" form-control" placeholder="subject" type="text" #subject="ngModel"
                       [(ngModel)]="addNot.subject" [ngModelOptions]="{standalone: true}" name="subject" required />
-                    <span *ngIf="subject.invalid && subject.touched" class="validation-error"
+                    
+                      <!-- <span *ngIf="subject.invalid && subject.touched" class="validation-error"
+                      style="color: red;">*required</span> -->
+
+                      <span *ngIf="subject.invalid && subject.touched" class="validation-error"
                       style="color: red;">*required</span>
+
                   </div>
                 </div>
               </div>
@@ -47,13 +51,16 @@
                     <label> Message </label>
                     <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike"
                       #message="ngModel" [(ngModel)]="addNot.message" [ngModelOptions]="{standalone: true}" required>
-                        </textarea><span *ngIf="message.invalid && message.touched" class="validation-error"
-                      style="color: red;">*required</span>
+                    </textarea>
+                        <span *ngIf="message.invalid && message.touched" class="validation-error"
+                      style="color: red;">*required
+                        </span>
+                        
                   </div>
                 </div>
               </div>
               <div class=" card-footer">
-                <button style="width: 170px;" class=" btn btn-fill btn-warning" type="submit" value="submit"
+                <button style="width: 170px;" class=" btn btn-fill btn-warning" [disabled]="!form.valid"  type="submit" value="submit"
                   name="send">Send</button>
               </div>
             </form>
