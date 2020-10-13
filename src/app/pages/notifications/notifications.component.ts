@@ -46,17 +46,5 @@ export class NotificationsComponent implements OnInit {
     }
   }
 
-  // onSubmit() {
-  //   if (this.addNot.subject != '' && this.addNot.message != '') {
-  //     this.notService.addNotification(this.addNot);
-  //     this.addNot.author = '';
-  //     this.addNot.dateTime = '';
-  //     this.addNot.message = '';
-  //     this.addNot.subject = '';
-  //     this.toster.success("Sent message successfully", "" + this.addNot.author);
-  //   }
-  // }
-
-
 }
 
