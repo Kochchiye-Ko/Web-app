@@ -89,7 +89,7 @@
             <b class=" caret d-none d-lg-block d-xl-block"> </b>
             <p class=" d-lg-none">Log out</p>
           </a>
-          <ul class=" dropdown-navbar" ngbDropdownMenu>
+          <ul class=" dropdown-navbar" ngbDropdownMenu *ngIf = "authservice.currentUser">
             <li class=" nav-link">
               <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
                 Profile
@@ -102,7 +102,7 @@
             </li>
             <li class=" dropdown-divider"></li>
             <li class=" nav-link">
-              <a class=" nav-item" href="javascript:void(0)" ngbDropdownItem>
+              <a class=" nav-item"  (click)="authservice.signout()"  ngbDropdownItem>
                 Log out
               </a>
             </li>
