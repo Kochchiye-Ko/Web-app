@@ -11,6 +11,7 @@ import { ContactComponent } from './pages/home/contactus/contact/contact.compone
 import { RegisterComponent } from './pages/home/register/register/register.component';
 import { LoginComponent } from './pages/home/login/login/login.component';
 import { AbotComponent } from './pages/home/about/abot/abot.component';
+import { TrainsheduleComponent} from "./pages/home/tainShedule/trainshedule/trainshedule.component";
 
 const routes: Routes = [
   {
@@ -23,10 +24,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "trainshedule",
+    component: TrainsheduleComponent
+  },
+  {
     path: "contact",
     component: ContactComponent
 
   },
+  
   {
     path: "about",
     component: AbotComponent
@@ -61,10 +67,10 @@ const routes: Routes = [
       }
     ]
   },
-  {
+ {
     path: "**",
     redirectTo: "home"
-  }
+ }
 ];
 
 @NgModule({

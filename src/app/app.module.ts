@@ -22,6 +22,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth'
 import { environment } from '../environments/environment';
 import { AuthService } from "../app/auth.service";
 import { AdminService } from "../app/admin.service";
+
+import { AboutComponent } from "../app/pages/userprof/userprof.component";
 //import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 //  import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';

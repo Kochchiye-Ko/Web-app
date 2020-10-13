@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "src/app/auth.service";
 import { Messages } from "../../../../models/messages";
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -20,9 +21,7 @@ export class ContactComponent implements OnInit {
   constructor(private msgService: AuthService,private toster: ToastrService) { }
 
   ngOnInit(){
-   
-  }
-
+}
   onSubmit(){
     if (this.addmessages.name != '' && this.addmessages.email != '') {
       this.msgService.addMessages(this.addmessages);
@@ -32,5 +31,7 @@ export class ContactComponent implements OnInit {
       this.toster.success("Sent message successfully", "" + this.addmessages.name);
     }
   }
+ 
 
 }
+    

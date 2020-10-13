@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from "@angular/common";
 import { NgForm } from '@angular/forms';
 
+//export let browserRefresh = false;
 
 @Component({
   selector: "app-notifications",
