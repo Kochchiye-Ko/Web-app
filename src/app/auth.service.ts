@@ -41,12 +41,12 @@ export class AuthService {
 
     //this.notifications = this.afs.collection('Notification').valueChanges();
 
-    // this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'asc'));
-    //this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'desc'));
+    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
 
 
-    this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
-    this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+    // this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
+    // this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
 
       return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
