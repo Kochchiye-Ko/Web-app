@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from '../../admin.service';
+import { AuthService } from "../../auth.service";
 import { Users } from '../../models/users';
 import { NgForm } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
@@ -31,16 +32,16 @@ export class AboutComponent implements OnInit {
  
  
  
-  constructor(private authservice:AdminService,private toster: ToastrService) {}
+  constructor(private adminservice:AdminService,private toster: ToastrService) {}
 
   ngOnInit() {
-    this.authservice.getUsers().subscribe(usersx => {
+    this.adminservice.getUsers().subscribe(usersx => {
       this.users = usersx;
    
     }),
     this.resetForm();
     combineLatest(this.startObs, this.endObs).subscribe((value) => {
-      this.authservice.firequery(value[0], value[1]).subscribe((phoneno) => {
+      this.adminservice.firequery(value[0], value[1]).subscribe((phoneno) => {
         this.pno = phoneno;
       })
     })
@@ -55,13 +56,13 @@ export class AboutComponent implements OnInit {
 
   onsubmit(form: NgForm) {
     let data = Object.assign({}, form.value);
-    this.authservice.updateUsers(data, this.ID);
+    this.adminservice.updateUsers(data, this.ID);
     this.toster.success("Successfully updated", "" + this.PHONENO);
   }
 
   onDelete(id: String) {
     if ((confirm("Are you sure to delete this user?"))) {
-      this.authservice.onDelete(id);
+      this.adminservice.onDelete(id);
       this.toster.error("Successfully deleted");
       this.resetForm();
 

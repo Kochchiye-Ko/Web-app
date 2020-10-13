@@ -1,1 +1,85 @@
-<p>trainshedule works!</p>
+<app-home-nav></app-home-nav>
+<div class=" col-md-4">
+    <div class=" card card-user" style="margin-top: 50px;">
+      <div class=" card-header">
+        <h5 class=" title">Train Schedule</h5>
+      </div>
+      <div class=" card-body">
+        <div class="card" style="width:auto;">
+
+          <form #form='ngForm' autocomplete="off" (ngSubmit)="onsubmit(form)">
+
+            <div class=" row">
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Start Station</label>
+                  <input class=" form-control" name="deviceid" #deviceid="ngModel" [(ngModel)]="deviceData.deviceid"
+                    type="text" required />
+                </div>
+              </div>
+              <div class=" col-md-5 pr-md-1">
+                  <div class=" form-group">
+                    <label> End Station</label>
+                    <input class=" form-control" name="deviceid" #deviceid="ngModel" [(ngModel)]="deviceData.deviceid"
+                      type="text" required />
+                  </div>
+                </div>
+              <div class=" col-md-5 pl-md-1">
+                <div class=" form-group">
+                  
+                  <!-- <select name="assignedtrain" #trainid="ngModel" [(ngModel)]="deviceData.assignedtrain"
+                    id="assignedtrain" class="form-control btn dropdown-toggle" required>
+                    <option *ngFor="let train of trainDetails" value="{{train.id}}">{{train.id}}</option>
+                  </select> -->
+                </div>
+              </div>
+            </div>
+            <div class=" card-footer">
+              <button style="width: 170px;" class=" btn btn-fill btn-info" type="submit" value="submit"
+                [disabled]="!form.valid" name="submit">Search</button>
+            </div>
+
+          </form>
+
+
+
+          <div class="card" style="width:auto;">
+            <!-- <div class="card-header" style="height: 75px; background-color:#8b9da8;">
+              <div class="active-pink-3 active-pink-4 mb-4">
+                <!-- <input class="form-control" [(ngModel)]="searchterm" (input)="search($event)" style="color: black;"
+                  type="text" placeholder="Search" aria-label="Search"> -->
+              <!-- </div>
+            </div>  -->
+            <ul *ngFor="let dv of device" class="list-group list-group-flush">
+              <a class="secondary-content">
+                <li class="list-group-item" style="height: 10; background-color:#566573;" (mouseenter)="onEdit(dv)">
+                  <center>
+                    <table style="width:fit-content">
+                      <tr>
+                        <td width="200">
+                          <b style="color: rgb(226, 194, 213);">{{dv.deviceid}} </b> <span
+                            style="color: rgb(131, 128, 130);"> --> </span>
+                          {{dv.assignedtrain}}
+                          <!-- {{users.dateTime.toDate() | date:'yyyy/MM/dd h:mm:ss a'}} -->
+                        </td>
+                        <td width="200" align="right">
+                          <!-- <button (click)="onDelete(dv.id)" class="btn btn-danger">X</button> -->
+                          <i (click)="onDelete(dv.id)" class=" tim-icons icon-simple-remove"
+                            style="color:rgb(236, 129, 5) ;"></i>
+                        </td>
+                      </tr>
+                    </table>
+                  </center>
+                </li>
+              </a>
+            </ul>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

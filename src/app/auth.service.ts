@@ -4,7 +4,6 @@ import { Users } from './models/users'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification } from './models/notifications';
-import { TrainDetails } from './models/traindetails';
 import { Messages } from './models/messages';
 
 @Injectable({
@@ -21,11 +20,12 @@ export class AuthService {
   notificaitonsCollection: AngularFirestoreCollection<Notification>
   notifications: Observable<Notification[]>
 
- //contact us ---------------------------------------------------------
+  //contact us ---------------------------------------------------------
 
- messageCollection : AngularFirestoreCollection<Messages>
- messages: Observable<Messages[]>
+  messageCollection: AngularFirestoreCollection<Messages>
+  messages: Observable<Messages[]>
 
+//Users----------------------------------------------------------------------------------
 
   constructor(public afs: AngularFirestore) {
 
@@ -37,17 +37,10 @@ export class AuthService {
       });
     }));
 
-  //Notifications..........................................................................
+    //Notifications..........................................................................
 
-    //this.notifications = this.afs.collection('Notification').valueChanges();
-
-    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'desc'));
-    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
-
-
-    // this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
-    // this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
-
+    this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('dateTime', 'desc'));
+    this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
@@ -55,7 +48,7 @@ export class AuthService {
       });
     }));
 
-  }
+  } 
 
   //users-----------------------------------------
 
@@ -84,7 +77,7 @@ export class AuthService {
       });
     }));
   }
-  //-----------------------------------------users//
+ 
 
 
   //notifications-----------------------------------------
@@ -93,8 +86,8 @@ export class AuthService {
   }
   //-----------------------------------------notifications//
 
-  addNotification(addNot: Notification) {
-    this.notificaitonsCollection.add(addNot);
+  addNotification(data: Notification) {
+    this.afs.collection(`Notification`).add(data);
   }
 
 
@@ -104,12 +97,11 @@ export class AuthService {
     return this.afs.collection('TrainDetails', ref => ref.orderBy("trainName", "asc").startAt(start).endAt(end)).valueChanges();
   }
 
-//Meaasages ------------------------------------------------------
+  //Meaasages ------------------------------------------------------
 
-  addMessages(addmessages: Messages){
- 
-     this.afs.collection(`Messages`).add(addmessages);
+  addMessages(addmessages: Messages) {
+
+    this.afs.collection(`Messages`).add(addmessages);
   }
- 
 
 }

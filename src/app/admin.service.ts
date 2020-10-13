@@ -11,7 +11,7 @@ import { state } from '@angular/animations';
 })
 export class AdminService {
 
-  adminCollection: AngularFirestoreCollection<Users>;
+  //adminCollection: AngularFirestoreCollection<Users>;
   Admin: Observable<Users[]>;
   adminDoc: AngularFirestoreDocument<Users>
  
