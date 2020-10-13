@@ -19,8 +19,8 @@
                     <label> Train Number</label>
                     <input class=" form-control" name="trainNumber" #trainnmber="ngModel"
                       [(ngModel)]="TrainToEdit.trainNumber" placeholder="Train number" type="text" required />
-                    <span *ngIf="trainnmber.invalid && trainnmber.touched" class="validation-error"
-                      style="color: red;">*required</span>
+                    <!-- <span *ngIf="trainnmber.invalid && trainnmber.touched" class="validation-error"
+                      style="color: red;">*required</span> -->
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -28,8 +28,8 @@
                     <label> Train Name </label>
                     <input class=" form-control" placeholder="Train Name" type="text" name="trainName"
                       #trainname="ngModel" [(ngModel)]="TrainToEdit.trainName" required />
-                    <span class="validation-error" style="color: red;"
-                      *ngIf="trainname.invalid && trainname.touched">*required</span>
+                    <!-- <span class="validation-error" style="color: red;"
+                      *ngIf="trainname.invalid && trainname.touched">*required</span> -->
                   </div>
                 </div>
               </div>
@@ -47,8 +47,8 @@
                       <option value="LongDistance">Long Distance</option>
                       <option value="Night">Night</option>
                     </select>
-                    <span class="validation-error" *ngIf="traintype.invalid && traintype.touched"
-                      style="color: red;">*required</span>
+                    <!-- <span class="validation-error" *ngIf="traintype.invalid && traintype.touched"
+                      style="color: red;">*required</span> -->
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -62,8 +62,8 @@
                       <option value="Weekends">Weekends</option>
                       <option value="Special">Special</option>
                     </select>
-                    <span class="validation-error" *ngIf="runtime.invalid && runtime.touched"
-                      style="color: red;">*required</span>
+                    <!-- <span class="validation-error" *ngIf="runtime.invalid && runtime.touched"
+                      style="color: red;">*required</span> -->
                   </div>
                 </div>
               </div>
@@ -249,8 +249,8 @@
                     <label> Train Number</label>
                     <input class=" form-control" name="trainNumber" #trainnmber1="ngModel"
                       [(ngModel)]="TrainToEdit1.trainNumber" placeholder="Train number" type="text" required />
-                    <span *ngIf="trainnmber1.invalid && trainnmber1.touched" class="validation-error"
-                      style="color: red;">*required</span>
+                    <!-- <span *ngIf="trainnmber1.invalid && trainnmber1.touched" class="validation-error"
+                      style="color: red;">*required</span> -->
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -258,8 +258,8 @@
                     <label> Train Name </label>
                     <input class=" form-control" placeholder="Train Name" type="text" name="trainName"
                       #trainname1="ngModel" [(ngModel)]="TrainToEdit1.trainName" required />
-                    <span class="validation-error" style="color: red;"
-                      *ngIf="trainname1.invalid && trainname1.touched">*required</span>
+                    <!-- <span class="validation-error" style="color: red;"
+                      *ngIf="trainname1.invalid && trainname1.touched">*required</span> -->
                   </div>
                 </div>
               </div>
@@ -447,8 +447,8 @@
                         name="submit">Submit</button></td>
                     <td width=20></td>
 
-                    <td><button class=" btn btn-fill btn-warning" (click)="clear()" type="submit" value="reset"
-                        name="reset">Reset</button>
+                    <td><button class=" btn btn-fill btn-warning" (click)="clear2()" type="reset" value="reset"
+                        [disabled]="!form2.valid" name="reset">Reset</button>
                     </td>
                   </tr>
                 </table>
