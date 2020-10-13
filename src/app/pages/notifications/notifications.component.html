@@ -36,8 +36,8 @@
                     <label> Subject </label>
                     <input class=" form-control" name="subject" #subject="ngModel" [(ngModel)]="addNot.subject"
                       placeholder="Enter subject" type="text" required />
-                    <span *ngIf="subject.invalid && subject.touched" class="validation-error"
-                      style="color: red;">*required</span>
+                    <!-- <span *ngIf="subject.invalid && subject.touched" class="validation-error"
+                      style="color: red;">*required</span> -->
                   </div>
                 </div>
               </div>
@@ -47,9 +47,12 @@
                     <label> Message </label>
                     <textarea class=" form-control" name="message" #message="ngModel" [(ngModel)]="addNot.message"
                       placeholder="Enter message" type="text" required>
-                    </textarea>
-                    <span *ngIf="message.invalid && message.touched" class="validation-error"
-                      style="color: red;">*required</span>
+                       </textarea>
+                    <!-- <textarea class=" form-control" cols="80" placeholder="Enter your message" rows="4" value="Mike"
+                      #message="ngModel" [(ngModel)]="addNot.message" [ngModelOptions]="{standalone: true}" required>
+                        </textarea> -->
+                    <!-- <span *ngIf="message.invalid && message.touched" class="validation-error"
+                      style="color: red;">*required</span> -->
                   </div>
                 </div>
               </div>
