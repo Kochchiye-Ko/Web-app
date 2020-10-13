@@ -60,7 +60,6 @@ export const firebaseconfig = environment.firebaseConfig;
     MatIconModule,
 
     BrowserAnimationsModule,
-    // NgxMaterialTimepickerModule,
     FormsModule,
     HttpClientModule,
     ComponentsModule,
