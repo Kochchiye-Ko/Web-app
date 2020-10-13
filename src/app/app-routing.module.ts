@@ -8,8 +8,9 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { HomeComponent } from './pages/home/home/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
-import { LoginComponent } from './pages/home/login/login/login.component';
 import { RegisterComponent } from './pages/home/register/register/register.component';
+import { LoginComponent } from './pages/home/login/login/login.component';
+import { AbotComponent } from './pages/home/about/abot/abot.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
 
   },
   {
+    path: "about",
+    component: AbotComponent
+
+  },
+  {
     path: "login",
     component: LoginComponent
   },
@@ -35,10 +41,6 @@ const routes: Routes = [
     component: RegisterComponent
   },
 
-  {
-    path: "",
-    component: DashboardComponent
-  },
   {
     path: "",
     component: AdminLayoutComponent,

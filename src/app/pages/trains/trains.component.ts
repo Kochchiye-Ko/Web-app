@@ -41,7 +41,7 @@ export class TrainsComponent implements OnInit {
   TrainToEdit1: TrainDetails;
   ID: String;
 
-  constructor(private TrainsheduleService: TrainsheduleService, private atp: AmazingTimePickerModule  , private toster: ToastrService) {
+  constructor(private TrainsheduleService: TrainsheduleService, private toster: ToastrService) {
 
   }
 
