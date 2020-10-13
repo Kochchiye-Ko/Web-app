@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContactComponent } from './pages/home/contactus/contact/contact.component';
 import { RegisterComponent } from './pages/home/register/register/register.component';
 import { LoginComponent } from './pages/home/login/login/login.component';
+import { AbotComponent } from './pages/home/about/abot/abot.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: "contact",
     component: ContactComponent
+
+  },
+  {
+    path: "about",
+    component: AbotComponent
 
   },
   {

@@ -45,6 +45,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/home/login/login/login.component';
+import { AbotComponent } from './pages/home/about/abot/abot.component';
 
 export const firebaseconfig = environment.firebaseConfig;
 
@@ -74,7 +75,7 @@ export const firebaseconfig = environment.firebaseConfig;
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent,],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent, AbotComponent,],
   providers: [AuthService, { provide: APP_BASE_HREF, useValue: '/' }],
 
   bootstrap: [AppComponent]
