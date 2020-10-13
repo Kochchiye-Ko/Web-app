@@ -37,7 +37,6 @@ import { HomeNavComponent } from './pages/home/home/home-nav/home-nav.component'
 import { HomefooterComponent } from './pages/home/home/homefooter/homefooter.component';
 
 import { LostitemComponent } from './pages/lostitems/lostitem/lostitem.component';
-import { LoginComponent } from './pages/home/login/login/login.component';
 import { RegisterComponent } from './pages/home/register/register/register.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -47,6 +46,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './pages/home/login/login/login.component';
+import { AbotComponent } from './pages/home/about/abot/abot.component';
 
 export const firebaseconfig = environment.firebaseConfig;
 
@@ -62,7 +63,6 @@ export const firebaseconfig = environment.firebaseConfig;
     MatIconModule,
 
     BrowserAnimationsModule,
-    // NgxMaterialTimepickerModule,
     FormsModule,
     HttpClientModule,
     ComponentsModule,
@@ -77,7 +77,7 @@ export const firebaseconfig = environment.firebaseConfig;
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent,AboutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent, AbotComponent,],
   providers: [AuthService, { provide: APP_BASE_HREF, useValue: '/' }],
 
   bootstrap: [AppComponent]

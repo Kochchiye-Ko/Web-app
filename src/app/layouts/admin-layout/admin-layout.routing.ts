@@ -13,11 +13,8 @@ import { HomeComponent } from 'src/app/pages/home/home/home/home.component';
 import { LoginComponent } from 'src/app/pages/home/login/login/login.component';
 import { RegisterComponent } from 'src/app/pages/home/register/register/register.component';
 
-// import { RtlComponent } from "../../pages/rtl/rtl.component";
-
 export const AdminLayoutRoutes: Routes = [
-  
-  { path: "dashboard", component: DashboardComponent},
+  { path: "dashboard", component: DashboardComponent, },
   { path: "devices", component: DeviceComponent },
   { path: "maps", component: MapComponent },
   { path: "notifications", component: NotificationsComponent },
@@ -28,5 +25,4 @@ export const AdminLayoutRoutes: Routes = [
   { path: "userprofile", component: AboutComponent },
   { path: "register", component: RegisterComponent },
   { path: "lostItem", component: LostitemComponent },
-  // { path: "rtl", component: RtlComponent }
 ];

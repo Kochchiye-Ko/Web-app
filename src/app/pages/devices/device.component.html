@@ -100,7 +100,7 @@
                     <label> Assigned train </label>
                     <select name="assignedtrain" #trainid="ngModel" [(ngModel)]="deviceData.assignedtrain"
                       id="assignedtrain" class="form-control btn dropdown-toggle" required>
-                      <option *ngFor="let train of trainDetails" value="{{train.id}}">{{train.id}}</option>
+                      <option *ngFor="let train of trainDetails" value="{{train.trainNumber}}">{{train.trainNumber}}</option>
                     </select>
                   </div>
                 </div>

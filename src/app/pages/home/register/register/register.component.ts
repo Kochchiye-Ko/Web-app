@@ -42,8 +42,8 @@ export class RegisterComponent implements OnInit {
     {
       this.authservice.registerWithEmail(this.email , this.password)
       .then(() => {
-        this.message = "You are register with data on firebase"
-        //this.router.navigate(['/userinfo'])
+        this.message = "You are succefully register with us"
+        this.router.navigate(['/../login'])
 
       }).catch(_error => {
         this.error = _error

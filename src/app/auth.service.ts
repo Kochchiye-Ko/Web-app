@@ -20,10 +20,10 @@ export class AuthService {
   notificaitonsCollection: AngularFirestoreCollection<Notification>
   notifications: Observable<Notification[]>
 
- //contact us ---------------------------------------------------------
+  //contact us ---------------------------------------------------------
 
- messageCollection : AngularFirestoreCollection<Messages>
- messages: Observable<Messages[]>
+  messageCollection: AngularFirestoreCollection<Messages>
+  messages: Observable<Messages[]>
 
 //Users----------------------------------------------------------------------------------
 
@@ -37,22 +37,18 @@ export class AuthService {
       });
     }));
 
-  //Notifications..........................................................................
+    //Notifications..........................................................................
 
-  
-    this.notificaitonsCollection = this.afs.collection('Notification' , ref => ref.orderBy('dateTime' , 'desc'));
-    this.notifications =this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
-
-    // this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('message', 'asc'));
-    // this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
-        return changes.map(a => {
+    this.notificaitonsCollection = this.afs.collection('Notification', ref => ref.orderBy('dateTime', 'desc'));
+    this.notifications = this.notificaitonsCollection.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
         const data = a.payload.doc.data() as Notification;
         data.id = a.payload.doc.id;
         return data;
       });
     }));
 
-  }
+  } 
 
   //users-----------------------------------------
 
@@ -81,7 +77,7 @@ export class AuthService {
       });
     }));
   }
-  //-----------------------------------------users//
+ 
 
 
   //notifications-----------------------------------------
@@ -90,8 +86,11 @@ export class AuthService {
   }
   //-----------------------------------------notifications//
 
-  addNotification(addNot: Notification) {
-    this.afs.collection('Notification').add(addNot);
+  // addNotification(addNot: Notification) {
+  //   this.notificaitonsCollection.add(addNot);
+  // }
+  addNotification(data: Notification) {
+    this.afs.collection(`Notification`).add(data);
   }
 
 
@@ -101,12 +100,11 @@ export class AuthService {
     return this.afs.collection('TrainDetails', ref => ref.orderBy("trainName", "asc").startAt(start).endAt(end)).valueChanges();
   }
 
-//Meaasages ------------------------------------------------------
+  //Meaasages ------------------------------------------------------
 
-  addMessages(addmessages: Messages){
- 
-     this.afs.collection(`Messages`).add(addmessages);
+  addMessages(addmessages: Messages) {
+
+    this.afs.collection(`Messages`).add(addmessages);
   }
- //------------------------------------------------------Messages//
 
 }
