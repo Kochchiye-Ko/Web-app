@@ -11,6 +11,7 @@ import { MapComponent } from "../../pages/map/map.component";
 import { NotificationsComponent } from "../../pages/notifications/notifications.component";
 import { UserComponent } from "../../pages/user/user.component";
 import { TrainsComponent } from "../../pages/trains/trains.component";
+import {  MessagesComponent } from "../../pages/messages/messages.component";
 //import { AboutComponent } from "../../pages/userprof/userprof.component";
 //import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.component"
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
@@ -34,6 +35,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     // LostitemComponent,
     NotificationsComponent,
     MapComponent,
+    MessagesComponent
     // RtlComponent
   ]
 })

@@ -12,12 +12,14 @@ import { LostitemComponent } from "../../pages/lostitems/lostitem/lostitem.compo
 import { HomeComponent } from 'src/app/pages/home/home/home/home.component';
 import { LoginComponent } from 'src/app/pages/home/login/login/login.component';
 import { RegisterComponent } from 'src/app/pages/home/register/register/register.component';
+import { MessagesComponent } from "src/app/pages/messages/messages.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent, },
   { path: "devices", component: DeviceComponent },
   { path: "maps", component: MapComponent },
-  { path: "notifications", component: NotificationsComponent },
+  { path: "notifications", component: NotificationsComponent},
+  { path: "messageView", component: MessagesComponent},
   { path: "user", component: UserComponent },
   { path: "trains", component: TrainsComponent },
   { path: "home", component: HomeComponent },

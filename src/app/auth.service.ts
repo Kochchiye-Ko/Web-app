@@ -48,6 +48,16 @@ export class AuthService {
       });
     }));
 
+    //Messages------------------------------------------------------------------------------------------------
+    this.messageCollection = this.afs.collection('Messages', ref => ref.orderBy('dateTime', 'desc'));
+    this.messages = this.afs.collection('Messages').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Messages;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
+
   } 
 
   //users-----------------------------------------
@@ -99,9 +109,14 @@ export class AuthService {
 
   //Meaasages ------------------------------------------------------
 
-  addMessages(addmessages: Messages) {
 
-    this.afs.collection(`Messages`).add(addmessages);
+  getMessages(){
+    return this.messages;
+  }
+
+  addMessages(data: Messages) {
+
+    this.afs.collection(`Messages`).add(data);
   }
 
 }
