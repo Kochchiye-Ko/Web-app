@@ -41,6 +41,13 @@ export class ContactComponent implements OnInit {
     this.resetForm();
   }
 
+  onsubmit(form: NgForm) {
+    let data = Object.assign({ dateTime: Date.now().toString() }, form.value);
+    this.msgService.addMessages(data);
+    this.toster.success("Successfully sent.");
+    this.resetForm();
+  }
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
