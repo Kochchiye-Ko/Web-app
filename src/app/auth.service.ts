@@ -114,9 +114,9 @@ export class AuthService {
     return this.messages;
   }
 
-  addMessages(data: Messages) {
+  addMessages(addmessages: Messages) {
 
-    this.afs.collection(`Messages`).add(data);
+    this.afs.collection(`Messages`).add(addmessages);
   }
 
 }
