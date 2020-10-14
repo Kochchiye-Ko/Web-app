@@ -49,6 +49,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/home/login/login/login.component';
 import { AbotComponent } from './pages/home/about/abot/abot.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile/userprofile.component';
+import { MessagesComponent } from './pages/messages/messages/messages.component';
 
 export const firebaseconfig = environment.firebaseConfig;
 
@@ -78,7 +79,7 @@ export const firebaseconfig = environment.firebaseConfig;
       apiKey: environment.googleMapsKey
     })
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent, AbotComponent, UserprofileComponent,],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, ContactComponent, TrainsheduleComponent, MapComponent, HomeComponent, HomeNavComponent, HomefooterComponent, LostitemComponent, LoginComponent, RegisterComponent, AbotComponent, UserprofileComponent, MessagesComponent,],
   providers: [AuthService, { provide: APP_BASE_HREF, useValue: '/' }],
 
   bootstrap: [AppComponent]

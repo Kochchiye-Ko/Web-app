@@ -36,7 +36,13 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-bell-55",
     class: ""
   },
-
+  {
+    path: "/messageView",
+    title: "Messages (web)",
+    rtlTitle: "الرموز",
+    icon: "icon-bell-55",
+    class: ""
+  },
   {
     path: "/user",
     title: "User Profile",

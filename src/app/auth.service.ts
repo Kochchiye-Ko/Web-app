@@ -25,9 +25,20 @@ export class AuthService {
   messageCollection: AngularFirestoreCollection<Messages>
   messages: Observable<Messages[]>
 
-//Users----------------------------------------------------------------------------------
+  //Users----------------------------------------------------------------------------------
 
   constructor(public afs: AngularFirestore) {
+
+    //Messages------------------------------------------------------------------------------------------------
+    this.messageCollection = this.afs.collection('Messages', ref => ref.orderBy('dateTime', 'desc'));
+    this.messages = this.afs.collection('Messages').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Messages;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    }));
+
 
     this.users = this.afs.collection('UserTB').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -48,7 +59,7 @@ export class AuthService {
       });
     }));
 
-  } 
+  }
 
   //users-----------------------------------------
 
@@ -77,7 +88,7 @@ export class AuthService {
       });
     }));
   }
- 
+
 
 
   //notifications-----------------------------------------
@@ -100,8 +111,15 @@ export class AuthService {
   //Meaasages ------------------------------------------------------
 
   addMessages(addmessages: Messages) {
-
     this.afs.collection(`Messages`).add(addmessages);
   }
+
+
+  getMessages() {
+    return this.messages;
+  }
+
+
+
 
 }
