@@ -1,21 +1,61 @@
-MIT License
+Software license agreement
+  Kochchiya-Ko
 
-Copyright (c) 2017 Creative Tim (www.creative-tim.com)
+	Group- 28
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Software License Agreement 
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+THIS APPLICATION IS LICENSED TO YOU ON THE CONDITION YOU ACCEPT ALL OF THE TERMS CONTAINED HEREIN. YOU ARE STRONGLY ADVISED TO READ THE LICENSE AGREEMENT CAREFULLY BEFORE INSTALLING OR USING THE APPLICATION. BY INSTALLING OR USING THE APPLICATION, YOU AGREE TO BE BOUND BY THE TERMS OF THE LICENSE AGREEMENT. IF YOU DO NOT AGREE TO THESE TERMS, KOOCHCIYA-KO PVT LTD CAN NOT GRANT LICENSE OF THE APPLICATION TO YOU AND YOU SHOULD NOT INSTALL OR USE THE APPLICATION. 
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+
+Use of Service
+
+Support may be provided through email. 
+ Technical and usage information is provided in the documentation and help files and  provides support for issues your technical administrator is unable to resolve, where the information has  been provided in the documentation or help files not include on-site help.  
+Assistance with issues encountered during installation and setup.  User support for issues not included in the help files.  
+ Repairing bugs. 
+
+
+Installation 
+
+We offer android application and ios application for installation. No need to set up anything. Installation includes all settings that are required. All data loads to device when device connected to the internet.
+
+Support not included
+
+Customizing the program for.  
+Updating a modified  version of the program. 
+Importing your data
+Recovering data deleted by users. 
+Repairing corrupt database files   
+Resolving issues with your network, hardware, server configuration, or other software applications. 
+Repairing problems caused by you or your employees.
+Repairing problems caused by users while modifying the customizable edition of the system.
+
+
+Changes to the service
+
+Kochchiya ko reserves the right to change, modify, update, upgrade, suspend or discontinue the Services at any time without any notification to you. 
+
+Software Freedom
+
+The freedom to deploy the software for any use case without any restrictions.
+The freedom to study how the software works.
+The freedom to freely re-distribute the software to assist someone in need. The redistribution can be done at no cost.
+ 
+Additional Support  
+
+On-site support may be contracted for customers needing additional help.
+
+Data Protection and privacy
+
+Data access available only to admin.
+Use a hashcode  for all passwords.
+OTPs  passwords that are only valid for a single login session for a defined period of time.
+
+
+Permitted and Restricted for users uses 
+
+Con not sell the application.
+Can share the application 
+
+
