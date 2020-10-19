@@ -1,0 +1,24 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-6">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Contact Reviews</h4>
+        </div>
+        <div class=" card-body" *ngIf="messages?.length > 0;else message">
+          <ngb-alert class=" alert-with-icon" data-notify="container" [type]="'info'" [dismissible]="false"
+            *ngFor="let messages of messages">
+            <span class=" tim-icons icon-bell-55" data-notify="icon">
+            </span>
+
+            <span data-notify="message" style="font-size: medium;">
+              <label style="font-size: small;"> Name : </label> {{messages.name}}<br>
+              <label style="font-size: small;"> Email : </label> {{messages.email}}<br>
+              <label style="font-size: small;"> Message : </label> {{messages.message}}<br>
+              {{messages.dateTime | date:'yyyy/MM/dd  h:mm:ss'}}
+
+            </span>
+          </ngb-alert>
+        </div>
+      </div>
+    </div>

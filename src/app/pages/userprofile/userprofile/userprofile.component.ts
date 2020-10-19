@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { AdminService } from '../../admin.service';
-import { AuthService } from "../../auth.service";
-import { Users } from '../../models/users';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
+import { Users } from 'src/app/models/users';
 
 @Component({
-  selector: "app-userprof",
-  templateUrl: "userprof.component.html"
+  selector: 'app-userprofile',
+  templateUrl: './userprofile.component.html',
+  styleUrls: ['./userprofile.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class UserprofileComponent implements OnInit {
 
   users: Users[];
   userToEdit: Users;

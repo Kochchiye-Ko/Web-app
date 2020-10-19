@@ -30,8 +30,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   onsubmit(form: NgForm) {
-    let data = Object.assign({dateTime: Date.now().toString(), author: "admin" }, form.value);
-    console.log(form.value);  
+    let data = Object.assign({ dateTime: Date.now().toString(), author: "admin" }, form.value);
     this.notService.addNotification(data);
     this.toster.success("Sent message successfully");
     this.resetForm();

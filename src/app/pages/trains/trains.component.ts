@@ -77,6 +77,13 @@ export class TrainsComponent implements OnInit {
   }
 
 
+  clear() {
+    this.resetForm();
+  }
+  clear2() {
+    this.resetForm2();
+  }
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();

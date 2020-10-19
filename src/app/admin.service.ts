@@ -3,15 +3,13 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Users } from './models/users'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
-import { state } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  //adminCollection: AngularFirestoreCollection<Users>;
+  adminCollection: AngularFirestoreCollection<Users>;
   Admin: Observable<Users[]>;
   adminDoc: AngularFirestoreDocument<Users>
  
