@@ -1,0 +1,80 @@
+﻿Software license agreement
+  Kochchiya-Ko
+
+
+Group- 28
+Software License Agreement 
+
+
+THIS APPLICATION IS LICENSED TO YOU ON THE CONDITION YOU ACCEPT ALL OF THE TERMS CONTAINED HEREIN. YOU ARE STRONGLY ADVISED TO READ THE LICENSE AGREEMENT CAREFULLY BEFORE INSTALLING OR USING THE APPLICATION. BY INSTALLING OR USING THE APPLICATION, YOU AGREE TO BE BOUND BY THE TERMS OF THE LICENSE AGREEMENT. IF YOU DO NOT AGREE TO THESE TERMS, KOOCHCIYA-KO PVT LTD CAN NOT GRANT LICENSE OF THE APPLICATION TO YOU AND YOU SHOULD NOT INSTALL OR USE THE APPLICATION. 
+
+
+
+
+1. Use of Service
+
+
+* Support may be provided through email. 
+*  Technical and usage information is provided in the documentation and help files and  provides support for issues your technical administrator is unable to resolve, where the information has  been provided in the documentation or help files not include on-site help.  
+* Assistance with issues encountered during installation and setup.  User support for issues not included in the help files.  
+*  Repairing bugs. 
+
+
+
+
+2. Installation 
+
+
+We offer android application and ios application for installation. No need to set up anything. Installation includes all settings that are required. All data loads to device when device connected to the internet.
+
+
+3. Support not included
+
+
+* Customizing the program for.  
+* Updating a modified  version of the program. 
+* Importing your data
+* Recovering data deleted by users. 
+* Repairing corrupt database files   
+* Resolving issues with your network, hardware, server configuration, or other software applications. 
+* Repairing problems caused by you or your employees.
+* Repairing problems caused by users while modifying the customizable edition of the system.
+
+
+
+
+4. Changes to the service
+
+
+Kochchiya ko reserves the right to change, modify, update, upgrade, suspend or discontinue the Services at any time without any notification to you. 
+
+
+5. Software Freedom
+
+
+* The freedom to deploy the software for any use case without any restrictions.
+* The freedom to study how the software works.
+* The freedom to freely re-distribute the software to assist someone in need. The redistribution can be done at no cost.
+
+
+6. Additional Support  
+
+
+* On-site support may be contracted for customers needing additional help.
+
+
+7. Data Protection and privacy
+
+
+* Data access available only to admin.
+* Use a hashcode  for all passwords.
+* OTPs  passwords that are only valid for a single login session for a defined period of time.
+
+
+
+
+8. Permitted and Restricted for users uses 
+
+
+* Con not sell the application.
+* Can share the application
